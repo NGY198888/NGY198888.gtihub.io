@@ -1,0 +1,1119 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+
+
+<head>
+  <script>
+    window.themeRuntime = {
+      root: "/NGY198888.gtihub.io/",
+      scriptsMap: {},
+      init: {
+        status: false
+      },
+      commentRest: {
+        status: false
+      },
+      versions: {
+        theme: "2.1.0",
+        mdui: "0.4.0",
+        fetch: "3.0.0",
+        es6promise: "4.2.5+7f2b526d",
+        lightgallery: "1.0.1",
+        smoothscroll: "15.2.0"
+      }
+      
+    };
+    console.info("%cCopyright © 2018 - " + new Date().getFullYear() +" Halyul\n"+'Theme Version: ' + themeRuntime.versions.theme +'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+  </script>
+  <!--
+        © HEXO MDUI Theme
+        https://github.com/Halyul/hexo-theme-mdui
+        -->
+
+  <meta charset="UTF-8">
+  <title>adonisjs笔记 - 想你开心每一天</title>
+
+  <!-- Favicons -->
+  <link rel="icon shortcut" type="image/ico" href="/NGY198888.gtihub.io/images/favicon.png">
+  <link rel="icon" sizes="192x192" href="/NGY198888.gtihub.io/images/favicon.png">
+  <link rel="apple-touch-icon" href="/NGY198888.gtihub.io/images/favicon.png">
+
+  <!-- Meta & Info -->
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="theme-color" content="#fff">
+
+  <meta name="author" content="ngy">
+  
+      <meta name="description" content="想你开心每一天2">
+  
+  <meta name="keywords" content="blog, hexo, mdui,adonisjs,nodejs,lucid-mongo">
+
+  <!--iOS -->
+  <meta name="apple-mobile-web-app-title" content="想你开心每一天">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="480">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- The Open Graph protocol -->
+  <meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io">
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="adonisjs笔记 - 想你开心每一天 | 想你开心每一天">
+  <meta property="og:image" content="/images/favicon.png" />
+  
+    <meta property="og:description" content="想你开心每一天2">
+  
+
+  
+    <meta property="og:article:tag" content="adonisjs">
+  
+    <meta property="og:article:tag" content="nodejs">
+  
+    <meta property="og:article:tag" content="lucid-mongo">
+  
+
+  
+
+  <!-- Import CSS -->
+  
+    
+<link rel="stylesheet" href="/NGY198888.gtihub.io/css/mdui.css">
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/NGY198888.gtihub.io/atom.xml" title="想你开心每一天" type="application/atom+xml">
+</head>
+
+
+<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-indigo">
+
+  <style>
+    #spinner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+          opacity: 1;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    main {
+      opacity: 0;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      display: none;
+    }
+  </style>
+  <div id="spinner">
+    <style>
+      .spinner {
+
+      -webkit-animation: rotator 1.4s linear infinite;
+              animation: rotator 1.4s linear infinite;
+      }
+
+      @-webkit-keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      @keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      .path {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      -webkit-transform-origin: center;
+              transform-origin: center;
+      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+      }
+
+      @-webkit-keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @-webkit-keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+
+      @keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+    </style>
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <main>
+    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
+  <div class="mdui-toolbar theme-toolbar-top">
+    
+      <a href="/NGY198888.gtihub.io/" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--arrow">
+        <i class="mdui-icon">
+          <span></span>
+        </i>
+      </a>
+    
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__mode-switch">
+      <i class="mdui-icon material-icons  theme-appbar__bright-mode">&#xe1ac;</i>
+      <i class="mdui-icon material-icons  theme-appbar__dark-mode" style="display: none;">&#xe3a7;</i>
+    </a>
+  </div>
+  <div class="mdui-toolbar theme-toolbar-bottom">
+    <span class="theme-toolbar-bottom__title">想你开心每一天</span>
+    
+      <a href="/NGY198888.gtihub.io/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
+        <i class="mdui-icon material-icons">&#xe8b6;</i>
+      </a>
+    
+  </div>
+  <div class="mdui-progress theme-appbar__progress" id="progressBar">
+    <div class="mdui-progress-indeterminate"></div>
+  </div>
+</div>
+
+    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
+  <!-- header -->
+  <div class="theme-drawer__header">
+  <div class="theme-drawer__header__layer-1">
+    <div class="mdui-toolbar theme-toolbar-top">
+      
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </a>
+      
+    </div>
+    <div class="mdui-toolbar theme-toolbar-bottom">
+      <span class="theme-toolbar-bottom__title">想你开心每一天</span>
+    </div>
+  </div>
+  <div class="theme-drawer__header__layer-2" style="background-image: url(/NGY198888.gtihub.io/images/bg.png)">
+    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/NGY198888.gtihub.io/images/avatar.png"/>
+    <div class="theme-drawer__header__layer-2__user__info">
+      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
+        ngy
+      </div>
+      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
+        路遥知马力——日久
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="theme-drawer__warpper">
+    <!-- content -->
+    <div class="theme-drawer__warpper__content">
+  <ul class="mdui-list">
+    <a href="/NGY198888.gtihub.io/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
+      <div class="mdui-list-item-content">首页</div>
+    </a>
+    <a href="/NGY198888.gtihub.io/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
+      <div class="mdui-list-item-content">归档</div>
+    </a>
+    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe86e;</i>
+            <div class="mdui-list-item-content">分类</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                工具
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/categories/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                nodejs
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
+            <div class="mdui-list-item-content">标签</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+              <a href="/NGY198888.gtihub.io/tags/Rest/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Rest
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                http请求
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                vscode插件
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/adonisjs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                adonisjs
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                nodejs
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/lucid-mongo/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                lucid-mongo
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+          </div>
+        </div>
+      
+      <div class="mdui-collapse-item ">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+          <div class="mdui-list-item-content">年份</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list">
+          
+          
+            <a href="/NGY198888.gtihub.io/archives/2020/" class="mdui-list-item mdui-ripple">
+              2020
+            </a>
+          
+        </div>
+      </div>
+    </ul>
+  </ul>
+  
+    <div class="mdui-divider"></div>
+    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+    </ul>
+  
+</div>
+
+    <div class="theme-spacer"></div>
+    <!-- footer -->
+    <div class="theme-drawer__warpper__footer">
+  <div class="mdui-typo mdui-typo-caption-opacity">
+    Powered by <a href="http://hexo.io" target="_blank">Hexo</a>
+    <br />
+    Theme - <a href="//github.com/Halyul/hexo-theme-mdui" target="_blank">Halyul/MDUI</a>
+    <br />
+    <span>
+      Copyright ©
+      <span year></span>
+      ngy
+    </span>
+    
+      <br />
+      <span onclick="window.open('http://www.miitbeian.gov.cn/', '_blank');">中国移不动</span>
+    
+    
+      <br />
+      <span>
+        最后更新于: 7月 11, 2020
+      </span>
+    
+    
+  </div>
+</div>
+<script type="text/javascript">
+  var copyrightNow = new Date().getFullYear();
+  var textContent = document.querySelector('span[year]')
+  
+    copyrightSince = 1947;
+    if (copyrightSince === copyrightNow) {
+      textContent.textContent = copyrightNow
+    } else {
+      textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+  
+</script>
+
+  </div>
+</div>
+
+    <div id="top"></div>
+
+    
+<script src="/NGY198888.gtihub.io/js/lightgallery.min.js"></script>
+
+
+    <div id="barba-wrapper">
+      <div class="barba-container"  data-namespace="post">
+        
+
+
+
+  
+<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/darcula.min.css">
+
+
+
+  
+<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/line-number.min.css">
+
+
+
+<div class="theme-post">
+  <div class="theme-post__background mdui-color-theme"></div>
+  <div class="theme-post__header mdui-color-theme">
+    <div class="theme-post__header__title mdui-text-truncate">
+      adonisjs笔记
+    </div>
+    <div class="theme-spacer"></div>
+    <div class="theme-post__header__actions mdui-valign">
+      <div>
+        <span>编写时间：</span>
+        <span style="float: right">7月 11, 2020</span>
+        
+      </div>
+      
+  <div class="theme-post__qrcode">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
+      <i class="mdui-icon material-icons">&#xe337;</i>
+    </button>
+    <ul class="mdui-menu" id="qrcode-menu">
+      <li class="mdui-list-item" style="cursor: auto">
+        文章二维码
+      </li>
+        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAADj0lEQVR42u3aQW7bUAwE0Nz/0u22QCp3htRXVOBpZSS2/PW8IEjO1y/XH9cXAhw4cODAgQMHDhw4XszxFV+Xt7v47/fPXr2uH+DibLNnwYEDBw4cJziSr08O9PmzLU3yLS0xDhw4cOB4kuNzAUvenxfp9u95oc3fgwMHDhw43sOxb/baNuzzHXDgwIEDx//OkT/qXU1dNObDgQMHDhwv49gUyM/FbzPgy8d/PzArxYEDBw4c60DD+18/mu/AgQMHDhzfONorDzdE7VNchu+K2f3l/jhw4MCB41aOvFDlB521cPkiqh0g/qPxw4EDBw4cxzj247xZyCBfXG1azctnwYEDBw4cBzj2pbQteAlKS5w8EQ4cOHDgeIZjE25Iggh5u5j8VJvP4sCBAweOJznaEdtmBbUfMs4iDjhw4MCB40mOWWM2bJxi4g1Q1HDiwIEDB44DHHmsIV9H5WG7nCxfgxVnxoEDBw4ct3LMvj4PKMwKdnuHfByJAwcOHDie4diM+WaxttlaKx8I5gUeBw4cOHCc4Dix2mnvswlDbMaXOHDgwIHjBEf7MHcNDfMWsR04roaDOHDgwIFjwdEO9fJF0SxwcNcSqyjhOHDgwIHjVo5NLCCPJuRFtG7A1ssnHDhw4MBxL0cSSshL3Sxml79nNkAshoM4cODAgeMmjrwly9u8/Xopb/byu9XDQRw4cODAseBoQ2xtWKGNIOxLfjQuxIEDBw4ct3KcLrftwG4WuZst0nDgwIEDx2mOWQg7+cqcNR8RtqNAHDhw4MDxJMesMZstfmatV36e5IfBgQMHDhznOGYBuHbwN3vUdhGVtJc4cODAgeMZjrzotkupfL2Ut5HJgqqIQeDAgQMHjmMc+/HfZtjXRija6/K5cODAgQPHYY4iZBYP4NrHy8/TlvC60OLAgQMHjjVHUj7bh2/HfJuztaUdBw4cOHCc48gXSG0b1q6g8uhDDoEDBw4cOJ7haK/Nge5aOM3WZpd3wIEDBw4ct3K0a5u8fOYtWRuqaKNydaABBw4cOHCsOWbFdbOC2iyxZq0aDhw4cOB4nqMtYHl71rZq+Y+xic3hwIEDB453crRBhKSRyweI7T1x4MCBA8ebOdqYQtuGJaDtkulgC4cDBw4cOEbDwbzc5kefjQ7bAMTlCXHgwIEDxwGOfKDWFtq2qdsj1tA4cODAgeNWDhcOHDhw4MCBAwcOHDhedv0GYjWlTlOVYloAAAAASUVORK5CYII=" style="cursor: auto">
+    </ul>
+  </div>
+
+
+      
+  <div class="theme-post__share">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
+      <i class="mdui-icon material-icons">&#xe80d;</i>
+    </button>
+
+    <ul class="mdui-menu" id="post-share-menu">
+
+      
+
+      
+
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=想你开心每一天&title=adonisjs笔记&summary=想你开心每一天2&pics=https://ngy198888.github.io/NGY198888.gtihub.io/images/favicon.png&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/11/adonisjs%E7%AC%94%E8%AE%B0/index.html" target="_blank" class="mdui-ripple">
+                分享到QQ
+            </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://service.weibo.com/share.php?appkey=&title=adonisjs笔记&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io//NGY198888.gtihub.io/2020/07/11/adonisjs%E7%AC%94%E8%AE%B0/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
+                分享到微博
+            </a>
+        </li>
+      
+
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+  <div class="theme-post__warpper
+    
+  ">
+    <div class="theme-post__warpper__container">
+      <article class="mdui-card theme-post__card mdui-hoverable">
+        <section class="theme-post__card__warning">
+          这篇文章最后修改于
+          <span id="content-warning"></span>
+          天之前。
+          本页内容可能已经过时！
+        </section>
+        
+        
+          <section class="mdui-card-media">
+            <img src="/NGY198888.gtihub.io/images/random/20.png"/>
+          </section>
+        
+        <section class="mdui-typo theme-post__card__content">
+          <h1 id="adonisjs笔记"><a href="#adonisjs笔记" class="headerlink" title="adonisjs笔记"></a>adonisjs笔记</h1><h2 id="安装adonis"><a href="#安装adonis" class="headerlink" title="安装adonis"></a>安装adonis</h2><ul>
+<li><p><code>cnpm i -g adonis-cli</code> 安装</p>
+</li>
+<li><p><code>adonis new myapp</code>   新建项目</p>
+</li>
+<li><p><code>adonis  serve --dev</code>  启动项目</p>
+<h2 id="使用adonis"><a href="#使用adonis" class="headerlink" title="使用adonis"></a>使用adonis</h2></li>
+<li><p>新建项目后，命令使用</p>
+<ul>
+<li><code>adonis make:controller User --http</code> 会新建一个UserController </li>
+<li><code>adonis make:model User</code> 会新建一个User的model </li>
+</ul>
+</li>
+<li><p>控制器的接口</p>
+<pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>请求体<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+GET url<span class="token operator">/</span>index<span class="token operator">?</span>aa<span class="token operator">=</span><span class="token number">1111</span>
+content<span class="token operator">-</span>type<span class="token punctuation">:</span> application<span class="token operator">/</span>json
+<span class="token punctuation">{</span>
+    <span class="token string">"name"</span><span class="token punctuation">:</span><span class="token string">"21111"</span><span class="token punctuation">,</span>
+    <span class="token string">"name2"</span><span class="token punctuation">:</span><span class="token string">"22222"</span><span class="token punctuation">,</span>
+    <span class="token string">"type"</span><span class="token punctuation">:</span><span class="token number">1</span>
+<span class="token punctuation">}</span>
+<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">-</span>接口入口<span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span><span class="token operator">--</span>
+  <span class="token keyword">async</span> <span class="token function">index</span><span class="token punctuation">(</span><span class="token punctuation">{</span>request<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">////解构出request参数</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// { aa: '1111', name: '21111', name2: '22222', type: 1 }</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ aa: '1111' }</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>body<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ name: '21111', name2: '22222', type: 1 }</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">only</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">,</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ name: '21111', type: 1 }</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span><span class="token function">except</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">'name2'</span><span class="token punctuation">,</span><span class="token string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//{ aa: '1111', name: '21111' }</span>
+   <span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>model示例</p>
+<pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token string">'use strict'</span>
+<span class="token keyword">const</span> Model <span class="token operator">=</span> <span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'Model'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Product</span> <span class="token keyword">extends</span> <span class="token class-name">Model</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> Product<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>路由<br>添加路由<code>Route.get(&#39;/&#39;,&#39;SetController.index&#39;)</code>,访问/目录就会进入SetController.index方法<br>##使用mongodb</p>
+<h3 id="安装lucid-mongo"><a href="#安装lucid-mongo" class="headerlink" title="安装lucid-mongo"></a>安装lucid-mongo</h3><p><code>adonis install lucid-mongo -s</code></p>
+<h3 id="lucid-mongo版本用法"><a href="#lucid-mongo版本用法" class="headerlink" title="lucid-mongo版本用法"></a>lucid-mongo版本用法</h3><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token comment" spellcheck="true">// version 2 style</span>
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User
+<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span> or<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token punctuation">{</span> gte<span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span> lte<span class="token punctuation">:</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> is_blocked<span class="token punctuation">:</span> <span class="token punctuation">{</span> exists<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// version 3 style</span>
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User
+<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span> $or<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token punctuation">{</span> $gte<span class="token punctuation">:</span> <span class="token number">18</span><span class="token punctuation">,</span> $lte<span class="token punctuation">:</span> <span class="token number">30</span> <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> is_blocked<span class="token punctuation">:</span> <span class="token punctuation">{</span> $exists<span class="token punctuation">:</span> <span class="token boolean">false</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+<h3 id="代码配置"><a href="#代码配置" class="headerlink" title="代码配置"></a>代码配置</h3><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token keyword">const</span> providers <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token string">'lucid-mongo/providers/LucidMongoProvider'</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">const</span> aceProviders <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token comment" spellcheck="true">// ...</span>
+  <span class="token string">'lucid-mongo/providers/MigrationsProvider'</span>
+<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="配置config-database-js"><a href="#配置config-database-js" class="headerlink" title="配置config/database.js"></a>配置<code>config/database.js</code></h3><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js">module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  connection<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_CONNECTION'</span><span class="token punctuation">,</span> <span class="token string">'mongodb'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  mongodb<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    client<span class="token punctuation">:</span> <span class="token string">'mongodb'</span><span class="token punctuation">,</span>
+    connectionString<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_CONNECTION_STRING'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    connection<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      host<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_HOST'</span><span class="token punctuation">,</span> <span class="token string">'localhost'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      port<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_PORT'</span><span class="token punctuation">,</span> <span class="token number">27017</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      username<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_USER'</span><span class="token punctuation">,</span> <span class="token string">'admin'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      password<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_PASSWORD'</span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      database<span class="token punctuation">:</span> Env<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">'DB_DATABASE'</span><span class="token punctuation">,</span> <span class="token string">'adonis'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">// replicaSet: Env.get('DB_REPLICA_SET', '')</span>
+        <span class="token comment" spellcheck="true">// ssl: Env.get('DB_SSL, '')</span>
+        <span class="token comment" spellcheck="true">// connectTimeoutMS: Env.get('DB_CONNECT_TIMEOUT_MS', 15000),</span>
+        <span class="token comment" spellcheck="true">// socketTimeoutMS: Env.get('DB_SOCKET_TIMEOUT_MS', 180000),</span>
+        <span class="token comment" spellcheck="true">// w: Env.get('DB_W, 0),</span>
+        <span class="token comment" spellcheck="true">// readPreference: Env.get('DB_READ_PREFERENCE', 'secondary'),</span>
+        <span class="token comment" spellcheck="true">// authSource: Env.get('DB_AUTH_SOURCE', ''),</span>
+        <span class="token comment" spellcheck="true">// authMechanism: Env.get('DB_AUTH_MECHANISM', ''),</span>
+        <span class="token comment" spellcheck="true">// other options</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="配置认证config-auth-js"><a href="#配置认证config-auth-js" class="headerlink" title="配置认证config/auth.js"></a>配置认证config/auth.js</h3><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js">  session<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    serializer<span class="token punctuation">:</span> <span class="token string">'LucidMongo'</span><span class="token punctuation">,</span>
+    model<span class="token punctuation">:</span> <span class="token string">'App/Models/User'</span><span class="token punctuation">,</span>
+    scheme<span class="token punctuation">:</span> <span class="token string">'session'</span><span class="token punctuation">,</span>
+    uid<span class="token punctuation">:</span> <span class="token string">'email'</span><span class="token punctuation">,</span>
+    password<span class="token punctuation">:</span> <span class="token string">'password'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  basic<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    serializer<span class="token punctuation">:</span> <span class="token string">'LucidMongo'</span><span class="token punctuation">,</span>
+    model<span class="token punctuation">:</span> <span class="token string">'App/Models/User'</span><span class="token punctuation">,</span>
+    scheme<span class="token punctuation">:</span> <span class="token string">'basic'</span><span class="token punctuation">,</span>
+    uid<span class="token punctuation">:</span> <span class="token string">'email'</span><span class="token punctuation">,</span>
+    password<span class="token punctuation">:</span> <span class="token string">'password'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  jwt<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    serializer<span class="token punctuation">:</span> <span class="token string">'LucidMongo'</span><span class="token punctuation">,</span>
+    model<span class="token punctuation">:</span> <span class="token string">'App/Models/User'</span><span class="token punctuation">,</span>
+    token<span class="token punctuation">:</span> <span class="token string">'App/Models/Token'</span><span class="token punctuation">,</span>
+    scheme<span class="token punctuation">:</span> <span class="token string">'jwt'</span><span class="token punctuation">,</span>
+    uid<span class="token punctuation">:</span> <span class="token string">'email'</span><span class="token punctuation">,</span>
+    password<span class="token punctuation">:</span> <span class="token string">'password'</span><span class="token punctuation">,</span>
+    expiry<span class="token punctuation">:</span> <span class="token string">'20m'</span><span class="token punctuation">,</span>
+    options<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      secret<span class="token punctuation">:</span> <span class="token string">'self::app.appKey'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+  api<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    serializer<span class="token punctuation">:</span> <span class="token string">'LucidMongo'</span><span class="token punctuation">,</span>
+    scheme<span class="token punctuation">:</span> <span class="token string">'api'</span><span class="token punctuation">,</span>
+    model<span class="token punctuation">:</span> <span class="token string">'App/Models/User'</span><span class="token punctuation">,</span>
+    token<span class="token punctuation">:</span> <span class="token string">'App/Models/Token'</span><span class="token punctuation">,</span>
+    uid<span class="token punctuation">:</span> <span class="token string">'username'</span><span class="token punctuation">,</span>
+    password<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    expiry<span class="token punctuation">:</span> <span class="token string">'30d'</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="查询语法"><a href="#查询语法" class="headerlink" title="查询语法"></a>查询语法</h3><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token string">'peter'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span> name<span class="token punctuation">:</span> <span class="token string">'peter'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">limit</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">skip</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  $or<span class="token punctuation">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span> gender<span class="token punctuation">:</span> <span class="token string">'female'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token punctuation">{</span> $gte<span class="token punctuation">:</span> <span class="token number">20</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+    <span class="token punctuation">{</span> gender<span class="token punctuation">:</span> <span class="token string">'male'</span><span class="token punctuation">,</span> age<span class="token punctuation">:</span> <span class="token punctuation">{</span> $gte<span class="token punctuation">:</span> <span class="token number">22</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> user <span class="token operator">=</span>  <span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'name'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">eq</span><span class="token punctuation">(</span><span class="token string">'peter'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gt</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">lte</span><span class="token punctuation">(</span><span class="token number">60</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token string">'-age'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">first</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token punctuation">{</span> $gte<span class="token punctuation">:</span> <span class="token number">18</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">{</span> age<span class="token punctuation">:</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token string">'>='</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">gt</span><span class="token punctuation">(</span><span class="token number">18</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">paginate</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> users <span class="token operator">=</span>  <span class="token keyword">await</span> User<span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">,</span> <span class="token string">'>='</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token comment" spellcheck="true">// to query geo near you need add 2d or 2dsphere index in migration file</span>
+<span class="token keyword">const</span> images <span class="token operator">=</span> <span class="token keyword">await</span> Image
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">near</span><span class="token punctuation">(</span><span class="token punctuation">{</span> center<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">maxDistance</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> images <span class="token operator">=</span> <span class="token keyword">await</span> Image
+  <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>location<span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">near</span><span class="token punctuation">(</span><span class="token punctuation">{</span> center<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sphere<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">maxDistance</span><span class="token punctuation">(</span><span class="token number">5000</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">fetch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Aggregation"><a href="#Aggregation" class="headerlink" title="Aggregation"></a>Aggregation</h3><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js">  <span class="token comment" spellcheck="true">// count without group by</span>
+  <span class="token keyword">const</span> count <span class="token operator">=</span> <span class="token keyword">await</span> Customer<span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// count group by `position`</span>
+  <span class="token keyword">const</span> count_rows <span class="token operator">=</span> <span class="token keyword">await</span> Customer
+    <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span><span class="token punctuation">{</span> invited<span class="token punctuation">:</span> <span class="token punctuation">{</span> $exist<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token string">'position'</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// max age without group by</span>
+  <span class="token keyword">const</span> max <span class="token operator">=</span> <span class="token keyword">await</span> Employee<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">(</span><span class="token string">'age'</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// sum `salary` group by `department_id`</span>
+  <span class="token keyword">const</span> total_rows <span class="token operator">=</span> <span class="token keyword">await</span> Employee
+    <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>active<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span><span class="token string">'salary'</span><span class="token punctuation">,</span> <span class="token string">'department_id'</span><span class="token punctuation">)</span>
+
+  <span class="token comment" spellcheck="true">// average group by `department_id` and `role_id`</span>
+  <span class="token keyword">const</span> avg_rows <span class="token operator">=</span> <span class="token keyword">await</span> Employee
+    <span class="token punctuation">.</span><span class="token function">where</span><span class="token punctuation">(</span>active<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">avg</span><span class="token punctuation">(</span><span class="token string">'salary'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> department<span class="token punctuation">:</span> <span class="token string">'$department_id'</span><span class="token punctuation">,</span> role<span class="token punctuation">:</span> <span class="token string">'$role_id'</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+        </section>
+
+        
+          <section class="theme-post__card__license mdui-typo">
+            <span>
+              本文许可协议：
+              
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+              
+            </span>
+            <br />
+            <span>本文永久链接：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/adonisjs%E7%AC%94%E8%AE%B0/">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/adonisjs%E7%AC%94%E8%AE%B0/</a></span>
+            
+              <br />
+              <span>本文Markdown：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/adonisjs%E7%AC%94%E8%AE%B0/adonisjs笔记.md">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/adonisjs%E7%AC%94%E8%AE%B0/adonisjs笔记.md</a></span>
+            
+          </section>
+        
+
+        
+          <section class="mdui-card-actions theme-post__card__actions">
+            
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
+                <i class="mdui-icon fa fa-beer"></i>
+              </button>
+            
+            <div class="theme-spacer"></div>
+            
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon material-icons">&#xe149;</i></span>
+              </div>
+              <div class="mdui-typo">
+                
+                  <a href="/NGY198888.gtihub.io/categories/nodejs/">
+                    <span>nodejs</span>
+                  </a>
+                
+              </div>
+            
+            
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="mdui-typo">
+                
+                  <a href="/NGY198888.gtihub.io/tags/adonisjs/">
+                    <span>adonisjs</span>
+                  </a>
+                
+                  <a href="/NGY198888.gtihub.io/tags/nodejs/">
+                    <span>nodejs</span>
+                  </a>
+                
+                  <a href="/NGY198888.gtihub.io/tags/lucid-mongo/">
+                    <span>lucid-mongo</span>
+                  </a>
+                
+              </div>
+            
+          </section>
+        
+
+        
+          
+            <script type="text/javascript">
+              themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
+                return
+              }
+            </script>
+          
+        
+      </article>
+      
+        <div class="mdui-color-theme theme-post__toc">
+          <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#adonisjs&#x7B14;&#x8BB0;" data-href="#adonisjs&#x7B14;&#x8BB0;"><span class="toc-number"></span> <span class="toc-text">1. adonisjs&#x7B14;&#x8BB0;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5B89;&#x88C5;adonis" data-href="#&#x5B89;&#x88C5;adonis"><span class="toc-number"></span> <span class="toc-text">1.1. &#x5B89;&#x88C5;adonis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x4F7F;&#x7528;adonis" data-href="#&#x4F7F;&#x7528;adonis"><span class="toc-number"></span> <span class="toc-text">1.2. &#x4F7F;&#x7528;adonis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5B89;&#x88C5;lucid-mongo" data-href="#&#x5B89;&#x88C5;lucid-mongo"><span class="toc-number"></span> <span class="toc-text">1.2.1. &#x5B89;&#x88C5;lucid-mongo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#lucid-mongo&#x7248;&#x672C;&#x7528;&#x6CD5;" data-href="#lucid-mongo&#x7248;&#x672C;&#x7528;&#x6CD5;"><span class="toc-number"></span> <span class="toc-text">1.2.2. lucid-mongo&#x7248;&#x672C;&#x7528;&#x6CD5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x4EE3;&#x7801;&#x914D;&#x7F6E;" data-href="#&#x4EE3;&#x7801;&#x914D;&#x7F6E;"><span class="toc-number"></span> <span class="toc-text">1.2.3. &#x4EE3;&#x7801;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x914D;&#x7F6E;config-database-js" data-href="#&#x914D;&#x7F6E;config-database-js"><span class="toc-number"></span> <span class="toc-text">1.2.4. &#x914D;&#x7F6E;config/database.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x914D;&#x7F6E;&#x8BA4;&#x8BC1;config-auth-js" data-href="#&#x914D;&#x7F6E;&#x8BA4;&#x8BC1;config-auth-js"><span class="toc-number"></span> <span class="toc-text">1.2.5. &#x914D;&#x7F6E;&#x8BA4;&#x8BC1;config/auth.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;" data-href="#&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;"><span class="toc-number"></span> <span class="toc-text">1.2.6. &#x67E5;&#x8BE2;&#x8BED;&#x6CD5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Aggregation" data-href="#Aggregation"><span class="toc-number"></span> <span class="toc-text">1.2.7. Aggregation</span></a></li></ol></li></ol></li></ol></body></html>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="theme-spacer"></div>
+
+  
+    <div class="mdui-color-theme theme-post__toc-fab">
+  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
+    <i class="mdui-icon material-icons">&#xe242;</i>
+  </button>
+  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
+    <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#adonisjs&#x7B14;&#x8BB0;" data-href="#adonisjs&#x7B14;&#x8BB0;"><span class="toc-number"></span> <span class="toc-text">1. adonisjs&#x7B14;&#x8BB0;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5B89;&#x88C5;adonis" data-href="#&#x5B89;&#x88C5;adonis"><span class="toc-number"></span> <span class="toc-text">1.1. &#x5B89;&#x88C5;adonis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x4F7F;&#x7528;adonis" data-href="#&#x4F7F;&#x7528;adonis"><span class="toc-number"></span> <span class="toc-text">1.2. &#x4F7F;&#x7528;adonis</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5B89;&#x88C5;lucid-mongo" data-href="#&#x5B89;&#x88C5;lucid-mongo"><span class="toc-number"></span> <span class="toc-text">1.2.1. &#x5B89;&#x88C5;lucid-mongo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#lucid-mongo&#x7248;&#x672C;&#x7528;&#x6CD5;" data-href="#lucid-mongo&#x7248;&#x672C;&#x7528;&#x6CD5;"><span class="toc-number"></span> <span class="toc-text">1.2.2. lucid-mongo&#x7248;&#x672C;&#x7528;&#x6CD5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x4EE3;&#x7801;&#x914D;&#x7F6E;" data-href="#&#x4EE3;&#x7801;&#x914D;&#x7F6E;"><span class="toc-number"></span> <span class="toc-text">1.2.3. &#x4EE3;&#x7801;&#x914D;&#x7F6E;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x914D;&#x7F6E;config-database-js" data-href="#&#x914D;&#x7F6E;config-database-js"><span class="toc-number"></span> <span class="toc-text">1.2.4. &#x914D;&#x7F6E;config/database.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x914D;&#x7F6E;&#x8BA4;&#x8BC1;config-auth-js" data-href="#&#x914D;&#x7F6E;&#x8BA4;&#x8BC1;config-auth-js"><span class="toc-number"></span> <span class="toc-text">1.2.5. &#x914D;&#x7F6E;&#x8BA4;&#x8BC1;config/auth.js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;" data-href="#&#x67E5;&#x8BE2;&#x8BED;&#x6CD5;"><span class="toc-number"></span> <span class="toc-text">1.2.6. &#x67E5;&#x8BE2;&#x8BED;&#x6CD5;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Aggregation" data-href="#Aggregation"><span class="toc-number"></span> <span class="toc-text">1.2.7. Aggregation</span></a></li></ol></li></ol></li></ol></body></html>
+  </ul>
+</div>
+
+  
+
+  
+    <div class="theme-post__pagination mdui-color-theme">
+  
+    <div class="theme-post__pagination__prev mdui-ripple mdui-valign">
+      
+        <a href="/NGY198888.gtihub.io/2020/07/11/RESTClient%E7%AC%94%E8%AE%B0/" class="theme-post__pagination__prev__content mdui-text-left">
+        
+        <div>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          RESTClient笔记
+        </div>
+      </a>
+    </div>
+  
+
+  
+      <div class="theme-spacer mdui-hidden-xs"></div>
+    
+</div>
+
+  
+
+  
+    <div class="mdui-dialog" id="donateDialog">
+      <div class="mdui-dialog-title">打赏</div>
+      <div class="mdui-dialog-content">
+        <div class="mdui-list">
+          
+            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
+              
+              
+              
+              wechat
+            </a>
+          
+            <a href="https://paypal.com" title="paypay" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-paypal mdui-text-center"></i>&emsp;
+              
+              
+              
+              paypay
+            </a>
+          
+        </div>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
+      </div>
+    </div>
+  
+</div>
+<script type="text/javascript">
+  themeRuntime.scriptsMap.post = [];
+  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
+    tocHighlight()
+    function tocHighlight() {
+      var timer;
+      function doWork() {
+        listens.forEach(function(value, index) {
+          value[1]();
+          value[0].classList.remove("mdui-list-item-active");
+        })
+        let actionToc = (listens[listens.reduce(function(r, v, index) {
+          if (v[2] == true) {
+            return index;
+          } else return r;
+        }, undefined)] || [])[0] || listens[0][0];
+        actionToc.classList.add("mdui-list-item-active");
+        if(actionToc.getClientRects().length == 0)return;
+        showToc(actionToc);
+      }
+      function showToc(toc) {
+        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
+        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
+        let offset = 0;
+        if (offsetTop < 0) offset = offsetTop;
+        if (offsetBottom > 0) offset = offsetBottom;
+        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
+        clearInterval(timer);
+        timer = setInterval(function() {
+          var now = cardToc.scrollTop;
+          var speed = (targetTop - now) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if (Math.abs(now - targetTop) < 1) {
+            clearInterval(timer);
+          }
+          cardToc.scrollTop = now + speed;
+        }, 30);
+      }
+      var listens = [];
+      var cardToc = document.querySelector('.theme-post__toc');
+      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
+      var toclist = document.querySelector(".theme-post__toc > ol");
+      Array.prototype.forEach.call(links, function(value, index) {
+        var id = (value.getAttribute("href") || "#").slice(1);
+        var element = document.getElementById(id);
+        listens.push([value, function() {
+          var readed = false;
+          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
+            readed = true;
+          } else {
+            readed = false;
+          }
+          listens[index][2] = readed;
+        }, false])
+      })
+      doWork();
+      window.addEventListener("scroll", doWork)
+      var listener = {
+        function:  doWork,
+        event: 'scroll',
+        el: window,
+        removed: false
+      }
+      themeRuntime.scriptsMap.post.push(listener)
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var postLastModifiedDate = 1594411970222
+    var today = (new Date()).getTime()
+    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
+    if (difference >= 100) {
+      document.querySelector('.theme-post__card__warning').style.display = 'block'
+      document.querySelector('#content-warning').textContent = difference
+    }
+  })();
+</script>
+
+<script type="text/javascript">
+  var images = document.querySelectorAll('.theme-post__card__content img')
+  for (i = 0; i < images.length; i++) {
+    //console.log('image added', i)
+    images[i].addEventListener("click", openLG);
+    var listener = {
+      function:  openLG,
+      event: 'click',
+      el: images[i],
+      removed: false
+    }
+    themeRuntime.scriptsMap.post.push(listener)
+  }
+  function openLG() {
+    var img_src = this.getAttribute('src');
+    var img_alt = this.getAttribute('alt');
+    lightGallery(this, {
+      dynamic: true,
+      counter: false,
+      dynamicEl: [{
+        "src": img_src,
+        'subHtml': "<span author>ngy</span><div descr>" + img_alt + "</div>"
+      }],
+    });
+  }
+</script>
+
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <div id="outdated" style="z-index: 9999;">
+    <h6>你的浏览器已经过气辣！</h6>
+    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">现在就去</a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
+  </div>
+  <!-- import js -->
+
+
+  
+<script src="/NGY198888.gtihub.io/js/outdatedbrowser.min.js"></script>
+
+
+
+
+  
+    
+<script src="/NGY198888.gtihub.io/js/js.barba.min.js"></script>
+
+    <script type="text/javascript">
+      Barba.Utils.errorPageUrl = '/NGY198888.gtihub.io/404.html';
+    </script>
+  
+
+
+<!-- theme js -->
+<script type="text/javascript">
+  (function() {
+    var appbarTopFlag = false;
+    var appbarEl = document.querySelector('.theme-appbar');
+    function appbarShadow() {
+      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      if (bodyScrolled > 0 && !appbarTopFlag) {
+        appbarEl.classList.add('theme-appbar--shadow');
+        appbarTopFlag = true;
+      } else if (bodyScrolled === 0 && appbarTopFlag) {
+        appbarEl.classList.remove('theme-appbar--shadow');
+        appbarTopFlag = false;
+      }
+    }
+    appbarShadow()
+    window.addEventListener('scroll', appbarShadow);
+  })();
+  (function() {
+    function detechTheme() {
+      var modeFlag = localStorage.getItem('darkMode');
+      // true for dark mode, false for bright mode
+      if(modeFlag === "true"){
+        document.querySelector('body').classList.add('mdui-theme-layout-dark')
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
+        return true
+      } else if(!window.matchMedia) {
+          return false;
+      } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.querySelector('body').classList.add('mdui-theme-layout-dark')
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
+          return true;
+      } else if(window.matchMedia("(prefers-color-scheme: light)").matches) {
+        document.querySelector('body').classList.remove('mdui-theme-layout-dark')
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
+          return false;
+      } else {
+        return false;
+      }
+    }
+    var modeFlag = detechTheme();
+    var modeEl = document.querySelector('.theme-appbar__mode-switch');
+    function modeSwitch() {
+      if (!modeFlag) {
+        // default bright mode, switch to dark mode
+        document.querySelector('body').classList.add('mdui-theme-layout-dark');
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
+        localStorage.setItem('darkMode', true);
+        modeFlag = true;
+      } else {
+        // dark mode, switch to bright mode
+        document.querySelector('body').classList.remove('mdui-theme-layout-dark');
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
+        localStorage.setItem('darkMode', false);
+        modeFlag = false;
+      }
+    }
+    modeEl.addEventListener('click', modeSwitch);
+  })();
+</script>
+
+
+
+  <script>
+    if ('serviceWorker' in navigator) {
+     navigator.serviceWorker.register('/NGY198888.gtihub.io/sw.js');
+    }
+  </script>
+
+
+
+
+<script type="text/javascript">
+  document.querySelector('body').classList.add('theme-loaded')
+</script>
+
+
+
+
+</body>
+</html>
