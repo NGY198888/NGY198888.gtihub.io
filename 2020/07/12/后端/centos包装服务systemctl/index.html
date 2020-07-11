@@ -1,0 +1,1124 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+
+
+<head>
+  <script>
+    window.themeRuntime = {
+      root: "/NGY198888.gtihub.io/",
+      scriptsMap: {},
+      init: {
+        status: false
+      },
+      commentRest: {
+        status: false
+      },
+      versions: {
+        theme: "2.1.0",
+        mdui: "0.4.0",
+        fetch: "3.0.0",
+        es6promise: "4.2.5+7f2b526d",
+        lightgallery: "1.0.1",
+        smoothscroll: "15.2.0"
+      }
+      
+    };
+    console.info("%cCopyright © 2018 - " + new Date().getFullYear() +" Halyul\n"+'Theme Version: ' + themeRuntime.versions.theme +'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
+  </script>
+  <!--
+        © HEXO MDUI Theme
+        https://github.com/Halyul/hexo-theme-mdui
+        -->
+
+  <meta charset="UTF-8">
+  <title>centos包装服务systemctl - 想你开心每一天</title>
+
+  <!-- Favicons -->
+  <link rel="icon shortcut" type="image/ico" href="/NGY198888.gtihub.io/images/favicon.png">
+  <link rel="icon" sizes="192x192" href="/NGY198888.gtihub.io/images/favicon.png">
+  <link rel="apple-touch-icon" href="/NGY198888.gtihub.io/images/favicon.png">
+
+  <!-- Meta & Info -->
+  <meta http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <meta name="theme-color" content="#fff">
+
+  <meta name="author" content="ngy">
+  
+      <meta name="description" content="想你开心每一天2">
+  
+  <meta name="keywords" content="blog, hexo, mdui,contos,服务">
+
+  <!--iOS -->
+  <meta name="apple-mobile-web-app-title" content="想你开心每一天">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="480">
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- The Open Graph protocol -->
+  <meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io">
+  <meta property="og:type" content="blog">
+  <meta property="og:title" content="centos包装服务systemctl - 想你开心每一天 | 想你开心每一天">
+  <meta property="og:image" content="/images/favicon.png" />
+  
+    <meta property="og:description" content="想你开心每一天2">
+  
+
+  
+    <meta property="og:article:tag" content="contos">
+  
+    <meta property="og:article:tag" content="服务">
+  
+
+  
+
+  <!-- Import CSS -->
+  
+    
+<link rel="stylesheet" href="/NGY198888.gtihub.io/css/mdui.css">
+
+  
+
+  
+
+<meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/NGY198888.gtihub.io/atom.xml" title="想你开心每一天" type="application/atom+xml">
+</head>
+
+
+<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-deep-purple">
+
+  <style>
+    #spinner {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+          opacity: 1;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+    }
+    main {
+      opacity: 0;
+      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
+      display: none;
+    }
+  </style>
+  <div id="spinner">
+    <style>
+      .spinner {
+
+      -webkit-animation: rotator 1.4s linear infinite;
+              animation: rotator 1.4s linear infinite;
+      }
+
+      @-webkit-keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      @keyframes rotator {
+      0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(270deg);
+                transform: rotate(270deg);
+      }
+      }
+
+      .path {
+      stroke-dasharray: 187;
+      stroke-dashoffset: 0;
+      -webkit-transform-origin: center;
+              transform-origin: center;
+      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
+      }
+
+      @-webkit-keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @keyframes colors {
+      0% {
+        stroke: #4285F4;
+      }
+      25% {
+        stroke: #DE3E35;
+      }
+      50% {
+        stroke: #F7C223;
+      }
+      75% {
+        stroke: #1B9A59;
+      }
+      100% {
+        stroke: #4285F4;
+      }
+      }
+
+      @-webkit-keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+
+      @keyframes dash {
+      0% {
+        stroke-dashoffset: 187;
+      }
+      50% {
+        stroke-dashoffset: 46.75;
+        -webkit-transform: rotate(135deg);
+                transform: rotate(135deg);
+      }
+      100% {
+        stroke-dashoffset: 187;
+        -webkit-transform: rotate(450deg);
+                transform: rotate(450deg);
+      }
+      }
+    </style>
+    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
+    </svg>
+  </div>
+
+  <main>
+    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
+  <div class="mdui-toolbar theme-toolbar-top">
+    
+      <a href="/NGY198888.gtihub.io/" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--arrow">
+        <i class="mdui-icon">
+          <span></span>
+        </i>
+      </a>
+    
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__mode-switch">
+      <i class="mdui-icon material-icons  theme-appbar__bright-mode">&#xe1ac;</i>
+      <i class="mdui-icon material-icons  theme-appbar__dark-mode" style="display: none;">&#xe3a7;</i>
+    </a>
+  </div>
+  <div class="mdui-toolbar theme-toolbar-bottom">
+    <span class="theme-toolbar-bottom__title">想你开心每一天</span>
+    
+      <a href="/NGY198888.gtihub.io/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
+        <i class="mdui-icon material-icons">&#xe8b6;</i>
+      </a>
+    
+  </div>
+  <div class="mdui-progress theme-appbar__progress" id="progressBar">
+    <div class="mdui-progress-indeterminate"></div>
+  </div>
+</div>
+
+    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
+  <!-- header -->
+  <div class="theme-drawer__header">
+  <div class="theme-drawer__header__layer-1">
+    <div class="mdui-toolbar theme-toolbar-top">
+      
+        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
+          <i class="mdui-icon">
+            <span></span>
+          </i>
+        </a>
+      
+    </div>
+    <div class="mdui-toolbar theme-toolbar-bottom">
+      <span class="theme-toolbar-bottom__title">想你开心每一天</span>
+    </div>
+  </div>
+  <div class="theme-drawer__header__layer-2" style="background-image: url(/NGY198888.gtihub.io/images/bg.png)">
+    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/NGY198888.gtihub.io/images/avatar.png"/>
+    <div class="theme-drawer__header__layer-2__user__info">
+      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
+        ngy
+      </div>
+      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
+        路遥知马力——日久
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="theme-drawer__warpper">
+    <!-- content -->
+    <div class="theme-drawer__warpper__content">
+  <ul class="mdui-list">
+    <a href="/NGY198888.gtihub.io/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
+      <div class="mdui-list-item-content">首页</div>
+    </a>
+    <a href="/NGY198888.gtihub.io/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
+      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
+      <div class="mdui-list-item-content">归档</div>
+    </a>
+    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe86e;</i>
+            <div class="mdui-list-item-content">分类</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                工具
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">3</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                前端
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">5</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                后端
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">4</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/categories/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                物联网
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                nodejs
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+          </div>
+        </div>
+      
+      
+        <div class="mdui-collapse-item ">
+          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
+            <div class="mdui-list-item-content">标签</div>
+            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+          </div>
+          <div class="mdui-collapse-item-body mdui-list">
+            
+              <a href="/NGY198888.gtihub.io/tags/rabbitmq/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                rabbitmq
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                消息队列
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/mq/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                mq
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/SKU/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                SKU
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E5%95%86%E5%9F%8E/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                商城
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E6%9C%80%E5%B0%8F%E5%BA%93%E5%AD%98%E5%8D%95%E5%85%83/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                最小库存单元
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/electron/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                electron
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E6%A1%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                桌面开发
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/taro/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                taro
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                小程序
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/stomp/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                stomp
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E8%A7%84%E8%8C%83/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                规范
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/adonisjs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                adonisjs
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                nodejs
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/lucid-mongo/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                lucid-mongo
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/CRUD/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                CRUD
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E6%8E%A5%E5%8F%A3/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                接口
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/java/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                java
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">3</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/jar/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                jar
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/windows%E6%9C%8D%E5%8A%A1/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                windows服务
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/contos/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                contos
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E6%9C%8D%E5%8A%A1/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                服务
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E4%B8%8A%E4%BC%A0/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                上传
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/php/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                php
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                物联网
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/nodered/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                nodered
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/IDEA/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                IDEA
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/Rest/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Rest
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                http请求
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                vscode插件
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+          </div>
+        </div>
+      
+      <div class="mdui-collapse-item ">
+        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
+          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
+          <div class="mdui-list-item-content">年份</div>
+          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
+        </div>
+        <div class="mdui-collapse-item-body mdui-list">
+          
+          
+            <a href="/NGY198888.gtihub.io/archives/2020/" class="mdui-list-item mdui-ripple">
+              2020
+            </a>
+          
+        </div>
+      </div>
+    </ul>
+  </ul>
+  
+    <div class="mdui-divider"></div>
+    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+      
+    </ul>
+  
+</div>
+
+    <div class="theme-spacer"></div>
+    <!-- footer -->
+    <div class="theme-drawer__warpper__footer">
+  <div class="mdui-typo mdui-typo-caption-opacity">
+    Powered by <a href="javascript:void(0)" >Hexo</a>
+    <br />
+    Theme - <a href="javascript:void(0)" >Halyul/MDUI</a>
+    <br />
+    <span>
+      Copyright ©
+      <span year></span>
+      ngy
+    </span>
+    
+      <br />
+      <span>中国移不动</span>
+    
+    
+      <br />
+      <span>
+        最后更新于: 7月 12, 2020
+      </span>
+    
+    
+  </div>
+</div>
+<script type="text/javascript">
+  var copyrightNow = new Date().getFullYear();
+  var textContent = document.querySelector('span[year]')
+  
+    copyrightSince = 1947;
+    if (copyrightSince === copyrightNow) {
+      textContent.textContent = copyrightNow
+    } else {
+      textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+  
+</script>
+
+  </div>
+</div>
+
+    <div id="top"></div>
+
+    
+<script src="/NGY198888.gtihub.io/js/lightgallery.min.js"></script>
+
+
+    <div id="barba-wrapper">
+      <div class="barba-container"  data-namespace="post">
+        
+
+
+
+  
+<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/darcula.min.css">
+
+
+
+  
+<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/line-number.min.css">
+
+
+
+<div class="theme-post">
+  <div class="theme-post__background mdui-color-theme"></div>
+  <div class="theme-post__header mdui-color-theme">
+    <div class="theme-post__header__title mdui-text-truncate">
+      centos包装服务systemctl
+    </div>
+    <div class="theme-spacer"></div>
+    <div class="theme-post__header__actions mdui-valign">
+      <div>
+        <span>编写时间：</span>
+        <span style="float: right">7月 12, 2020</span>
+        
+      </div>
+      
+  <div class="theme-post__qrcode">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
+      <i class="mdui-icon material-icons">&#xe337;</i>
+    </button>
+    <ul class="mdui-menu" id="qrcode-menu">
+      <li class="mdui-list-item" style="cursor: auto">
+        文章二维码
+      </li>
+        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAEvUlEQVR42u3a224dNxAEQP3/TzuvARLL3dOU5QTFJ+FcdsmigDPbw48fxjA+EODDhw+fgQ8fPnwGPnz/Eb6PeCTf+uktgyu31/n7K//8TP5uvXZ8+PDhw4dv5vvFT3XAly/v8+vnV2i3ZJ8bPnz48OHD95YvuU3+A58wtRx5YdQWPTkxPnz48OHD9/v5olD7VC7sEEu4gA8fPnz48P2ZfEtY37YK2i1pZ4UPHz58+PB9F99ym6RoaFvjtxZ4vrXf0OvAhw8fPnz4ykNa/7+/HxxQw4cPHz58+GK+dnxeTOTReVJAtEfQkuNu+8CHDx8+fPgWvlsQn3yrbWDfsJb44Nh4wIcPHz58+Ga+NkDPp9uG73uTPo/gj+UUPnz48OHDN/O1RcYtGlia38ni2/Z8HlLgw4cPHz58r/iWRb56pS2klsAiL2KiwgUfPnz48OEr+W7TzemTIqY9ErdsQzLb4/k+fPjw4cOHL37mbR+n90f65PU9Vmi3OZoJPnz48OHDN/AtB7b2BSdN9zZuuDUPisNw+PDhw4cP38C3wLVxefuZW+iQly9toIAPHz58+PC94msfv5dDYO11loZBVIi0V8aHDx8+fPgGvo9g5O3nNoBo75hEAG3EkJcs+PDhw4cP386Xt8ZvuLd327JjKXrqBgA+fPjw4cM38y0/50tb/Vb07Ifbln8FfPjw4cOHb+G7LThvMLfH15J73Y6m3WaODx8+fPjwfTVfW0z8CEYbr9fFxNBErws1fPjw4cOH7xHfbSwFUPsYnxcZX7cifPjw4cOHb+e7Nc7zxnNbHOTXyYundr348OHDhw/fV/MlU8xv0zaql7C+bQAs24MPHz58+PAtfHt4PU3l6b32giwphvDhw4cPH76F71WonV8t37zbFZYQP4k58OHDhw8fvp3vVZydN7lvjfBoeXEj4Tbw4cOHDx++hW9/dF8e2t/S5OhTmYUPHz58+PDNfMnPfF6U5IXCsgFLgdL+o+DDhw8fPnxv+W7N7DzEr6dYHkp7FeVHq8aHDx8+fPgGvlsJ0gb6ycbcjr4tG9/OHx8+fPjw4dv59tC8jcvbx/5be/62ome9Dnz48OHDhy8uXNoIoL39Eru/OgCXrwsfPnz48OH7Cr5Xx8JylJamZU3i/lu7HR8+fPjw4XvF1xYHS/HxNrJ/1U44tsnx4cOHDx++mO/2gN0eMrtN/VYqtWF9Hevjw4cPHz58T/lujeRlou1W5WH9bat+MUN8+PDhw4fvEV/Cun++fkSPWwjLEbcHkQE+fPjw4cM3PPPWFw1GWzAljfA2zmhDfHz48OHDh+8tX7vIW5nShuM3oLYZnw98+PDhw4fvFV878sC9/eQtyMhb6bfA4l8+iQ8fPnz48A18tx/vfNLtZ24obav+9jc+fPjw4cP3iu82rRvKLapoi6Hk3WOIjw8fPnz48D3iW37s83D/xvQ72/m/uDI+fPjw4cP3TXx5I/zzqeffShDbln8bi+DDhw8fPnzfy/cVxUqOuM+qbgngw4cPHz58j/jyVvftYTvfpDwmyDcsL26+sNeBDx8+fPjwleH1suA8Xl+u/OrI3U83DB8+fPjw4Rv4jHbgw4cPHz4DHz58+Ax8+P7g8RfgyTEOiHZ/8gAAAABJRU5ErkJggg==" style="cursor: auto">
+    </ul>
+  </div>
+
+
+      
+  <div class="theme-post__share">
+    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
+      <i class="mdui-icon material-icons">&#xe80d;</i>
+    </button>
+
+    <ul class="mdui-menu" id="post-share-menu">
+
+      
+
+      
+
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://connect.qq.com/widget/shareqq/index.html?site=想你开心每一天&title=centos包装服务systemctl&summary=想你开心每一天2&pics=https://ngy198888.github.io/NGY198888.gtihub.io/images/favicon.png&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/index.html" target="_blank" class="mdui-ripple">
+                分享到QQ
+            </a>
+        </li>
+      
+
+      
+
+      
+
+      
+        <li class="mdui-menu-item">
+            <a href="http://service.weibo.com/share.php?appkey=&title=centos包装服务systemctl&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io//NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
+                分享到微博
+            </a>
+        </li>
+      
+
+    </ul>
+  </div>
+
+
+    </div>
+  </div>
+  <div class="theme-post__warpper
+    
+  ">
+    <div class="theme-post__warpper__container">
+      <article class="mdui-card theme-post__card mdui-hoverable">
+        <section class="theme-post__card__warning">
+          这篇文章最后修改于
+          <span id="content-warning"></span>
+          天之前。
+          本页内容可能已经过时！
+        </section>
+        
+        
+          <section class="mdui-card-media">
+            <img src="/NGY198888.gtihub.io/images/random/39.png"/>
+          </section>
+        
+        <section class="mdui-typo theme-post__card__content">
+          <h1 id="将frpc包装成服务，开机启动"><a href="#将frpc包装成服务，开机启动" class="headerlink" title="将frpc包装成服务，开机启动"></a>将frpc包装成服务，开机启动</h1><h2 id="在frpc执行文件目录下打pwd，找到当前路径，比如-root-frp-0-33-0-linux-amd64"><a href="#在frpc执行文件目录下打pwd，找到当前路径，比如-root-frp-0-33-0-linux-amd64" class="headerlink" title="在frpc执行文件目录下打pwd，找到当前路径，比如/root/frp_0.33.0_linux_amd64/"></a>在frpc执行文件目录下打pwd，找到当前路径，比如/root/frp_0.33.0_linux_amd64/</h2><h2 id="新建frpc-service文件"><a href="#新建frpc-service文件" class="headerlink" title="新建frpc.service文件"></a>新建frpc.service文件</h2><p>编辑内容</p>
+<pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token punctuation">[</span>Unit<span class="token punctuation">]</span>
+Description<span class="token operator">=</span>Frp Client Service
+After<span class="token operator">=</span>network<span class="token punctuation">.</span>target
+<span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+Type<span class="token operator">=</span>simple
+User<span class="token operator">=</span>root
+Restart<span class="token operator">=</span>on<span class="token operator">-</span>failure
+RestartSec<span class="token operator">=</span>5s
+ExecStart<span class="token operator">=</span><span class="token operator">/</span>root<span class="token operator">/</span>frp_0<span class="token number">.33</span><span class="token punctuation">.</span>0_linux_amd64<span class="token operator">/</span>frpc <span class="token operator">-</span>c <span class="token operator">/</span>root<span class="token operator">/</span>frp_0<span class="token number">.33</span><span class="token punctuation">.</span>0_linux_amd64<span class="token operator">/</span>frpc<span class="token punctuation">.</span>ini
+ExecReload<span class="token operator">=</span><span class="token operator">/</span>root<span class="token operator">/</span>frp_0<span class="token number">.33</span><span class="token punctuation">.</span>0_linux_amd64<span class="token operator">/</span>frpc reload <span class="token operator">-</span>c <span class="token operator">/</span>root<span class="token operator">/</span>frp_0<span class="token number">.33</span><span class="token punctuation">.</span>0_linux_amd64<span class="token operator">/</span>frpc<span class="token punctuation">.</span>ini
+<span class="token punctuation">[</span>Install<span class="token punctuation">]</span>
+WantedBy<span class="token operator">=</span>multi<span class="token operator">-</span>user<span class="token punctuation">.</span>target<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="将上面的文件复制到-usr-lib-systemd-system目录下"><a href="#将上面的文件复制到-usr-lib-systemd-system目录下" class="headerlink" title="将上面的文件复制到 /usr/lib/systemd/system目录下"></a>将上面的文件复制到 /usr/lib/systemd/system目录下</h2><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>   <code>systemctl start frpc</code></p>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>   <code>systemctl enable frpc</code></p>
+<h2 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h2><p>   <code>systemctl status frpc</code><br>   当看到 <code>Active: active (running)</code>，即为已启动成功，其他的状态是未启动成功</p>
+
+        </section>
+
+        
+          <section class="theme-post__card__license mdui-typo">
+            <span>
+              本文许可协议：
+              
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
+              
+            </span>
+            <br />
+            <span>本文永久链接：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/</a></span>
+            
+              <br />
+              <span>本文Markdown：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/后端/centos包装服务systemctl.md">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/后端/centos包装服务systemctl.md</a></span>
+            
+          </section>
+        
+
+        
+          <section class="mdui-card-actions theme-post__card__actions">
+            
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
+                <i class="mdui-icon fa fa-beer"></i>
+              </button>
+            
+            <div class="theme-spacer"></div>
+            
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon material-icons">&#xe149;</i></span>
+              </div>
+              <div class="mdui-typo">
+                
+                  <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/">
+                    <span>后端</span>
+                  </a>
+                
+              </div>
+            
+            
+              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
+                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
+              </div>
+              <div class="mdui-typo">
+                
+                  <a href="/NGY198888.gtihub.io/tags/contos/">
+                    <span>contos</span>
+                  </a>
+                
+                  <a href="/NGY198888.gtihub.io/tags/%E6%9C%8D%E5%8A%A1/">
+                    <span>服务</span>
+                  </a>
+                
+              </div>
+            
+          </section>
+        
+
+        
+          
+            <section>
+              <div class="mdui-divider"></div>
+            </section>
+            <section class="theme-post__card__comment">
+              
+  <div id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+            el: '#comments',
+            notify: notify,
+            verify: verify,
+            app_id: "ekXuiYYlHUDzzx16L834LIPx-gzGzoHsz",
+            app_key: "qwD7KxupfpFgYAxFB1rGdmso",
+            avatar:"mp",
+            placeholder: "既来之，则评之",
+            guest_info:guest_info
+        });
+    }
+  </script>
+
+
+            </section>
+          
+        
+      </article>
+      
+        <div class="mdui-color-theme theme-post__toc">
+          <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5C06;frpc&#x5305;&#x88C5;&#x6210;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x673A;&#x542F;&#x52A8;" data-href="#&#x5C06;frpc&#x5305;&#x88C5;&#x6210;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x673A;&#x542F;&#x52A8;"><span class="toc-number"></span> <span class="toc-text">1. &#x5C06;frpc&#x5305;&#x88C5;&#x6210;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x673A;&#x542F;&#x52A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5728;frpc&#x6267;&#x884C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x6253;pwd&#xFF0C;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;-root-frp-0-33-0-linux-amd64" data-href="#&#x5728;frpc&#x6267;&#x884C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x6253;pwd&#xFF0C;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;-root-frp-0-33-0-linux-amd64"><span class="toc-number"></span> <span class="toc-text">1.1. &#x5728;frpc&#x6267;&#x884C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x6253;pwd&#xFF0C;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;/root/frp_0.33.0_linux_amd64/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x65B0;&#x5EFA;frpc-service&#x6587;&#x4EF6;" data-href="#&#x65B0;&#x5EFA;frpc-service&#x6587;&#x4EF6;"><span class="toc-number"></span> <span class="toc-text">1.2. &#x65B0;&#x5EFA;frpc.service&#x6587;&#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;-usr-lib-systemd-system&#x76EE;&#x5F55;&#x4E0B;" data-href="#&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;-usr-lib-systemd-system&#x76EE;&#x5F55;&#x4E0B;"><span class="toc-number"></span> <span class="toc-text">1.3. &#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230; /usr/lib/systemd/system&#x76EE;&#x5F55;&#x4E0B;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x542F;&#x52A8;" data-href="#&#x542F;&#x52A8;"><span class="toc-number"></span> <span class="toc-text">1.4. &#x542F;&#x52A8;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;" data-href="#&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;"><span class="toc-number"></span> <span class="toc-text">1.5. &#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x67E5;&#x770B;&#x670D;&#x52A1;&#x72B6;&#x6001;" data-href="#&#x67E5;&#x770B;&#x670D;&#x52A1;&#x72B6;&#x6001;"><span class="toc-number"></span> <span class="toc-text">1.6. &#x67E5;&#x770B;&#x670D;&#x52A1;&#x72B6;&#x6001;</span></a></li></ol></li></ol></body></html>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="theme-spacer"></div>
+
+  
+    <div class="mdui-color-theme theme-post__toc-fab">
+  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
+    <i class="mdui-icon material-icons">&#xe242;</i>
+  </button>
+  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
+    <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5C06;frpc&#x5305;&#x88C5;&#x6210;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x673A;&#x542F;&#x52A8;" data-href="#&#x5C06;frpc&#x5305;&#x88C5;&#x6210;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x673A;&#x542F;&#x52A8;"><span class="toc-number"></span> <span class="toc-text">1. &#x5C06;frpc&#x5305;&#x88C5;&#x6210;&#x670D;&#x52A1;&#xFF0C;&#x5F00;&#x673A;&#x542F;&#x52A8;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5728;frpc&#x6267;&#x884C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x6253;pwd&#xFF0C;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;-root-frp-0-33-0-linux-amd64" data-href="#&#x5728;frpc&#x6267;&#x884C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x6253;pwd&#xFF0C;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;-root-frp-0-33-0-linux-amd64"><span class="toc-number"></span> <span class="toc-text">1.1. &#x5728;frpc&#x6267;&#x884C;&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x4E0B;&#x6253;pwd&#xFF0C;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x6BD4;&#x5982;/root/frp_0.33.0_linux_amd64/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x65B0;&#x5EFA;frpc-service&#x6587;&#x4EF6;" data-href="#&#x65B0;&#x5EFA;frpc-service&#x6587;&#x4EF6;"><span class="toc-number"></span> <span class="toc-text">1.2. &#x65B0;&#x5EFA;frpc.service&#x6587;&#x4EF6;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;-usr-lib-systemd-system&#x76EE;&#x5F55;&#x4E0B;" data-href="#&#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;-usr-lib-systemd-system&#x76EE;&#x5F55;&#x4E0B;"><span class="toc-number"></span> <span class="toc-text">1.3. &#x5C06;&#x4E0A;&#x9762;&#x7684;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230; /usr/lib/systemd/system&#x76EE;&#x5F55;&#x4E0B;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x542F;&#x52A8;" data-href="#&#x542F;&#x52A8;"><span class="toc-number"></span> <span class="toc-text">1.4. &#x542F;&#x52A8;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;" data-href="#&#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;"><span class="toc-number"></span> <span class="toc-text">1.5. &#x8BBE;&#x7F6E;&#x5F00;&#x673A;&#x542F;&#x52A8;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x67E5;&#x770B;&#x670D;&#x52A1;&#x72B6;&#x6001;" data-href="#&#x67E5;&#x770B;&#x670D;&#x52A1;&#x72B6;&#x6001;"><span class="toc-number"></span> <span class="toc-text">1.6. &#x67E5;&#x770B;&#x670D;&#x52A1;&#x72B6;&#x6001;</span></a></li></ol></li></ol><script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":220},"mobile":{"show":true},"log":false});</script><script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body></html>
+  </ul>
+</div>
+
+  
+
+  
+    <div class="theme-post__pagination mdui-color-theme">
+  
+    <div class="theme-post__pagination__prev mdui-ripple mdui-valign">
+      
+        <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/" class="theme-post__pagination__prev__content mdui-text-left">
+        
+        <div>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          SKU选择算法笔记
+        </div>
+      </a>
+    </div>
+  
+
+  
+    <div class="theme-post__pagination__next mdui-ripple mdui-valign">
+      
+        <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/taro%E7%AC%94%E8%AE%B0/" class="theme-post__pagination__next__content mdui-text-right">
+        
+        <div>
+          <span class="mdui-typo-body-2-opacity mdui-text-center">旧的文章</span>
+          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
+        </div>
+        <div class="mdui-typo-title mdui-text-truncate">
+          taro笔记
+        </div>
+      </a>
+    </div>
+    
+</div>
+
+  
+
+  
+    <div class="mdui-dialog" id="donateDialog">
+      <div class="mdui-dialog-title">打赏</div>
+      <div class="mdui-dialog-content">
+        <div class="mdui-list">
+          
+            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
+              
+              
+              
+              wechat
+            </a>
+          
+            <a href="https://paypal.com" title="paypay" class="mdui-list-item mdui-ripple" target="_blank">
+              
+                <i class="mdui-list-item-icon mdui-icon fa fa-paypal mdui-text-center"></i>&emsp;
+              
+              
+              
+              paypay
+            </a>
+          
+        </div>
+      </div>
+      <div class="mdui-dialog-actions">
+        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
+      </div>
+    </div>
+  
+</div>
+<script type="text/javascript">
+  themeRuntime.scriptsMap.post = [];
+  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
+    tocHighlight()
+    function tocHighlight() {
+      var timer;
+      function doWork() {
+        listens.forEach(function(value, index) {
+          value[1]();
+          value[0].classList.remove("mdui-list-item-active");
+        })
+        let actionToc = (listens[listens.reduce(function(r, v, index) {
+          if (v[2] == true) {
+            return index;
+          } else return r;
+        }, undefined)] || [])[0] || listens[0][0];
+        actionToc.classList.add("mdui-list-item-active");
+        if(actionToc.getClientRects().length == 0)return;
+        showToc(actionToc);
+      }
+      function showToc(toc) {
+        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
+        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
+        let offset = 0;
+        if (offsetTop < 0) offset = offsetTop;
+        if (offsetBottom > 0) offset = offsetBottom;
+        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
+        clearInterval(timer);
+        timer = setInterval(function() {
+          var now = cardToc.scrollTop;
+          var speed = (targetTop - now) / 10;
+          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+          if (Math.abs(now - targetTop) < 1) {
+            clearInterval(timer);
+          }
+          cardToc.scrollTop = now + speed;
+        }, 30);
+      }
+      var listens = [];
+      var cardToc = document.querySelector('.theme-post__toc');
+      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
+      var toclist = document.querySelector(".theme-post__toc > ol");
+      Array.prototype.forEach.call(links, function(value, index) {
+        var id = (value.getAttribute("href") || "#").slice(1);
+        var element = document.getElementById(id);
+        listens.push([value, function() {
+          var readed = false;
+          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
+            readed = true;
+          } else {
+            readed = false;
+          }
+          listens[index][2] = readed;
+        }, false])
+      })
+      doWork();
+      window.addEventListener("scroll", doWork)
+      var listener = {
+        function:  doWork,
+        event: 'scroll',
+        el: window,
+        removed: false
+      }
+      themeRuntime.scriptsMap.post.push(listener)
+    }
+  }
+</script>
+
+<script type="text/javascript">
+  (function() {
+    var postLastModifiedDate = 1594486009338
+    var today = (new Date()).getTime()
+    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
+    if (difference >= 100) {
+      document.querySelector('.theme-post__card__warning').style.display = 'block'
+      document.querySelector('#content-warning').textContent = difference
+    }
+  })();
+</script>
+
+<script type="text/javascript">
+  var images = document.querySelectorAll('.theme-post__card__content img')
+  for (i = 0; i < images.length; i++) {
+    //console.log('image added', i)
+    images[i].addEventListener("click", openLG);
+    var listener = {
+      function:  openLG,
+      event: 'click',
+      el: images[i],
+      removed: false
+    }
+    themeRuntime.scriptsMap.post.push(listener)
+  }
+  function openLG() {
+    var img_src = this.getAttribute('src');
+    var img_alt = this.getAttribute('alt');
+    lightGallery(this, {
+      dynamic: true,
+      counter: false,
+      dynamicEl: [{
+        "src": img_src,
+        'subHtml': "<span author>ngy</span><div descr>" + img_alt + "</div>"
+      }],
+    });
+  }
+</script>
+
+
+
+
+      </div>
+    </div>
+  </main>
+
+  <div id="outdated" style="z-index: 9999;">
+    <h6>你的浏览器已经过气辣！</h6>
+    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">现在就去</a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
+  </div>
+  <!-- import js -->
+
+
+  
+<script src="/NGY198888.gtihub.io/js/outdatedbrowser.min.js"></script>
+
+
+
+
+  
+    
+<script src="/NGY198888.gtihub.io/js/js.pure.min.js"></script>
+
+  
+
+
+<!-- theme js -->
+<script type="text/javascript">
+  (function() {
+    var appbarTopFlag = false;
+    var appbarEl = document.querySelector('.theme-appbar');
+    function appbarShadow() {
+      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+      if (bodyScrolled > 0 && !appbarTopFlag) {
+        appbarEl.classList.add('theme-appbar--shadow');
+        appbarTopFlag = true;
+      } else if (bodyScrolled === 0 && appbarTopFlag) {
+        appbarEl.classList.remove('theme-appbar--shadow');
+        appbarTopFlag = false;
+      }
+    }
+    appbarShadow()
+    window.addEventListener('scroll', appbarShadow);
+  })();
+  (function() {
+    function detechTheme() {
+      var modeFlag = localStorage.getItem('darkMode');
+      // true for dark mode, false for bright mode
+      if(modeFlag === "true"){
+        document.querySelector('body').classList.add('mdui-theme-layout-dark')
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
+        return true
+      } else if(!window.matchMedia) {
+          return false;
+      } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.querySelector('body').classList.add('mdui-theme-layout-dark')
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
+          return true;
+      } else if(window.matchMedia("(prefers-color-scheme: light)").matches) {
+        document.querySelector('body').classList.remove('mdui-theme-layout-dark')
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
+          return false;
+      } else {
+        return false;
+      }
+    }
+    var modeFlag = detechTheme();
+    var modeEl = document.querySelector('.theme-appbar__mode-switch');
+    function modeSwitch() {
+      if (!modeFlag) {
+        // default bright mode, switch to dark mode
+        document.querySelector('body').classList.add('mdui-theme-layout-dark');
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
+        localStorage.setItem('darkMode', true);
+        modeFlag = true;
+      } else {
+        // dark mode, switch to bright mode
+        document.querySelector('body').classList.remove('mdui-theme-layout-dark');
+        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
+        localStorage.setItem('darkMode', false);
+        modeFlag = false;
+      }
+    }
+    modeEl.addEventListener('click', modeSwitch);
+  })();
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  document.querySelector('body').classList.add('theme-loaded')
+</script>
+
+
+
+
+<script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body>
+</html>
