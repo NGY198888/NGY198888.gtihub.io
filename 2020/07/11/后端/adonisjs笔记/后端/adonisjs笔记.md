@@ -2,11 +2,14 @@
 title: adonisjs笔记
 date: 2020-07-11 02:57:34
 categories: 
+- 后端
 - nodejs
 tags:
 - adonisjs
 - nodejs
 - lucid-mongo
+- CRUD
+- 接口
 ---
 # adonisjs笔记
 ## 安装adonis

@@ -1,7 +1,13 @@
 ---
 title: 'rabbitmq，taro,小程序，stomp'
 date: 2020-07-11 03:00:55
+categories: 
+- 前端
 tags:
+- rabbitmq
+- taro
+- 小程序
+- stomp
 ---
 ## stompjs下载，（不要用npm安装stomp）
 [下载地址](https://github.com/rabbitmq/rabbitmq-web-stomp-examples/tree/master/priv)
