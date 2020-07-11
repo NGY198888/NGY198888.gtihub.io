@@ -305,14 +305,14 @@
           </div>
           <div class="mdui-collapse-item-body mdui-list">
             
-              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                工具
+              <a href="/NGY198888.gtihub.io/categories/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                nodejs
                 <div style="flex-grow: 1;"></div>
                 <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
               </a>
             
-              <a href="/NGY198888.gtihub.io/categories/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodejs
+              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                工具
                 <div style="flex-grow: 1;"></div>
                 <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
               </a>
@@ -329,24 +329,6 @@
           </div>
           <div class="mdui-collapse-item-body mdui-list">
             
-              <a href="/NGY198888.gtihub.io/tags/Rest/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                Rest
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                http请求
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                vscode插件
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
               <a href="/NGY198888.gtihub.io/tags/adonisjs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
                 adonisjs
                 <div style="flex-grow: 1;"></div>
@@ -361,6 +343,24 @@
             
               <a href="/NGY198888.gtihub.io/tags/lucid-mongo/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
                 lucid-mongo
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/Rest/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                Rest
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                http请求
+                <div style="flex-grow: 1;"></div>
+                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
+              </a>
+            
+              <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
+                vscode插件
                 <div style="flex-grow: 1;"></div>
                 <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
               </a>
@@ -541,7 +541,7 @@
         
         
           <section class="mdui-card-media">
-            <img src="/NGY198888.gtihub.io/images/random/2.png"/>
+            <img src="/NGY198888.gtihub.io/images/random/15.png"/>
           </section>
         
         <section class="mdui-typo theme-post__card__content">
@@ -580,11 +580,38 @@
 
         
           
-            <script type="text/javascript">
-              themeRuntime.commentRest.function = function (newIdentifier, newUrl, newTitle) {
-                return
-              }
-            </script>
+            <section>
+              <div class="mdui-divider"></div>
+            </section>
+            <section class="theme-post__card__comment">
+              
+  <div id="comments"></div>
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var notify = 'false' == true ? true : false;
+    var verify = 'false' == true ? true : false;
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    window.onload = function() {
+        new Valine({
+            el: '#comments',
+            notify: notify,
+            verify: verify,
+            app_id: "ekXuiYYlHUDzzx16L834LIPx-gzGzoHsz",
+            app_key: "qwD7KxupfpFgYAxFB1rGdmso",
+            avatar:"mp",
+            placeholder: "既来之，则评之",
+            guest_info:guest_info
+        });
+    }
+  </script>
+
+
+            </section>
           
         
       </article>
@@ -834,12 +861,6 @@
 
 
 
-  <script>
-    if ('serviceWorker' in navigator) {
-     navigator.serviceWorker.register('/NGY198888.gtihub.io/sw.js');
-    }
-  </script>
-
 
 
 
@@ -850,5 +871,5 @@
 
 
 
-<script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body>
+</body>
 </html>
