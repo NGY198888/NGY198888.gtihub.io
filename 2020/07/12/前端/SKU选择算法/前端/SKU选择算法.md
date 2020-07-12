@@ -1,5 +1,6 @@
 ---
 title: SKU选择算法笔记
+pinned: true
 categories:
   - 前端
 tags:
