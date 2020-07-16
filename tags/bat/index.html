@@ -33,7 +33,7 @@
         -->
 
   <meta charset="UTF-8">
-  <title>RESTClient笔记 - 想你开心每一天</title>
+  <title>标签: bat - 想你开心每一天</title>
 
   <!-- Favicons -->
   <link rel="icon shortcut" type="image/ico" href="/NGY198888.gtihub.io/images/favicon.png">
@@ -50,7 +50,7 @@
   
       <meta name="description" content="想你开心每一天">
   
-  <meta name="keywords" content="blog, hexo, mdui,Rest,http请求,vscode插件">
+  <meta name="keywords" content="blog, hexo, mdui">
 
   <!--iOS -->
   <meta name="apple-mobile-web-app-title" content="想你开心每一天">
@@ -65,18 +65,12 @@
   <!-- The Open Graph protocol -->
   <meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io">
   <meta property="og:type" content="blog">
-  <meta property="og:title" content="RESTClient笔记 - 想你开心每一天 | 想你开心每一天">
+  <meta property="og:title" content="标签: bat - 想你开心每一天 | 想你开心每一天">
   <meta property="og:image" content="/images/favicon.png" />
   
     <meta property="og:description" content="想你开心每一天">
   
 
-  
-    <meta property="og:article:tag" content="Rest">
-  
-    <meta property="og:article:tag" content="http请求">
-  
-    <meta property="og:article:tag" content="vscode插件">
   
 
   
@@ -345,7 +339,7 @@
         </div>
       
       
-        <div class="mdui-collapse-item ">
+        <div class="mdui-collapse-item mdui-collapse-item-open">
           <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
             <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
             <div class="mdui-list-item-content">标签</div>
@@ -640,454 +634,229 @@
 
 
     <div id="barba-wrapper">
-      <div class="barba-container"  data-namespace="post">
-        
-
-
-
+      <div class="barba-container"  data-namespace="archives">
+        <div class="theme-archive">
   
-<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/darcula.min.css">
-
-
-
-  
-<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/line-number.min.css">
-
-
-
-<div class="theme-post">
-  <div class="theme-post__background mdui-color-theme"></div>
-  <div class="theme-post__header mdui-color-theme">
-    <div class="theme-post__header__title mdui-text-truncate">
-      RESTClient笔记
-    </div>
-    <div class="theme-spacer"></div>
-    <div class="theme-post__header__actions mdui-valign">
-      <div>
-        <i class="fa fa-calendar-o" aria-hidden="true" style="font-size: smaller;"></i>&nbsp; <span>发表时间：</span>
-        <span style="float: right">7月 11, 2020</span>
-        
-        <!-- <br />
-          <span>最后修改时间：</span>
-          <span>7月 12, 2020</span> -->
-        
-        
-                <!-- 不蒜子统计 -->
-                <br />
-                <span >
-                  <i class="fa fa-smile-o" aria-hidden="true" style="font-size: smaller;"></i>&nbsp;&nbsp;阅读数: <span id="busuanzi_value_page_pv"></span>次
-                </span>
-        
-      </div>
-      
-  <div class="theme-post__qrcode">
-    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
-      <i class="mdui-icon material-icons">&#xe337;</i>
-    </button>
-    <ul class="mdui-menu" id="qrcode-menu">
-      <li class="mdui-list-item" style="cursor: auto">
-        文章二维码
-      </li>
-        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAAEmCAAAAADqr2IGAAAEE0lEQVR42u3aS24bMRAFQN//0s42QKDJe90TR0MVV4ItjcjSgv37+raC9YUAEyZMmDBhsjBhwoTp7Zm+4tW+P3nCq7/8/vd8t68+2+4QEyZMmDCdx/SXq/GPr0wOnENcPz/fSfKp5IyYMGHChOlUputDXn/lPrC45pvtdvUpTJgwYcL0kUz5IfPAor3yk5AiCWIwYcKECROmvGB6fZG3ocMmLMCECRMmTJhuKIDedG1vCsrFCM7P18IxYcKECdObMbWX9BNf/4f5JkyYMGHC9AZMszXbxCx0uOvY9RkxYcKECdMRTEmrsi2etqlscrykcJyk4sXwECZMmDBhOoIpL8W2EMmgz/Uz8/9udv5yz5gwYcKE6QimWUBwvYl8fCdPfRP6ZFfFj4EJEyZMmI5gyr84SSDzICMv/ibcedu1+CExYcKECdMRTG37cJVMlk3NWeAyew8mTJgwYTqVKUkC26Lw/mJOEtq2UVrzYcKECROm45hmozBtI3OWBm92mA/rYMKECROmU5na0u3skC1WnrLud1K3MzFhwoQJ06OY8oe2Keu9jcz2U3kxGhMmTJgwfQJTnuLm5d2WZnWFxwVlTJgwYcL0mUx3jdfMBnc24ULbgo1aqpgwYcKE6Timu9qH+XDPLN3dQBRNUEyYMGHC9AFMbcKZlFbbFua9Dc6CGxMmTJgwHceUp6+zJug1bh4utAXc4TsxYcKECdMRTPmxZ5fuhrttUs5KyVHqiwkTJkyYHs7UBgQbiDwgSMq4bYpbnBQTJkyYMB3BtC+5bhqcs+fP0uC8SI0JEyZMmE5i2ieubQvzX7xuE2ZMmDBhwvQ5TLPD79PgPGj4Lte+5YkJEyZMmM5jytPCe1PNvA25WcMhIUyYMGHCdARTkvrOirmzACIPL9qibZ20Y8KECROm45hmqWlecp0FHHnoMGtwRqkvJkyYMGF6LFN+bc/GaNprftYuzYdWix8MEyZMmDAdwTQrrd6bss4u7Lxw3H4KEyZMmDCdxJSXenPcTQJ871jqrBCMCRMmTJhOYmqbi3k5tS3I5gHBrMRcfwsmTJgwYTqCKU8LN2M0+daTNHsTTKxSX0yYMGHC9Fim2WWcNETbw7cjRHkqXu8QEyZMmDAdwbQZhdlcvbN115OjBi0mTJgwYTqCqV2bkZ1NQDC77NsCMSZMmDBhOo+pvUQ3xdy7irNtwjx7PiZMmDBhOolpton8wp7xtQ3IWUAwLPJiwoQJE6YHMs2OnQzubLhzuDzQiUIZTJgwYcKEaRFS5N/+k6VkTJgwYcKEadPUbJPPfcNylq5jwoQJE6ZTmTYbnY3LtCnu7AdIUmtMmDBhwnQ2U/votuTaJqJ3BRmzwjEmTJgwYTqJycKECRMmTJgwWZgwYcL0qPULecu5mcln7AoAAAAASUVORK5CYII=" style="cursor: auto">
-    </ul>
-  </div>
-
-
-      
-  <div class="theme-post__share">
-    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
-      <i class="mdui-icon material-icons">&#xe80d;</i>
-    </button>
-
-    <ul class="mdui-menu" id="post-share-menu">
-
-      
-
-      
-
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=想你开心每一天&title=RESTClient笔记&summary=想你开心每一天&pics=https://ngy198888.github.io/NGY198888.gtihub.io/images/favicon.png&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/11/%E5%B7%A5%E5%85%B7/RESTClient%E7%AC%94%E8%AE%B0/index.html" target="_blank" class="mdui-ripple">
-                分享到QQ
-            </a>
-        </li>
-      
-
-      
-
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="http://service.weibo.com/share.php?appkey=&title=RESTClient笔记&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io//NGY198888.gtihub.io/2020/07/11/%E5%B7%A5%E5%85%B7/RESTClient%E7%AC%94%E8%AE%B0/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
-                分享到微博
-            </a>
-        </li>
-      
-
-    </ul>
-  </div>
-
-
+<div id="side-content" class="mdui-color-amber theme-archive__side-content">
+  <div class="mdui-grid-tile" style="overflow: visible;margin-bottom: 0;">
+    <div class="theme-archive__side-content__bg">
+      <img src="/NGY198888.gtihub.io/images/random/20.png" />
     </div>
   </div>
-  <div class="theme-post__warpper
+  <div class="theme-archive__side-content__content">
+    <img class="mdui-img-circle theme-archive__side-content__avatar" src="/NGY198888.gtihub.io/images/avatar.png"/>
+    <div class="theme-archive__side-content__author mdui-text-center">
+      NGY
+    </div>
+    <div class="theme-archive__side-content__name">
+      bat
+    </div>
+    <div class="theme-archive__side-content__length">
+      
+      1篇文章
+    </div>
+  </div>
+</div>
+<div id="contentLocation"></div>
+
+  <div class="theme-posts">
     
-  ">
-    <div class="theme-post__warpper__container">
-      <article class="mdui-card theme-post__card mdui-hoverable">
-        <section class="theme-post__card__warning">
-          这篇文章最后修改于
-          <span id="content-warning"></span>
-          天之前。
-          本页内容可能已经过时！
-        </section>
+      
+          
+
+
+  <div class="theme-posts__post">
+    <article class="mdui-card mdui-hoverable">
+        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/23.png)">
         
-          <section class="theme-post__card__count">
+        <div class="mdui-card-media-covered theme-posts__post__media-covered">
+          <div class="mdui-card-primary mdui-typo">
             
-              <span>
-                本文共199字。
-              </span>
+              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/Git%E6%93%8D%E4%BD%9C/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
             
-            
-              <span>
-                阅读大约需要1分钟。
-              </span>
-            
-          </section>
-        
-        
-          <section class="mdui-card-media">
-            <img src="/NGY198888.gtihub.io/images/random/31.png"/>
-          </section>
-        
-        <section class="mdui-typo theme-post__card__content">
-          <h1 id="Rest-Client笔记"><a href="#Rest-Client笔记" class="headerlink" title="Rest Client笔记"></a>Rest Client笔记</h1><h2 id="Rest-Client是什么"><a href="#Rest-Client是什么" class="headerlink" title="Rest Client是什么"></a>Rest Client是什么</h2><p>  是一个vscode插件，可以用它来进行http请求，GET,POST,PUT,DELETE都支持，这样测试接口在vscode也能进行，不用apiPost，浏览器等工具了</p>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul>
-<li>安装该插件</li>
-<li>新建*.http这种以http为后缀的文件</li>
-<li>文件内容编辑<pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js">@url<span class="token operator">=</span>http<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span>localhost<span class="token punctuation">:</span><span class="token number">3333</span>  <span class="token comment" spellcheck="true">//声明变量</span>
-<span class="token comment" spellcheck="true">//###  表示一个请求</span>
-### <span class="token comment" spellcheck="true">//接口1 get请求，接收html内容，带了参数aa</span>
-GET <span class="token punctuation">{</span><span class="token punctuation">{</span>url<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">?</span>aa<span class="token operator">=</span><span class="token number">1111</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<pre><code>### //接口2 post请求，接收json，带了body请求体
-POST {{url}}
-content-type: application/json//声明接收json，跟请求体之间空一行
-
-{
-    &quot;name&quot;:&quot;21111&quot;,
-    &quot;name2&quot;:&quot;22222&quot;,
-    &quot;type&quot;:1
-}
-
-
-### //接口3  请求头里带token认证
-POST {{url}}
-content-type: application/json
-Authorization: token xxx
-
-{
-    &quot;name&quot;:&quot;21111&quot;,
-    &quot;name2&quot;:&quot;22222&quot;,
-    &quot;type&quot;:1
-}</code></pre><pre><code></code></pre>
-        </section>
-
-        
-          <section class="theme-post__card__license mdui-typo">
-            <span>
-              许可协议：
               
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
-              
-            </span>
-            <br />
-            <span>永久链接：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/%E5%B7%A5%E5%85%B7/RESTClient%E7%AC%94%E8%AE%B0/">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/%E5%B7%A5%E5%85%B7/RESTClient%E7%AC%94%E8%AE%B0/</a></span>
-            
-              <br />
-              <span>本文MD：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/%E5%B7%A5%E5%85%B7/RESTClient%E7%AC%94%E8%AE%B0/工具/RESTClient笔记.md">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/11/%E5%B7%A5%E5%85%B7/RESTClient%E7%AC%94%E8%AE%B0/工具/RESTClient笔记.md</a></span>
-            
-          </section>
+                Git操作
+            </a>
+          </div>
+        </div>
         
+      </section>
+      <section class="mdui-card-content">
+        Git操作
 
+
+      </section>
+      <div class="mdui-divider" style="margin: 0 16px;"></div>
+      <section class="theme-posts__post__footer">
         
-          <section class="mdui-card-actions theme-post__card__actions">
+          
             
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
-                <i class="mdui-icon fa fa-beer"></i>
+              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="theme-link--no-style">
+                <div class="mdui-chip theme-posts__post__footer__categories">
+                  <span class="mdui-chip-icon">
+                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
+                  </span>
+                  <span class="mdui-chip-title">工具</span>
+                </div>
+              </a>
+            
+          
+        
+        
+          
+            <div class="theme-posts__post__footer__tags mdui-valign">
+              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-0'}">
+                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
               </button>
-            
-            <div class="theme-spacer"></div>
-            
-              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
-                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon material-icons">&#xe149;</i></span>
-              </div>
-              <div class="mdui-typo">
+              <ul class="mdui-menu" id="post-tags-1-0">
                 
-                  <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/">
-                    <span>工具</span>
-                  </a>
+                  <li class="mdui-menu-item">
+                    <a href="/NGY198888.gtihub.io/tags/git/" class="mdui-ripple">
+                      <span>git</span>
+                    </a>
+                  </li>
                 
-              </div>
-            
-            
-              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
-                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
-              </div>
-              <div class="mdui-typo">
+                  <li class="mdui-menu-item">
+                    <a href="/NGY198888.gtihub.io/tags/bat/" class="mdui-ripple">
+                      <span>bat</span>
+                    </a>
+                  </li>
                 
-                  <a href="/NGY198888.gtihub.io/tags/Rest/">
-                    <span>Rest</span>
-                  </a>
+                  <li class="mdui-menu-item">
+                    <a href="/NGY198888.gtihub.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/" class="mdui-ripple">
+                      <span>批处理</span>
+                    </a>
+                  </li>
                 
-                  <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/">
-                    <span>http请求</span>
-                  </a>
-                
-                  <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/">
-                    <span>vscode插件</span>
-                  </a>
-                
-              </div>
-            
-          </section>
-        
-
-        
-          
-            <section>
-              <div class="mdui-divider"></div>
-            </section>
-            <section class="theme-post__card__comment">
-              
-  <div id="comments"></div>
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh//AshinWang/SimpleValine/SimpleValine.min.js"></script>
-  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
-  <script>
-    var notify = 'false' == true ? true : false;
-    var verify = 'false' == true ? true : false;
-    var GUEST_INFO = ['nick','mail','link'];
-    var guest_info = 'nick,mail'.split(',').filter(function(item){
-      return GUEST_INFO.indexOf(item) > -1
-    });
-    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
-    window.onload = function() {
-        new Valine({
-            el: '#comments',
-            notify: notify,
-            verify: verify,
-            app_id: "ekXuiYYlHUDzzx16L834LIPx-gzGzoHsz",
-            app_key: "qwD7KxupfpFgYAxFB1rGdmso",
-            avatar:"mp",
-            placeholder: "您可以在这里留下评论哦~",
-            guest_info:guest_info
-        });
-    }
-  </script>
-
-
-            </section>
+              </ul>
+            </div>
           
         
-      </article>
-      
-        <div class="mdui-color-theme theme-post__toc">
-          <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Rest-Client&#x7B14;&#x8BB0;" data-href="#Rest-Client&#x7B14;&#x8BB0;"><span class="toc-number"></span> <span class="toc-text">1. Rest Client&#x7B14;&#x8BB0;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Rest-Client&#x662F;&#x4EC0;&#x4E48;" data-href="#Rest-Client&#x662F;&#x4EC0;&#x4E48;"><span class="toc-number"></span> <span class="toc-text">1.1. Rest Client&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x7528;&#x6CD5;" data-href="#&#x7528;&#x6CD5;"><span class="toc-number"></span> <span class="toc-text">1.2. &#x7528;&#x6CD5;</span></a></li></ol></li></ol></body></html>
+        <div class="theme-spacer"></div>
+        <div class="mdui-valign">
+          <div>
+            7月 12, 2020
+          </div>
         </div>
-      
-    </div>
+      </section>
+    </article>
   </div>
 
-  <div class="theme-spacer"></div>
 
-  
-    <div class="mdui-color-theme theme-post__toc-fab">
-  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
-    <i class="mdui-icon material-icons">&#xe242;</i>
-  </button>
-  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
-    <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Rest-Client&#x7B14;&#x8BB0;" data-href="#Rest-Client&#x7B14;&#x8BB0;"><span class="toc-number"></span> <span class="toc-text">1. Rest Client&#x7B14;&#x8BB0;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#Rest-Client&#x662F;&#x4EC0;&#x4E48;" data-href="#Rest-Client&#x662F;&#x4EC0;&#x4E48;"><span class="toc-number"></span> <span class="toc-text">1.1. Rest Client&#x662F;&#x4EC0;&#x4E48;</span></a></li><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x7528;&#x6CD5;" data-href="#&#x7528;&#x6CD5;"><span class="toc-number"></span> <span class="toc-text">1.2. &#x7528;&#x6CD5;</span></a></li></ol></li></ol><script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":220},"mobile":{"show":true},"log":false});</script><script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body></html>
-  </ul>
-</div>
-
-  
-
-  
-    <div class="theme-post__pagination mdui-color-theme">
-  
-    <div class="theme-post__pagination__prev mdui-ripple mdui-valign">
       
-        <a href="/NGY198888.gtihub.io/2020/07/11/%E5%89%8D%E7%AB%AF/rabbitmq%EF%BC%8Ctaro-%E5%B0%8F%E7%A8%8B%E5%BA%8F%EF%BC%8Cstomp/" class="theme-post__pagination__prev__content mdui-text-left">
-        
-        <div>
-          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
-          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
-        </div>
-        <div class="mdui-typo-title mdui-text-truncate">
-          rabbitmq，taro,小程序，stomp
-        </div>
-      </a>
-    </div>
-  
-
-  
-    <div class="theme-post__pagination__next mdui-ripple mdui-valign">
       
-        <a href="/NGY198888.gtihub.io/2020/07/11/%E5%90%8E%E7%AB%AF/adonisjs%E7%AC%94%E8%AE%B0/" class="theme-post__pagination__next__content mdui-text-right">
-        
-        <div>
-          <span class="mdui-typo-body-2-opacity mdui-text-center">旧的文章</span>
-          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
+        <div class="theme-end-footer">
+          <div class="mdui-text-center mdui-text-color-theme-text">
+            看起来已经没有了
+          </div>
         </div>
-        <div class="mdui-typo-title mdui-text-truncate">
-          adonisjs笔记
-        </div>
-      </a>
-    </div>
-    
-</div>
+      
+  </div>
+  <button id="index-fab" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent mdui-fab-hide" onclick="smoothScroll.animateScroll( 0 );">
+  <i class="mdui-icon material-icons">&#xe5d8;</i>
+</button>
 
-  
-
-  
-    <div class="mdui-dialog" id="donateDialog">
-      <div class="mdui-dialog-title">打赏</div>
-      <div class="mdui-dialog-content">
-        <div class="mdui-list">
-          
-            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
-              
-                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
-              
-              
-              
-              wechat
-            </a>
-          
-        </div>
-      </div>
-      <div class="mdui-dialog-actions">
-        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
-      </div>
-    </div>
-  
 </div>
 <script type="text/javascript">
-  themeRuntime.scriptsMap.post = [];
-  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
-    tocHighlight()
-    function tocHighlight() {
-      var timer;
-      function doWork() {
-        listens.forEach(function(value, index) {
-          value[1]();
-          value[0].classList.remove("mdui-list-item-active");
-        })
-        let actionToc = (listens[listens.reduce(function(r, v, index) {
-          if (v[2] == true) {
-            return index;
-          } else return r;
-        }, undefined)] || [])[0] || listens[0][0];
-        actionToc.classList.add("mdui-list-item-active");
-        if(actionToc.getClientRects().length == 0)return;
-        showToc(actionToc);
-      }
-      function showToc(toc) {
-        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
-        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
-        let offset = 0;
-        if (offsetTop < 0) offset = offsetTop;
-        if (offsetBottom > 0) offset = offsetBottom;
-        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
-        clearInterval(timer);
-        timer = setInterval(function() {
-          var now = cardToc.scrollTop;
-          var speed = (targetTop - now) / 10;
-          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-          if (Math.abs(now - targetTop) < 1) {
-            clearInterval(timer);
-          }
-          cardToc.scrollTop = now + speed;
-        }, 30);
-      }
-      var listens = [];
-      var cardToc = document.querySelector('.theme-post__toc');
-      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
-      var toclist = document.querySelector(".theme-post__toc > ol");
-      Array.prototype.forEach.call(links, function(value, index) {
-        var id = (value.getAttribute("href") || "#").slice(1);
-        var element = document.getElementById(id);
-        listens.push([value, function() {
-          var readed = false;
-          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
-            readed = true;
-          } else {
-            readed = false;
-          }
-          listens[index][2] = readed;
-        }, false])
-      })
-      doWork();
-      window.addEventListener("scroll", doWork)
-      var listener = {
-        function:  doWork,
-        event: 'scroll',
-        el: window,
-        removed: false
-      }
-      themeRuntime.scriptsMap.post.push(listener)
-    }
-  }
-</script>
-
-<script type="text/javascript">
+  themeRuntime.scriptsMap.archives = [];
   (function() {
-    var postLastModifiedDate = 1594483590324
-    var today = (new Date()).getTime()
-    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
-    if (difference >= 100) {
-      document.querySelector('.theme-post__card__warning').style.display = 'block'
-      document.querySelector('#content-warning').textContent = difference
+    var fabTopFlag = false;
+    var fabEl = document.getElementById('index-fab');
+    function fabShowHide() {
+      var bodyScrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      if (bodyScrolled > 0 && !fabTopFlag) {
+        fabEl.classList.remove('mdui-fab-hide');
+        fabTopFlag = true;
+      } else if (bodyScrolled === 0 && fabTopFlag) {
+        fabEl.classList.add('mdui-fab-hide');
+        fabTopFlag = false;
+      }
     }
-  })();
-</script>
-
-<script type="text/javascript">
-  var images = document.querySelectorAll('.theme-post__card__content img')
-  for (i = 0; i < images.length; i++) {
-    //console.log('image added', i)
-    images[i].addEventListener("click", openLG);
+    fabShowHide()
+    window.addEventListener('scroll', fabShowHide);
     var listener = {
-      function:  openLG,
-      event: 'click',
-      el: images[i],
+      function: fabShowHide,
+      event: 'scroll',
+      el: window,
       removed: false
     }
-    themeRuntime.scriptsMap.post.push(listener)
+    themeRuntime.scriptsMap.archives.push(listener)
+  })();
+
+  (function() {
+    var pageTotal = 1
+    var pageNext = 2
+    themeRuntime.temp = {
+      index: 1
+    }
+    function morePosts() {
+      var screenHeight = window.innerHeight;
+      var compareHeight = document.body.clientHeight -  (document.documentElement.scrollTop || document.body.scrollTop);
+      var loadStatus = pageNext - themeRuntime.temp.index
+      if (screenHeight >= compareHeight && loadStatus === 1) {
+        if (pageNext <= pageTotal) {
+          loadProgress(false)
+          var url = window.location.href + "page/" + pageNext
+          themeRuntime.temp.index = pageNext;
+          //console.log(pageTotal, url)
+          fetch(url, {
+              method:'GET',
+              mode:'cors',
+              credentials: 'include'
+          })
+          .then(function(response) {
+            return response.text()
+          }).then(function(HTML) {
+            var fakeDom = document.createElement('html');
+            fakeDom.innerHTML = HTML
+            var morePostsHTML = fakeDom.querySelector('.theme-posts').innerHTML
+            var postsArea = document.querySelector(".theme-posts")
+            loadProgress(true)
+            postsArea.insertAdjacentHTML('beforeend', morePostsHTML)
+            pageNext++;
+          }).catch(function(error) {
+            mdui.alert(error, "错误！");
+          })
+        }
+      }
+    }
+    window.addEventListener('scroll', morePosts);
+    var listener = {
+      function: morePosts,
+      event: 'scroll',
+      el: window,
+      removed: false
+    }
+    themeRuntime.scriptsMap.archives.push(listener)
+  })();
+</script>
+<script>
+  var content_flag = false;
+  const appbar = document.querySelector('.theme-appbar')
+  const body = document.querySelector('body')
+  const title = document.querySelector('.theme-toolbar-bottom__title')
+  window.addEventListener('scroll', styleScrolled)
+  var listener = {
+    function: styleScrolled,
+    event: 'scroll',
+    el: window,
+    removed: false
   }
-  function openLG() {
-    var img_src = this.getAttribute('src');
-    var img_alt = this.getAttribute('alt');
-    lightGallery(this, {
-      dynamic: true,
-      counter: false,
-      dynamicEl: [{
-        "src": img_src,
-        'subHtml': "<span author>NGY</span><div descr>" + img_alt + "</div>"
-      }],
-    });
+  themeRuntime.scriptsMap.archives.push(listener)
+
+  function styleScrolled() {
+    var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
+    var divTop = document.querySelector('div#contentLocation').offsetTop
+    var contentLocation = divTop - scrollTop - 128;
+    if (!content_flag && contentLocation < 0 && window.innerWidth < 860) {
+      body.classList.remove('theme-archive--style-change');
+      content_flag = true;
+    } else if (content_flag && contentLocation >= 0 && window.innerWidth < 860) {
+      body.classList.add('theme-archive--style-change');
+      content_flag = false;
+    };
   }
 </script>
-
-
 
 
       </div>
