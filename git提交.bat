@@ -1,9 +1,9 @@
 @echo off
-echo "-------è¯·è¾“å…¥æœ¬æ¬¡æ›´æ–°æè¿°----------------"
+echo "-------ÇëÊäÈë±¾´Î¸üĞÂÃèÊö----------------"
 set /p msg=
 git add .
-git commit -m "æäº¤ä¿®æ”¹ %msg%"
+git commit -m "Ìá½»ĞŞ¸Ä %msg%"
 git pull
 git push  origin source
-echo "--------æäº¤å®Œæˆ--------------"
+echo "--------Ìá½»Íê³É--------------"
 pause
