@@ -8,7 +8,6 @@ tags:
   - 批处理
 date: 2020-07-12 00:11:17
 ---
-<div align='center' ><font size='40'>Git操作</font></div>
 
 ## 1，第一次建立分支
   + 在github创建分支source，到setting里找到分支，将默认分支设置问source
@@ -22,11 +21,13 @@ git commit -m "描述" //添加文件的描述
 git push origin source    //推送到github的source分支
 
 ```
+
 ## 修改文件，并提交github,三步走
   + 修改README.md文件
   + 执行`git add .`，将所有修改的文件从工作区添加到暂存区
   + 执行`git commit -m "我在测试修改文件并提交"` git commit 主要是将暂存区里的改动给提交到本地的版本库
   + 执行`git push origin source` 将本地版本库的分支推送到远程服务器上对应的分支
+  
 ## Git代码提交流程
 
 ### 简单的代码提交流程
@@ -34,6 +35,7 @@ git push origin source    //推送到github的source分支
   + git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录
   + git commit -m ‘注释’ 将缓存区内容添加到本地仓库
   + git push origin master 将本地版本库推送到远程服务器，origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修改的
+  
 ### Git add
 > git add [参数] <路径>　作用就是将我们需要提交的代码从工作区添加到暂存区，就是告诉git系统，我们要提交哪些文件，之后就可以使用git commit命令进行提交了。
  为了方便下面都用 . 来标识路径， . 表示当前目录，路径可以修改，下列操作的作用范围都在版本库之内。
@@ -46,6 +48,7 @@ git push origin source    //推送到github的source分支
 
 #### git add -A .
 >-A 表示将所有的已跟踪的文件的修改与删除和新增的未跟踪的文件都添加到暂存区。
+
 ### Git commit
 > git commit 主要是将暂存区里的改动给提交到本地的版本库。每次使用git commit 命令我们都会在本地版本库生成一个40位的哈希值，这个哈希值也叫commit-id，
  commit-id 在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git reset的组合命令回到这里.
@@ -64,10 +67,13 @@ message即是我们用来简要说明这次提交的语句。
 
 #### git push origin master
 >如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建
+
 #### git push origin ：refs/for/master
 >如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin --delete master
+
 #### git push origin
 >如果当前分支与远程分支存在追踪关系，则本地分支和远程分支都可以省略，将当前分支推送到origin主机的对应分支
+
 #### git push
 >如果当前分支只有一个远程分支，那么主机名都可以省略，形如 git push，可以使用git branch -r ，查看远程的分支名
  关于 refs/for：
@@ -78,6 +84,7 @@ refs/for 的意义在于我们提交代码到服务器之后是需要经过code 
 # 2，记一次git操作
  >目的是将joy_common提交到git
  >我的git上有个JAVA的库，没有可以新建一个，我打算提交到这里，下面是操作
+ 
   + 在本地joy_common同级目录下执行的`git clone https://github.com/NGY198888/JAVA.git .`，报错`fatal: destination path '.' already exists and is not an empty directory.`可能非空目录有这个问题
   + 执行`git clone https://github.com/NGY198888/JAVA.git`，会拉取到JAVA目录，
   + 将里面的.git复制到joy_common同级目录下
@@ -89,14 +96,15 @@ refs/for 的意义在于我们提交代码到服务器之后是需要经过code 
 # 使用bat提交
  + 新建一个.bat文件
  + 编写代码
-    ``` cmd
-    @echo off
-    echo "-------请输入本次更新描述----------------"
-    set /p msg=
-    git add .
-    git commit -m "提交修改 %msg%"
-    git pull
-    git push  origin source
-    echo "--------提交完成--------------"
-    pause
-    ```
+ 
+``` cmd
+@echo off
+echo "-------请输入本次更新描述----------------"
+set /p msg=
+git add .
+git commit -m "提交修改 %msg%"
+git pull
+git push  origin source
+echo "--------提交完成--------------"
+pause
+```
