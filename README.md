@@ -68,10 +68,25 @@ refs/for 的意义在于我们提交代码到服务器之后是需要经过code 
 # 2，记一次git操作
  >目的是将joy_common提交到git
  >我的git上有个JAVA的库，没有可以新建一个，我打算提交到这里，下面是操作
-+ 在本地joy_common同级目录下执行的`git clone https://github.com/NGY198888/JAVA.git .`，报错`fatal: destination path '.' already exists and is not an empty directory.`可能非空目录有这个问题
-+ 执行`git clone https://github.com/NGY198888/JAVA.git`，会拉取到JAVA目录，
-+ 将里面的.git复制到joy_common同级目录下
-+ 执行`git reset --hard HEAD`，进行同步，下面就可以正常操作了
-+ 执行`git add joy_common`
-+ 执行`git commit -m "添加common"`
-+ 执行`git push`没问题的话，jor_common就已经提交到GitHub了
+  + 在本地joy_common同级目录下执行的`git clone https://github.com/NGY198888/JAVA.git .`，报错`fatal: destination path '.' already exists and is not an empty directory.`可能非空目录有这个问题
+  + 执行`git clone https://github.com/NGY198888/JAVA.git`，会拉取到JAVA目录，
+  + 将里面的.git复制到joy_common同级目录下
+  + 执行`git reset --hard HEAD`，进行同步，下面就可以正常操作了
+  + 执行`git add joy_common`
+  + 执行`git commit -m "添加common"`
+  + 执行`git push`没问题的话，jor_common就已经提交到GitHub了
+
+# 使用bat提交
+ + 新建一个.bat文件
+ + 编写代码
+    ``` cmd
+    @echo off
+    echo "-------请输入本次更新描述----------------"
+    set /p msg=
+    git add .
+    git commit -m "提交修改 %msg%"
+    git pull
+    git push  origin source
+    echo "--------提交完成--------------"
+    pause
+    ```
