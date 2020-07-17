@@ -1,770 +1,398 @@
-
 <!DOCTYPE html>
-<html lang="zh">
 
 
 
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <script>
-    window.themeRuntime = {
-      root: "/NGY198888.gtihub.io/",
-      scriptsMap: {},
-      init: {
-        status: false
-      },
-      commentRest: {
-        status: false
-      },
-      versions: {
-        theme: "2.1.0",
-        mdui: "0.4.0",
-        fetch: "3.0.0",
-        es6promise: "4.2.5+7f2b526d",
-        lightgallery: "1.0.1",
-        smoothscroll: "15.2.0"
-      }
-      
-    };
-    console.info("%cCopyright © 2018 - " + new Date().getFullYear() +" Halyul\n"+'Theme Version: ' + themeRuntime.versions.theme +'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
-  </script>
-  <!--
-        © HEXO MDUI Theme
-        https://github.com/Halyul/hexo-theme-mdui
-        -->
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-  <meta charset="UTF-8">
-  <title>SKU选择算法笔记 - 想你开心每一天</title>
 
-  <!-- Favicons -->
-  <link rel="icon shortcut" type="image/ico" href="/NGY198888.gtihub.io/images/favicon.png">
-  <link rel="icon" sizes="192x192" href="/NGY198888.gtihub.io/images/favicon.png">
-  <link rel="apple-touch-icon" href="/NGY198888.gtihub.io/images/favicon.png">
-
-  <!-- Meta & Info -->
-  <meta http-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-  <meta name="theme-color" content="#fff">
-
-  <meta name="author" content="NGY">
-  
-      <meta name="description" content="想你开心每一天">
-  
-  <meta name="keywords" content="blog, hexo, mdui,SKU,商城,最小库存单元">
-
-  <!--iOS -->
-  <meta name="apple-mobile-web-app-title" content="想你开心每一天">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="480">
-
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- The Open Graph protocol -->
-  <meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io">
-  <meta property="og:type" content="blog">
-  <meta property="og:title" content="SKU选择算法笔记 - 想你开心每一天 | 想你开心每一天">
-  <meta property="og:image" content="/images/favicon.png" />
-  
-    <meta property="og:description" content="想你开心每一天">
-  
 
   
-    <meta property="og:article:tag" content="SKU">
-  
-    <meta property="og:article:tag" content="商城">
-  
-    <meta property="og:article:tag" content="最小库存单元">
-  
-
-  
-
-  <!-- Import CSS -->
   
     
-<link rel="stylesheet" href="/NGY198888.gtihub.io/css/mdui.css">
+    
+  <script src="/NGY198888.gtihub.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/NGY198888.gtihub.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
-
   
+  <link href="/NGY198888.gtihub.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/NGY198888.gtihub.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/NGY198888.gtihub.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/NGY198888.gtihub.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/NGY198888.gtihub.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/NGY198888.gtihub.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/NGY198888.gtihub.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="SKU,商城,最小库存单元," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="前言   网上搜的搞不懂，记录一种自己的笨方案，代码部分涉及es6，ui渲染没有贴出来 sku定义   SKU&#x3D;Stock Keeping Unit（库存量单位）。即库存进出计量的基本单元，可以是以件，盒，托盘等为单位。SKU这是对于大型连锁超市DC（配送中心）物流管理的一个必要的方法。现在已经被引申为产品统一编号的简称，每种产品均对应有唯一的SKU号 数据库设计 这个设计跟网上的设计有所不同，网">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SKU选择算法笔记">
+<meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="想你开心每一天">
+<meta property="og:description" content="前言   网上搜的搞不懂，记录一种自己的笨方案，代码部分涉及es6，ui渲染没有贴出来 sku定义   SKU&#x3D;Stock Keeping Unit（库存量单位）。即库存进出计量的基本单元，可以是以件，盒，托盘等为单位。SKU这是对于大型连锁超市DC（配送中心）物流管理的一个必要的方法。现在已经被引申为产品统一编号的简称，每种产品均对应有唯一的SKU号 数据库设计 这个设计跟网上的设计有所不同，网">
+<meta property="og:image" content="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/1.png">
+<meta property="og:image" content="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/2.png">
+<meta property="og:image" content="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/3.png">
+<meta property="og:image" content="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/4.png">
+<meta property="article:published_time" content="2020-07-11T16:48:08.000Z">
+<meta property="article:modified_time" content="2020-07-12T17:34:26.927Z">
+<meta property="article:author" content="NGY">
+<meta property="article:tag" content="SKU">
+<meta property="article:tag" content="商城">
+<meta property="article:tag" content="最小库存单元">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/NGY198888.gtihub.io/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/前端/SKU选择算法/"/>
+
+
+
+
+
+  <title>SKU选择算法笔记 | 想你开心每一天</title>
+  
+
+
+
+
+
+
+
 
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/NGY198888.gtihub.io/atom.xml" title="想你开心每一天" type="application/atom+xml">
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-deep-purple">
-
-  <style>
-    #spinner {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-          opacity: 1;
-      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-    }
-    main {
-      opacity: 0;
-      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-      display: none;
-    }
-  </style>
-  <div id="spinner">
-    <style>
-      .spinner {
-
-      -webkit-animation: rotator 1.4s linear infinite;
-              animation: rotator 1.4s linear infinite;
-      }
-
-      @-webkit-keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
-      }
-      }
-
-      @keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
-      }
-      }
-
-      .path {
-      stroke-dasharray: 187;
-      stroke-dashoffset: 0;
-      -webkit-transform-origin: center;
-              transform-origin: center;
-      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-      }
-
-      @-webkit-keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-      }
-
-      @keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-      }
-
-      @-webkit-keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-                transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-                transform: rotate(450deg);
-      }
-      }
-
-      @keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-                transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-                transform: rotate(450deg);
-      }
-      }
-    </style>
-    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-    </svg>
-  </div>
-
-  <main>
-    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
-  <div class="mdui-toolbar theme-toolbar-top">
-    
-      <a href="/NGY198888.gtihub.io/" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--arrow">
-        <i class="mdui-icon">
-          <span></span>
-        </i>
-      </a>
-    
-    <div class="mdui-toolbar-spacer"></div>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__mode-switch">
-      <i class="mdui-icon material-icons  theme-appbar__bright-mode">&#xe1ac;</i>
-      <i class="mdui-icon material-icons  theme-appbar__dark-mode" style="display: none;">&#xe3a7;</i>
-    </a>
-  </div>
-  <div class="mdui-toolbar theme-toolbar-bottom">
-    <span class="theme-toolbar-bottom__title">想你开心每一天</span>
-    
-      <a href="/NGY198888.gtihub.io/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
-        <i class="mdui-icon material-icons">&#xe8b6;</i>
-      </a>
-    
-  </div>
-  <div class="mdui-progress theme-appbar__progress" id="progressBar">
-    <div class="mdui-progress-indeterminate"></div>
-  </div>
-</div>
-
-    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
-  <!-- header -->
-  <div class="theme-drawer__header">
-  <div class="theme-drawer__header__layer-1">
-    <div class="mdui-toolbar theme-toolbar-top">
-      
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer theme-appbar__burger--arrow" id="drawer-back">
-          <i class="mdui-icon">
-            <span></span>
-          </i>
-        </a>
-      
-    </div>
-    <div class="mdui-toolbar theme-toolbar-bottom">
-      <span class="theme-toolbar-bottom__title">想你开心每一天</span>
-    </div>
-  </div>
-  <div class="theme-drawer__header__layer-2" style="background-image: url(/NGY198888.gtihub.io/images/bg.png)">
-    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/NGY198888.gtihub.io/images/avatar.png"/>
-    <div class="theme-drawer__header__layer-2__user__info">
-      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
-        NGY
-      </div>
-      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
-        路遥知马力——日久
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div class="theme-drawer__warpper">
-    <!-- content -->
-    <div class="theme-drawer__warpper__content">
-  <ul class="mdui-list">
-    <a href="/NGY198888.gtihub.io/" class="mdui-list-item mdui-ripple mdui-ripple-white">
-      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
-      <div class="mdui-list-item-content">首页</div>
-    </a>
-    <a href="/NGY198888.gtihub.io/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
-      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
-      <div class="mdui-list-item-content">归档</div>
-    </a>
-    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
-      
-        <div class="mdui-collapse-item ">
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe86e;</i>
-            <div class="mdui-list-item-content">分类</div>
-            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                前端
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">5</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                后端
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">4</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                工具
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">4</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                物联网
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodejs
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-          </div>
-        </div>
-      
-      
-        <div class="mdui-collapse-item ">
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-            <div class="mdui-list-item-content">标签</div>
-            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-            
-              <a href="/NGY198888.gtihub.io/tags/electron/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                electron
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%A1%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                桌面开发
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/rabbitmq/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                rabbitmq
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/taro/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                taro
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                小程序
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/stomp/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                stomp
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E8%A7%84%E8%8C%83/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                规范
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/SKU/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                SKU
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E5%95%86%E5%9F%8E/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                商城
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%9C%80%E5%B0%8F%E5%BA%93%E5%AD%98%E5%8D%95%E5%85%83/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                最小库存单元
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/adonisjs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                adonisjs
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodejs
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/lucid-mongo/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                lucid-mongo
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/CRUD/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                CRUD
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%8E%A5%E5%8F%A3/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                接口
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/contos/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                contos
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%9C%8D%E5%8A%A1/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                服务
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/java/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                java
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">3</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/jar/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                jar
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/windows%E6%9C%8D%E5%8A%A1/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                windows服务
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E4%B8%8A%E4%BC%A0/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                上传
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/php/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                php
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/git/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                git
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/bat/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                bat
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                批处理
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/IDEA/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                IDEA
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/Rest/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                Rest
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                http请求
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                vscode插件
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                消息队列
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/mq/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                mq
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                物联网
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/nodered/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodered
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-          </div>
-        </div>
-      
-      <div class="mdui-collapse-item ">
-        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
-          <div class="mdui-list-item-content">年份</div>
-          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-        </div>
-        <div class="mdui-collapse-item-body mdui-list">
-          
-          
-            <a href="/NGY198888.gtihub.io/archives/2020/" class="mdui-list-item mdui-ripple">
-              2020
-            </a>
-          
-        </div>
-      </div>
-    </ul>
-  </ul>
   
-    <div class="mdui-divider"></div>
-    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/NGY198888.gtihub.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">想你开心每一天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">想你开心每一天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/NGY198888.gtihub.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/NGY198888.gtihub.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/NGY198888.gtihub.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
       
     </ul>
   
-</div>
 
-    <div class="theme-spacer"></div>
-    <!-- footer -->
-    <div class="theme-drawer__warpper__footer">
-  <div class="mdui-typo mdui-typo-caption-opacity">
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <!-- 不蒜子统计 -->
-      <span >
-        <i class="fa fa-eye" aria-hidden="true" style="font-size: smaller;"></i>&nbsp;总访问量<span id="busuanzi_value_site_pv"></span>次
-      </span>
-      <br />
-      <span  >
-        <i class="fa fa-user" aria-hidden="true" style="font-size: smaller;"></i>&nbsp;访客数<span id="busuanzi_value_site_uv"></span>人
-      </span>
-      <br />
-      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-   
-    <!-- Powered by <a href="javascript:void(0)" >Hexo</a>
-    <br />
-    Theme - <a href="javascript:void(0)" >Halyul/MDUI</a>
-    <br /> -->
-    <span>
-      Copyright ©
-      <span year></span>
-      NGY
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
     </span>
-    
-      <br />
-      <span>中国移不动</span>
-    
-    
-      <br />
-      <span>
-        最后更新于: 7月 16, 2020
-      </span>
-    
-    
-  </div>
-</div>
-<script type="text/javascript">
-  var copyrightNow = new Date().getFullYear();
-  var textContent = document.querySelector('span[year]')
-  
-    copyrightSince = 2020;
-    if (copyrightSince === copyrightNow) {
-      textContent.textContent = copyrightNow
-    } else {
-      textContent.textContent = copyrightSince + ' - ' + copyrightNow
-    }
-  
-</script>
 
-  </div>
-</div>
-
-    <div id="top"></div>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
 
     
-<script src="/NGY198888.gtihub.io/js/lightgallery.min.js"></script>
+      <header class="post-header">
 
-
-    <div id="barba-wrapper">
-      <div class="barba-container"  data-namespace="post">
-        
-
-
-
-  
-<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/darcula.min.css">
-
-
-
-  
-<link rel="stylesheet" href="/NGY198888.gtihub.io/css/prism/line-number.min.css">
-
-
-
-<div class="theme-post">
-  <div class="theme-post__background mdui-color-theme"></div>
-  <div class="theme-post__header mdui-color-theme">
-    <div class="theme-post__header__title mdui-text-truncate">
-      SKU选择算法笔记
-    </div>
-    <div class="theme-spacer"></div>
-    <div class="theme-post__header__actions mdui-valign">
-      <div>
-        <i class="fa fa-calendar-o" aria-hidden="true" style="font-size: smaller;"></i>&nbsp; <span>发表时间：</span>
-        <span style="float: right">7月 12, 2020</span>
-        
-        <!-- <br />
-          <span>最后修改时间：</span>
-          <span>7月 13, 2020</span> -->
         
         
-                <!-- 不蒜子统计 -->
-                <br />
-                <span >
-                  <i class="fa fa-smile-o" aria-hidden="true" style="font-size: smaller;"></i>&nbsp;&nbsp;阅读数: <span id="busuanzi_value_page_pv"></span>次
+          <h1 class="post-title" itemprop="name headline">SKU选择算法笔记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:48:08+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
                 </span>
-        
-      </div>
-      
-  <div class="theme-post__qrcode">
-    <button class="mdui-btn mdui-ripple mdui-btn-icon mdui-hidden-xs-down" mdui-menu="{target: '#qrcode-menu'}">
-      <i class="mdui-icon material-icons">&#xe337;</i>
-    </button>
-    <ul class="mdui-menu" id="qrcode-menu">
-      <li class="mdui-list-item" style="cursor: auto">
-        文章二维码
-      </li>
-        <img class="mdui-img-fluid" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAT4AAAE+CAAAAAAxUyPsAAAE1UlEQVR42u3awW7bMBAE0Pz/T7fXAq3kmV3KSZqnk+HIFvkYwMtZfvxyLa4PBPjw4cPnwocPHz4XPnzfhO8jvq4+9ec7/3jY7T1///Xqe/KnJyNfzR0fPnz48OFb8yXDTd5psRLEPfEVx3Du+PDhw4cP3yG+5DEJ3HArHpcObSmzKXfw4cOHDx++r8DXkuWfSu48BoEPHz58+PB9E762iEneb5sE+wXGhw8fPnz4PpevfUyCmHw2abG3i5cXQG/tdeDDhw8fPnzlIa3/7/Vbz/fhw4cPH74fz7dpZt8PIi8UklC+LYbOtvDx4cOHDx++U3z5D/lsYglxWzbdRwkz+iLix4cPHz58+BZ8STN7xt0WEHnpky9bW35F5RQ+fPjw4cP3MN8+sk+WISlBNm34WRFWhPX48OHDhw/fY33elr49cNbG8ZtjbXkpgw8fPnz48O35TkXYG9xZ2zsvjJL3i0IHHz58+PDhW/PVgfUofM/b1XnEsH+nHgk+fPjw4cO34Munutm0tyVIW9DkQAeKLXz48OHDh2/Bl0yjHVy+7d8E+pvWezKqy/Hgw4cPHz58C7580MnRrv2Ei2mUTYX2my/HjA8fPnz48C342mPfOeKMrA3QN0VP3h7Ahw8fPnz4nuDbhOybEqSdTNtI2BPjw4cPHz58z/HNpr0phtqCZn+4LZ8vPnz48OHDd5bvfmPfDn22GG3ZMTuaNov18eHDhw8fvrN8bTmSTyzZricLlkQVCXH+rDoywIcPHz58+GK+vFjJf+xPhe9J071t4c/CCHz48OHDh+8UX7J1zzfneZnSFk/7p+xbDvjw4cOHD99ZvrzJvWFKyoVTxdCmMT9MXPDhw4cPH76AL0fJN/OzZnYeBLSN87ZIupwXPnz48OHDt+A7VWTk4fimSTBrFWxi+sfP9+HDhw8fvh/Gtwd6omRpW+BJaZIXMS8+hQ8fPnz48K352h/7TSs6j+Pblnyy8LP78eHDhw8fvlN8s1g8aW8nIXiClS/Dc8UTPnz48OHD906+/IhYi7K5Zx9hDJv0+PDhw4cP38N8+f1tlJAfC5sVLpvvvPxmfPjw4cOHb8HXxuLJVNtQPifYNAzysOPFqPDhw4cPH74136lg/YnY/VThks+0COvx4cOHDx++Q33eNgTfcG8KizaYuB/hscQFHz58+PDhCyKDTXs7Pz6+aVrvWwhtKz2q+/Dhw4cPH76YL5/ShnVWUrT3zBa4HjM+fPjw4cO34Cu2yqMG8/0CzA6Wbdrks2XAhw8fPnz4TvHNNuH50bF91J63zPPFyEeCDx8+fPjwPceXx+X3NPmxs/xTeRl0NqzHhw8fPnz4zvKdalHvmfZA7YG5/MKHDx8+fPhO8bVXu0WfbenbICMPGjaH2/Dhw4cPH7493/DHex0xJAXHLLi/H+HmNT58+PDhw3eKbz+sJBqYLcDsiNtmCV/8E+DDhw8fPnyH+Nof+83Pf8uUo79ocpclWhQZ4MOHDx8+fJ/E1wb9SQu8DTXOFkNvLVzw4cOHDx++9Sa8jfLvERPoWfmS/0Pgw4cPHz58p/iSsP5qWG2Yvm+iz8Z5YO748OHDhw/fmq/dkN8jJq/zBcgLnbZJ34Ya+PDhw4cP357P1V748OHDh8+FDx8+fC58+L7w9RseLt9tnUyAwQAAAABJRU5ErkJggg==" style="cursor: auto">
-    </ul>
-  </div>
 
+                
+                
+              
+            </span>
+          
 
-      
-  <div class="theme-post__share">
-    <button class="mdui-btn mdui-ripple mdui-btn-icon" mdui-menu="{target: '#post-share-menu'}">
-      <i class="mdui-icon material-icons">&#xe80d;</i>
-    </button>
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
-    <ul class="mdui-menu" id="post-share-menu">
+          
+          
 
-      
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
-      
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
 
-      
+              
+                <span class="post-meta-divider">|</span>
+              
 
-      
-        <li class="mdui-menu-item">
-            <a href="http://connect.qq.com/widget/shareqq/index.html?site=想你开心每一天&title=SKU选择算法笔记&summary=想你开心每一天&pics=https://ngy198888.github.io/NGY198888.gtihub.io/images/favicon.png&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/index.html" target="_blank" class="mdui-ripple">
-                分享到QQ
-            </a>
-        </li>
-      
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
 
-      
+          
 
-      
-
-      
-        <li class="mdui-menu-item">
-            <a href="http://service.weibo.com/share.php?appkey=&title=SKU选择算法笔记&url=https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io//NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/index.html&pic=&searchPic=false&style=simple" target="_blank" class="mdui-ripple">
-                分享到微博
-            </a>
-        </li>
-      
-
-    </ul>
-  </div>
-
-
-    </div>
-  </div>
-  <div class="theme-post__warpper
+        </div>
+      </header>
     
-  ">
-    <div class="theme-post__warpper__container">
-      <article class="mdui-card theme-post__card mdui-hoverable">
-        <section class="theme-post__card__warning">
-          这篇文章最后修改于
-          <span id="content-warning"></span>
-          天之前。
-          本页内容可能已经过时！
-        </section>
-        
-          <section class="theme-post__card__count">
-            
-              <span>
-                本文共1.9k字。
-              </span>
-            
-            
-              <span>
-                阅读大约需要7分钟。
-              </span>
-            
-          </section>
-        
-        
-          <section class="mdui-card-media">
-            <img src="/NGY198888.gtihub.io/images/random/22.png"/>
-          </section>
-        
-        <section class="mdui-typo theme-post__card__content">
-          <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>   网上搜的搞不懂，记录一种自己的笨方案，代码部分涉及es6，ui渲染没有贴出来</p>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>   网上搜的搞不懂，记录一种自己的笨方案，代码部分涉及es6，ui渲染没有贴出来</p>
 <h1 id="sku定义"><a href="#sku定义" class="headerlink" title="sku定义"></a>sku定义</h1><p>   SKU=Stock Keeping Unit（库存量单位）。即库存进出计量的基本单元，可以是以件，盒，托盘等为单位。SKU这是对于大型连锁超市DC（配送中心）物流管理的一个必要的方法。现在已经被引申为产品统一编号的简称，每种产品均对应有唯一的SKU号</p>
 <h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><ul>
 <li><p>这个设计跟网上的设计有所不同，网上是用id表示唯一性的，但是这里的id不能用于sku计算</p>
@@ -775,180 +403,180 @@
 </li>
 <li><p>mall_goods_attr_sku存放的是某个具体的且有库存的sku信息，并且本方案是由具体的sku来决定自己的图片，没有图片的sku或者当没有命中sku时，显示商品默认图片<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/1.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/2.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/3.png" alt></p>
 <h1 id="接口返回数据"><a href="#接口返回数据" class="headerlink" title="接口返回数据"></a>接口返回数据</h1><p>sku表数据原样返回<br>key和val表数据进行了整合，每一条表示一个规格组，vals表示他有哪些规格值，key，val都是按照序号排序过的<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/4.png" alt></p>
-<h1 id="计算类"><a href="#计算类" class="headerlink" title="计算类"></a>计算类</h1><h2 id="说明-select-index-之前表示-当此选择的项下标，传null则代表取消勾选-后来改成直接传规格值文字了"><a href="#说明-select-index-之前表示-当此选择的项下标，传null则代表取消勾选-后来改成直接传规格值文字了" class="headerlink" title="说明 select_index 之前表示 当此选择的项下标，传null则代表取消勾选,后来改成直接传规格值文字了"></a>说明 select_index 之前表示 当此选择的项下标，传null则代表取消勾选,后来改成直接传规格值文字了</h2><pre class="line-numbers language-js" mdui-tooltip="{content: 'js'}"><code class="language-js"><span class="token keyword">import</span> _cloneDeep <span class="token keyword">from</span> <span class="token string">'lodash/cloneDeep'</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">class</span> <span class="token class-name">SkuLogic</span><span class="token punctuation">{</span>
-<span class="token function">dealImage</span><span class="token punctuation">(</span>goods_list<span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> goods_list<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>goods_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>selectSku<span class="token operator">!=</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>goods_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>selectSku<span class="token punctuation">.</span>image<span class="token operator">!=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            goods_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>path<span class="token operator">=</span>goods_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>selectSku<span class="token punctuation">.</span>image<span class="token punctuation">;</span>
-            goods_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>sm_path<span class="token operator">=</span>goods_list<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>selectSku<span class="token punctuation">.</span>image<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-     <span class="token punctuation">}</span>
-     <span class="token keyword">return</span> goods_list<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">initGoodsInfo</span><span class="token punctuation">(</span>goods_info<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    goods_info<span class="token punctuation">.</span>sku<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">initSkus</span><span class="token punctuation">(</span>goods_info<span class="token punctuation">.</span>sku<span class="token punctuation">,</span>goods_info<span class="token punctuation">.</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> <span class="token punctuation">{</span>selectSku<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>selectSkuTips<span class="token punctuation">}</span><span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">initSkuSpecs</span><span class="token punctuation">(</span>goods_info<span class="token punctuation">.</span>sku<span class="token punctuation">,</span>goods_info<span class="token punctuation">.</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    goods_info<span class="token punctuation">.</span>totalStock<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calcTotalStock</span><span class="token punctuation">(</span>goods_info<span class="token punctuation">.</span>sku<span class="token punctuation">)</span>
-    goods_info<span class="token punctuation">.</span>selectSku<span class="token operator">=</span>selectSku
-    goods_info<span class="token punctuation">.</span>skuSpecs<span class="token operator">=</span>skuSpecs
-    goods_info<span class="token punctuation">.</span>selectSkuTips<span class="token operator">=</span>selectSkuTips
-    <span class="token keyword">if</span><span class="token punctuation">(</span>goods_info<span class="token punctuation">.</span>skuSpecs<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span>
-        <span class="token operator">&amp;&amp;</span>goods_info<span class="token punctuation">.</span>sku<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">1</span>
-        <span class="token operator">&amp;&amp;</span>goods_info<span class="token punctuation">.</span>selectSku
-        <span class="token operator">&amp;&amp;</span>goods_info<span class="token punctuation">.</span>selectSku<span class="token punctuation">.</span>stock<span class="token operator">&lt;=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        goods_info<span class="token punctuation">.</span>num<span class="token operator">=</span><span class="token number">0</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> goods_info<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">get_key_path</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpecs<span class="token operator">&amp;&amp;</span>skuSpecs<span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">let</span> groupName_arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skuSpecs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> groupName<span class="token operator">=</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>groupName<span class="token operator">||</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>name
-             groupName_arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>groupName<span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-       <span class="token keyword">return</span> groupName_arr<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token string">''</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token function">initSkus</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>skus<span class="token operator">&amp;&amp;</span>skus<span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skus<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>price<span class="token operator">=</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>price<span class="token operator">||</span><span class="token number">0</span><span class="token punctuation">)</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>discount_price<span class="token operator">=</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>discount_price<span class="token operator">||</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>price<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//没填就是原价</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>discount_price<span class="token operator">=</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>discount_price<span class="token punctuation">)</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>stock<span class="token operator">=</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>stock<span class="token operator">||</span><span class="token number">0</span><span class="token punctuation">)</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>attr_path<span class="token operator">=</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>attr_path<span class="token operator">||</span><span class="token string">''</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>sku_key_path<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">get_key_path</span><span class="token punctuation">(</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>sku_val_path<span class="token operator">=</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>attr_path
-            skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>image<span class="token operator">=</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>image<span class="token operator">||</span><span class="token string">''</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> skus<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//获取sku的规格组</span>
-<span class="token function">initSkuSpecs</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuKeyVals<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span>  skuSpecs<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span>  selectSku<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>skuKeyVals<span class="token operator">&amp;&amp;</span>skuKeyVals<span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span>
-    <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> select_able_ranges<span class="token operator">=</span><span class="token function">init_select_able_ranges</span><span class="token punctuation">(</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//每组可选范围</span>
-        select_able_ranges<span class="token operator">=</span> <span class="token function">init_ranges_by_stock</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>select_able_ranges<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>skuKeyVals<span class="token operator">&amp;&amp;</span>skuKeyVals<span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skuKeyVals<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">let</span> vals<span class="token operator">=</span><span class="token punctuation">(</span>skuKeyVals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'vals'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">=</span>
-                <span class="token punctuation">{</span>
-                    groupName<span class="token punctuation">:</span>skuKeyVals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-                    spec_list<span class="token punctuation">:</span>vals<span class="token punctuation">,</span>
-                    select_index<span class="token punctuation">:</span><span class="token keyword">null</span><span class="token punctuation">,</span>
-                    <span class="token comment" spellcheck="true">//交集</span>
-                    select_able_range<span class="token punctuation">:</span>select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span>
-                <span class="token punctuation">}</span><span class="token punctuation">;</span> 
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    selectSku<span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calcSelectSku</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> selectSkuTips<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calcSelectSkuTips</span><span class="token punctuation">(</span>selectSku<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>skus<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>selectSku<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>selectSkuTips<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
+<h1 id="计算类"><a href="#计算类" class="headerlink" title="计算类"></a>计算类</h1><h2 id="说明-select-index-之前表示-当此选择的项下标，传null则代表取消勾选-后来改成直接传规格值文字了"><a href="#说明-select-index-之前表示-当此选择的项下标，传null则代表取消勾选-后来改成直接传规格值文字了" class="headerlink" title="说明 select_index 之前表示 当此选择的项下标，传null则代表取消勾选,后来改成直接传规格值文字了"></a>说明 select_index 之前表示 当此选择的项下标，传null则代表取消勾选,后来改成直接传规格值文字了</h2><pre><code class="js">import _cloneDeep from &#39;lodash/cloneDeep&#39;;
+export default class SkuLogic{
+dealImage(goods_list){
+     for (let index = 0; index &lt; goods_list.length; index++) {
+        if(goods_list[index].selectSku!=null&amp;&amp;goods_list[index].selectSku.image!=&#39;&#39;){
+            goods_list[index].path=goods_list[index].selectSku.image;
+            goods_list[index].sm_path=goods_list[index].selectSku.image;
+        }
+     }
+     return goods_list;
+}
+initGoodsInfo(goods_info){
+    goods_info.sku=this.initSkus(goods_info.sku,goods_info.skuKeyVals);
+    let {selectSku,skuSpecs,selectSkuTips}=this.initSkuSpecs(goods_info.sku,goods_info.skuKeyVals);
+    goods_info.totalStock=this.calcTotalStock(goods_info.sku)
+    goods_info.selectSku=selectSku
+    goods_info.skuSpecs=skuSpecs
+    goods_info.selectSkuTips=selectSkuTips
+    if(goods_info.skuSpecs.length==0
+        &amp;&amp;goods_info.sku.length==1
+        &amp;&amp;goods_info.selectSku
+        &amp;&amp;goods_info.selectSku.stock&lt;=0){
+        goods_info.num=0
+    }
+    return goods_info;
+}
+get_key_path(skuSpecs) {
+    if(skuSpecs&amp;&amp;skuSpecs.length&gt;0){
+        let groupName_arr=[];
+        for (let index = 0; index &lt; skuSpecs.length; index++) {
+            let groupName=skuSpecs[index].groupName||skuSpecs[index].name
+             groupName_arr.push(groupName)
+        }
+       return groupName_arr.join(&#39;|&#39;)
+    }else{
+        return &#39;&#39;;
+    }
+}
+initSkus(skus,skuKeyVals){
+    if(skus&amp;&amp;skus.length&gt;0){
+        for (let index = 0; index &lt; skus.length; index++) {
+            skus[index].price=parseFloat(skus[index].price||0)
+            skus[index].discount_price=skus[index].discount_price||skus[index].price;//没填就是原价
+            skus[index].discount_price=parseFloat(skus[index].discount_price)
+            skus[index].stock=parseFloat(skus[index].stock||0)
+            skus[index].attr_path=skus[index].attr_path||&#39;&#39;
+            skus[index].sku_key_path=this.get_key_path(skuKeyVals);
+            skus[index].sku_val_path=skus[index].attr_path
+            skus[index].image=skus[index].image||&#39;&#39;
+        }
+    }
+    return skus;
+}
+//获取sku的规格组
+initSkuSpecs(skus,skuKeyVals) {
+    let  skuSpecs=[];
+    let  selectSku=null;
+    if(skuKeyVals&amp;&amp;skuKeyVals.length&gt;0)
+    {
+        let select_able_ranges=init_select_able_ranges(skuKeyVals);//每组可选范围
+        select_able_ranges= init_ranges_by_stock(skus,select_able_ranges);
+        if(skuKeyVals&amp;&amp;skuKeyVals.length&gt;0){
+            for (let index = 0; index &lt; skuKeyVals.length; index++) {
+                let vals=(skuKeyVals[index][&#39;vals&#39;]||&#39;&#39;).split(&#39;|&#39;);
+                skuSpecs[index]=
+                {
+                    groupName:skuKeyVals[index][&#39;name&#39;],
+                    spec_list:vals,
+                    select_index:null,
+                    //交集
+                    select_able_range:select_able_ranges[index]
+                }; 
+            }
+        }
+    }
+    selectSku= this.calcSelectSku(skus,skuSpecs);
+    let selectSkuTips=this.calcSelectSkuTips(selectSku,skuSpecs,skus);
+    return {selectSku,skuSpecs,selectSkuTips};
+}
 
-<span class="token comment" spellcheck="true">/**
+/**
  * 重新计算sku规格信息 
  * @param {*} skus 数据库拿到的sku数据
  * @param {*} skuKeyVals 数据库拿到的skuKeyVals数据
  * @param {*} skuSpecs 带有选中信息的sku结构
  * @param {*} group_index 当此选择的组下标
  * @param {*} select_index  当此选择的项下标，传null则代表取消勾选
- */</span>
-<span class="token function">calcSkuSpecs</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuKeyVals<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>group_index<span class="token punctuation">,</span>select_index<span class="token punctuation">,</span>_selectSku<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span>  selectSku<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span> checkSpec_arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//已经选择过的sku规格</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>group_index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_able_range<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>val<span class="token operator">=</span><span class="token operator">></span>val<span class="token operator">==</span> select_index<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token comment" spellcheck="true">//只响应可选的项</span>
-        skuSpecs<span class="token punctuation">[</span>group_index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token operator">=</span>skuSpecs<span class="token punctuation">[</span>group_index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token operator">==</span>select_index<span class="token operator">?</span><span class="token keyword">null</span><span class="token punctuation">:</span>select_index<span class="token punctuation">;</span><span class="token comment" spellcheck="true">//前后相等表示取消选择</span>
-        <span class="token keyword">let</span> select_able_ranges<span class="token operator">=</span><span class="token function">init_select_able_ranges</span><span class="token punctuation">(</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//每组可选范围</span>
-        select_able_ranges<span class="token operator">=</span> <span class="token function">init_ranges_by_stock</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>select_able_ranges<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>skus<span class="token operator">&amp;&amp;</span>skus<span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//模拟手动选择过程</span>
-            skuSpecs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>skuSpec<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpec<span class="token punctuation">.</span>select_index<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                  <span class="token keyword">let</span> <span class="token punctuation">{</span>select_able_ranges2<span class="token punctuation">,</span>checkSpec_arr2<span class="token punctuation">}</span><span class="token operator">=</span><span class="token function">checkSpec</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>select_able_ranges<span class="token punctuation">,</span>index<span class="token punctuation">,</span>skuSpec<span class="token punctuation">.</span>select_index<span class="token punctuation">,</span>checkSpec_arr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                  select_able_ranges<span class="token operator">=</span>select_able_ranges2<span class="token punctuation">;</span>
-                  checkSpec_arr<span class="token operator">=</span>checkSpec_arr2<span class="token punctuation">;</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span>
-            skuSpecs<span class="token operator">=</span> skuSpecs<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>skuSpec<span class="token punctuation">,</span>index<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                skuSpec<span class="token punctuation">.</span>select_able_range<span class="token operator">=</span>select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span> 
-                <span class="token keyword">return</span> skuSpec<span class="token punctuation">;</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-        selectSku<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calcSelectSku</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-        selectSku<span class="token operator">=</span>_selectSku<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> selectSkuTips<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">calcSelectSkuTips</span><span class="token punctuation">(</span>selectSku<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>skus<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>selectSku<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">:</span><span class="token function">_cloneDeep</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">)</span><span class="token punctuation">,</span>selectSkuTips<span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">calcSelectSkuTips</span><span class="token punctuation">(</span>selectSku<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>skus<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>skus<span class="token operator">||</span>skus<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">return</span> <span class="token string">'未设置规格'</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>selectSku<span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>selectSku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token operator">!=</span><span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">let</span> attrs <span class="token operator">=</span> <span class="token punctuation">(</span>selectSku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">return</span> <span class="token string">'已选 "'</span><span class="token operator">+</span>attrs<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'","'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"'</span><span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">else</span><span class="token punctuation">{</span>
-            <span class="token keyword">return</span> <span class="token string">''</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+ */
+calcSkuSpecs(skus,skuKeyVals,skuSpecs,group_index,select_index,_selectSku) {
+    let  selectSku=null;
+    let checkSpec_arr=[];//已经选择过的sku规格
+    if(skuSpecs[group_index].select_able_range.find(val=&gt;val== select_index)){
+        //只响应可选的项
+        skuSpecs[group_index].select_index=skuSpecs[group_index].select_index==select_index?null:select_index;//前后相等表示取消选择
+        let select_able_ranges=init_select_able_ranges(skuKeyVals);//每组可选范围
+        select_able_ranges= init_ranges_by_stock(skus,select_able_ranges);
+        if(skus&amp;&amp;skus.length&gt;0){
+            //模拟手动选择过程
+            skuSpecs.map((skuSpec,index)=&gt;{
+                if(skuSpec.select_index!=null){
+                  let {select_able_ranges2,checkSpec_arr2}=checkSpec(skus,skuSpecs,select_able_ranges,index,skuSpec.select_index,checkSpec_arr);
+                  select_able_ranges=select_able_ranges2;
+                  checkSpec_arr=checkSpec_arr2;
+                }
+            })
+            skuSpecs= skuSpecs.map((skuSpec,index)=&gt;{
+                skuSpec.select_able_range=select_able_ranges[index]; 
+                return skuSpec;
+            })
+        }
+        selectSku=this.calcSelectSku(skus,skuSpecs);
+    }else{
+        selectSku=_selectSku;
+    }
+    let selectSkuTips=this.calcSelectSkuTips(selectSku,skuSpecs,skus);
+    return {selectSku,skuSpecs:_cloneDeep(skuSpecs),selectSkuTips};
+}
+calcSelectSkuTips(selectSku,skuSpecs,skus){
+    if(!skus||skus.length==0){
+        return &#39;未设置规格&#39;
+    }
+    if(selectSku){
+        if(selectSku[&#39;attr_path&#39;]||&#39;&#39;!=&quot;&quot;){
+            let attrs = (selectSku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;);
+            return &#39;已选 &quot;&#39;+attrs.join(&#39;&quot;,&quot;&#39;)+&#39;&quot;&#39;;
+        }
+        else{
+            return &#39;&#39;
+        }
+    }else{
 
-        <span class="token keyword">let</span> unSelect<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skuSpecs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token operator">==</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                unSelect<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>groupName<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">return</span> <span class="token string">'请选择 "'</span><span class="token operator">+</span>unSelect<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">'","'</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token string">'"'</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/**
+        let unSelect=[];
+        for (let index = 0; index &lt; skuSpecs.length; index++) {
+            if(skuSpecs[index].select_index==null){
+                unSelect.push(skuSpecs[index].groupName);
+            }
+        }
+        return &#39;请选择 &quot;&#39;+unSelect.join(&#39;&quot;,&quot;&#39;)+&#39;&quot;&#39;;
+    }
+}
+/**
  * 计算选择了哪个sku
  * @param {*} skus 
  * @param {*} skuSpecs 
- */</span>
-<span class="token function">calcSelectSku</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span>  selectSku<span class="token operator">=</span><span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token keyword">let</span>  path_now<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">0</span><span class="token operator">||</span>skus<span class="token operator">&amp;&amp;</span>skus<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">1</span><span class="token operator">||</span><span class="token punctuation">(</span>skus<span class="token punctuation">.</span>length<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token comment" spellcheck="true">//&amp;&amp;skus[0]['attr_path']==''</span>
-        selectSku<span class="token operator">=</span>skus<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>
-    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skuSpecs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token operator">!=</span><span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                path_now<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token punctuation">)</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span>
-        <span class="token keyword">let</span> path_str<span class="token operator">=</span> path_now<span class="token punctuation">.</span><span class="token function">join</span><span class="token punctuation">(</span><span class="token string">"|"</span><span class="token punctuation">)</span>
-        <span class="token keyword">let</span> sku_now<span class="token operator">=</span> skus<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>sku<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token operator">==</span>path_str<span class="token punctuation">)</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>sku_now<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            selectSku<span class="token operator">=</span>sku_now
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> selectSku<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/** sku总库存 */</span>
-<span class="token function">calcTotalStock</span><span class="token punctuation">(</span>skus<span class="token punctuation">)</span><span class="token punctuation">{</span>
-     <span class="token keyword">let</span> stock<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>
-     <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skus<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        stock<span class="token operator">+</span><span class="token operator">=</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>skus<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>stock<span class="token punctuation">)</span><span class="token punctuation">;</span>
-     <span class="token punctuation">}</span>
-     <span class="token keyword">return</span> stock<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/**
+ */
+calcSelectSku(skus,skuSpecs){
+    let  selectSku=null;
+    let  path_now=[];
+    if(skuSpecs.length==0||skus&amp;&amp;skus.length==1||(skus.length==1)){//&amp;&amp;skus[0][&#39;attr_path&#39;]==&#39;&#39;
+        selectSku=skus[0]
+    }else{
+        for (let index = 0; index &lt; skuSpecs.length; index++) {
+            if(skuSpecs[index].select_index!=null){
+                path_now.push(skuSpecs[index].select_index)
+            }
+        }
+        let path_str= path_now.join(&quot;|&quot;)
+        let sku_now= skus.find(sku=&gt;(sku[&#39;attr_path&#39;]||&#39;&#39;)==path_str)
+        if(sku_now){
+            selectSku=sku_now
+        }
+    }
+    return selectSku;
+}
+/** sku总库存 */
+calcTotalStock(skus){
+     let stock=0;
+     for (let index = 0; index &lt; skus.length; index++) {
+        stock+=parseFloat(skus[index].stock);
+     }
+     return stock;
+}
+}
+/**
  * 每次计算选择的某一组对当前select_able_ranges的影响
  * @param {*} skus 
  * @param {*} skuSpecs 
@@ -956,88 +584,88 @@
  * @param {*} group_index 
  * @param {*} select_text 
  * @returns select_able_ranges2 被影响后的select_able_ranges
- */</span>
-<span class="token keyword">function</span> <span class="token function">checkSpec</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>skuSpecs<span class="token punctuation">,</span>select_able_ranges<span class="token punctuation">,</span>group_index<span class="token punctuation">,</span>select_text<span class="token punctuation">,</span>checkSpec_arr2<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> select_able_ranges2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//每组可选范围</span>
-    <span class="token comment" spellcheck="true">//let select_text=select_text</span>
-    <span class="token keyword">let</span> select_text_arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    checkSpec_arr2<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>group_index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> checkSpec_arr2<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        select_text_arr<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>checkSpec_arr2<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token punctuation">)</span> <span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">let</span> select_able_specOne<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//重新拿到有库存的规格，用于过滤未选的sku规格</span>
-    skus<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sku<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'stock'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token operator">&amp;&amp;</span><span class="token function">isContained</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>select_text_arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">let</span> attrs <span class="token operator">=</span> <span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            select_able_specOne <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>select_able_specOne<span class="token punctuation">,</span> <span class="token operator">...</span>attrs<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 并集</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> select_able_ranges<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">let</span> _i<span class="token operator">=</span>select_text_arr<span class="token punctuation">.</span><span class="token function">findIndex</span><span class="token punctuation">(</span>text<span class="token operator">=</span><span class="token operator">></span>text<span class="token operator">==</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">if</span><span class="token punctuation">(</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token operator">!=</span><span class="token keyword">null</span><span class="token operator">&amp;&amp;</span>_i<span class="token operator">></span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token comment" spellcheck="true">//已选的sku规格，用除了自己之外的已选sku规格来决定他自己哪些能选</span>
-           <span class="token keyword">let</span> select_text_arr2<span class="token operator">=</span>select_text_arr<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>text<span class="token operator">=</span><span class="token operator">></span>text<span class="token operator">!=</span>skuSpecs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">.</span>select_index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">let</span> select_able_specOne2<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-            skus<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sku<span class="token punctuation">)</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span>
-                <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'stock'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">></span><span class="token number">0</span><span class="token operator">&amp;&amp;</span><span class="token function">isContained</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>select_text_arr2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-                    <span class="token keyword">let</span> attrs <span class="token operator">=</span> <span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    select_able_specOne2 <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>select_able_specOne2<span class="token punctuation">,</span> <span class="token operator">...</span>attrs<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 并集</span>
-                <span class="token punctuation">}</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span>
-            select_able_ranges2<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">=</span>Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>select_able_specOne2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+ */
+function checkSpec(skus,skuSpecs,select_able_ranges,group_index,select_text,checkSpec_arr2){
+    let select_able_ranges2=[];//每组可选范围
+    //let select_text=select_text
+    let select_text_arr=[];
+    checkSpec_arr2.push(skuSpecs[group_index]);
+    for (let index = 0; index &lt; checkSpec_arr2.length; index++) {
+        select_text_arr.push(checkSpec_arr2[index].select_index) ;
+    }
+    let select_able_specOne=[];//重新拿到有库存的规格，用于过滤未选的sku规格
+    skus.map((sku)=&gt;{
+        if(parseFloat(sku[&#39;stock&#39;])&gt;0&amp;&amp;isContained((sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;),select_text_arr)){
+            let attrs = (sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;);
+            select_able_specOne = Array.from(new Set([...select_able_specOne, ...attrs])); // 并集
+        }
+    })
+    for (let index = 0; index &lt; select_able_ranges.length; index++) {
+        let _i=select_text_arr.findIndex(text=&gt;text==skuSpecs[index].select_index);
+        if(skuSpecs[index].select_index!=null&amp;&amp;_i&gt;-1){
+            //已选的sku规格，用除了自己之外的已选sku规格来决定他自己哪些能选
+           let select_text_arr2=select_text_arr.filter(text=&gt;text!=skuSpecs[index].select_index);
+            let select_able_specOne2=[];
+            skus.map((sku)=&gt;{
+                if(parseFloat(sku[&#39;stock&#39;])&gt;0&amp;&amp;isContained((sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;),select_text_arr2)){
+                    let attrs = (sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;);
+                    select_able_specOne2 = Array.from(new Set([...select_able_specOne2, ...attrs])); // 并集
+                }
+            })
+            select_able_ranges2[index]=Array.from(new Set([...select_able_ranges[index]].filter(x =&gt; new Set(select_able_specOne2).has(x))))
 
-        <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+        }else{
 
-            select_able_ranges2<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">=</span>Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">></span> <span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span>select_able_specOne<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token punctuation">{</span>select_able_ranges2<span class="token punctuation">,</span>checkSpec_arr2<span class="token punctuation">}</span>
+            select_able_ranges2[index]=Array.from(new Set([...select_able_ranges[index]].filter(x =&gt; new Set(select_able_specOne).has(x))))
+        }
+    }
+    return {select_able_ranges2,checkSpec_arr2}
 
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">//是否被包含,是返回true,不是返回false</span>
-<span class="token keyword">function</span>  isContained <span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span><span class="token punctuation">(</span>a <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">)</span> <span class="token operator">||</span> <span class="token operator">!</span><span class="token punctuation">(</span>b <span class="token keyword">instanceof</span> <span class="token class-name">Array</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length <span class="token operator">&lt;</span> b<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> aStr <span class="token operator">=</span> a<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> b<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>aStr<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>b<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/**
+}
+//是否被包含,是返回true,不是返回false
+function  isContained (a, b){
+    if(!(a instanceof Array) || !(b instanceof Array)) return false;
+    if(a.length &lt; b.length) return false;
+    var aStr = a.toString();
+    for(var i = 0, len = b.length; i &lt; len; i++){
+    if(aStr.indexOf(b[i]) == -1) return false;
+    }
+    return true;
+}
+/**
 * 初始化 select_able_ranges
 * @param {*} skuKeyVals 
-*/</span>
-<span class="token keyword">function</span> <span class="token function">init_select_able_ranges</span><span class="token punctuation">(</span>skuKeyVals<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    <span class="token keyword">let</span> select_able_ranges<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//每组可选范围</span>
-    <span class="token keyword">if</span><span class="token punctuation">(</span>skuKeyVals<span class="token operator">&amp;&amp;</span>skuKeyVals<span class="token punctuation">.</span>length<span class="token operator">></span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> skuKeyVals<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-            <span class="token keyword">let</span> vals<span class="token operator">=</span><span class="token punctuation">(</span>skuKeyVals<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string">'vals'</span><span class="token punctuation">]</span><span class="token operator">||</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">=</span>vals<span class="token punctuation">;</span>
-        <span class="token punctuation">}</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> select_able_ranges<span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">/**
+*/
+function init_select_able_ranges(skuKeyVals){
+    let select_able_ranges=[];//每组可选范围
+    if(skuKeyVals&amp;&amp;skuKeyVals.length&gt;0){
+        for (let index = 0; index &lt; skuKeyVals.length; index++) {
+            let vals=(skuKeyVals[index][&#39;vals&#39;]||&#39;&#39;).split(&#39;|&#39;);
+            select_able_ranges[index]=vals;
+        }
+    }
+    return select_able_ranges;
+    }
+/**
 * 计算库存对select_able_ranges的影响
 * @param {*} skus 
 * @param {*} select_able_ranges 
-*/</span>
-<span class="token keyword">function</span> <span class="token function">init_ranges_by_stock</span><span class="token punctuation">(</span>skus<span class="token punctuation">,</span>select_able_ranges<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> select_able_specs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>skus <span class="token operator">&amp;&amp;</span> skus<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        skus<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>sku<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">parseFloat</span><span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'stock'</span><span class="token punctuation">]</span> <span class="token punctuation">)</span> <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-                <span class="token keyword">let</span> attrs <span class="token operator">=</span> <span class="token punctuation">(</span>sku<span class="token punctuation">[</span><span class="token string">'attr_path'</span><span class="token punctuation">]</span> <span class="token operator">||</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">'|'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                select_able_specs <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>select_able_specs<span class="token punctuation">,</span> <span class="token operator">...</span>attrs<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 并集</span>
-            <span class="token punctuation">}</span>
-        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> select_able_ranges<span class="token punctuation">.</span>length<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token keyword">from</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token operator">...</span>select_able_specs<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>x <span class="token operator">=</span><span class="token operator">></span><span class="token keyword">new</span> <span class="token class-name">Set</span><span class="token punctuation">(</span> select_able_ranges<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">has</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span>
-    <span class="token keyword">return</span> select_able_ranges<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+*/
+function init_ranges_by_stock(skus,select_able_ranges) {
+    let select_able_specs = [];
+    if (skus &amp;&amp; skus.length &gt; 0) {
+        skus.map((sku) =&gt; {
+            if (parseFloat(sku[&#39;stock&#39;] ) &gt; 0) {
+                let attrs = (sku[&#39;attr_path&#39;] || &#39;&#39;).split(&#39;|&#39;);
+                select_able_specs = Array.from(new Set([...select_able_specs, ...attrs])); // 并集
+            }
+        });
+    }
+    for (let index = 0; index &lt; select_able_ranges.length; index++) {
+        select_able_ranges[index]= Array.from(new Set([...select_able_specs].filter(x =&gt;new Set( select_able_ranges[index]).has(x))))
+    }
+    return select_able_ranges;
+}</code></pre>
 </li>
 </ul>
 <h1 id="字段定义"><a href="#字段定义" class="headerlink" title="字段定义"></a>字段定义</h1><ul>
@@ -1067,396 +695,446 @@
 </li>
 </ul>
 
-        </section>
+      
+    </div>
+    
+    
+    
 
-        
-          <section class="theme-post__card__license mdui-typo">
-            <span>
-              许可协议：
-              
-                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank">CC BY-NC-SA 4.0</a>
-              
-            </span>
-            <br />
-            <span>永久链接：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/</a></span>
-            
-              <br />
-              <span>本文MD：<a href="https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/前端/SKU选择算法.md">https://ngy198888.github.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/前端/SKU选择算法.md</a></span>
-            
-          </section>
-        
+    
 
-        
-          <section class="mdui-card-actions theme-post__card__actions">
-            
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple  mdui-color-red" mdui-tooltip="{content: '打赏', position: 'right'}" mdui-dialog="{target: '#donateDialog'}">
-                <i class="mdui-icon fa fa-beer"></i>
-              </button>
-            
-            <div class="theme-spacer"></div>
-            
-              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
-                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon material-icons">&#xe149;</i></span>
-              </div>
-              <div class="mdui-typo">
-                
-                  <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/">
-                    <span>前端</span>
-                  </a>
-                
-              </div>
-            
-            
-              <div class="mdui-chip theme-post__card__chip--bg theme-post__card__chip--margin">
-                <span class="mdui-chip-icon theme-post__card__chip--bg"><i class="mdui-icon mdui-text-color-black-icon fa fa-tags"></i></span>
-              </div>
-              <div class="mdui-typo">
-                
-                  <a href="/NGY198888.gtihub.io/tags/SKU/">
-                    <span>SKU</span>
-                  </a>
-                
-                  <a href="/NGY198888.gtihub.io/tags/%E5%95%86%E5%9F%8E/">
-                    <span>商城</span>
-                  </a>
-                
-                  <a href="/NGY198888.gtihub.io/tags/%E6%9C%80%E5%B0%8F%E5%BA%93%E5%AD%98%E5%8D%95%E5%85%83/">
-                    <span>最小库存单元</span>
-                  </a>
-                
-              </div>
-            
-          </section>
-        
+    
 
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/NGY198888.gtihub.io/tags/SKU/" rel="tag"># SKU</a>
+          
+            <a href="/NGY198888.gtihub.io/tags/%E5%95%86%E5%9F%8E/" rel="tag"># 商城</a>
+          
+            <a href="/NGY198888.gtihub.io/tags/%E6%9C%80%E5%B0%8F%E5%BA%93%E5%AD%98%E5%8D%95%E5%85%83/" rel="tag"># 最小库存单元</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/" rel="next" title="centos包装服务systemctl">
+                <i class="fa fa-chevron-left"></i> centos包装服务systemctl
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/" rel="prev" title="electron问题">
+                electron问题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
         
           
-            <section>
-              <div class="mdui-divider"></div>
-            </section>
-            <section class="theme-post__card__comment">
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">NGY</p>
+              <p class="site-description motion-element" itemprop="description">想你开心每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
               
-  <div id="comments"></div>
+                <a href="/NGY198888.gtihub.io/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/NGY198888.gtihub.io/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/NGY198888.gtihub.io/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NGY</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">7.2k</span>
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/NGY198888.gtihub.io/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
   <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh//AshinWang/SimpleValine/SimpleValine.min.js"></script>
-  <!-- <script src="//unpkg.com/valine/dist/Valine.min.js"></script> -->
-  <script>
-    var notify = 'false' == true ? true : false;
-    var verify = 'false' == true ? true : false;
-    var GUEST_INFO = ['nick','mail','link'];
-    var guest_info = 'nick,mail'.split(',').filter(function(item){
-      return GUEST_INFO.indexOf(item) > -1
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
     });
-    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
-    window.onload = function() {
-        new Valine({
-            el: '#comments',
-            notify: notify,
-            verify: verify,
-            app_id: "ekXuiYYlHUDzzx16L834LIPx-gzGzoHsz",
-            app_key: "qwD7KxupfpFgYAxFB1rGdmso",
-            avatar:"mp",
-            placeholder: "您可以在这里留下评论哦~",
-            guest_info:guest_info
-        });
-    }
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ekXuiYYlHUDzzx16L834LIPx-gzGzoHsz',
+        appKey: 'qwD7KxupfpFgYAxFB1rGdmso',
+        placeholder: '您可以在这里留下评论哦~',
+        avatar:'mp',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
   </script>
 
 
-            </section>
-          
-        
-      </article>
-      
-        <div class="mdui-color-theme theme-post__toc">
-          <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x524D;&#x8A00;" data-href="#&#x524D;&#x8A00;"><span class="toc-number"></span> <span class="toc-text">1. &#x524D;&#x8A00;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#sku&#x5B9A;&#x4E49;" data-href="#sku&#x5B9A;&#x4E49;"><span class="toc-number"></span> <span class="toc-text">2. sku&#x5B9A;&#x4E49;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;" data-href="#&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;"><span class="toc-number"></span> <span class="toc-text">3. &#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x6570;&#x636E;" data-href="#&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x6570;&#x636E;"><span class="toc-number"></span> <span class="toc-text">4. &#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x8BA1;&#x7B97;&#x7C7B;" data-href="#&#x8BA1;&#x7B97;&#x7C7B;"><span class="toc-number"></span> <span class="toc-text">5. &#x8BA1;&#x7B97;&#x7C7B;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x8BF4;&#x660E;-select-index-&#x4E4B;&#x524D;&#x8868;&#x793A;-&#x5F53;&#x6B64;&#x9009;&#x62E9;&#x7684;&#x9879;&#x4E0B;&#x6807;&#xFF0C;&#x4F20;null&#x5219;&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x52FE;&#x9009;-&#x540E;&#x6765;&#x6539;&#x6210;&#x76F4;&#x63A5;&#x4F20;&#x89C4;&#x683C;&#x503C;&#x6587;&#x5B57;&#x4E86;" data-href="#&#x8BF4;&#x660E;-select-index-&#x4E4B;&#x524D;&#x8868;&#x793A;-&#x5F53;&#x6B64;&#x9009;&#x62E9;&#x7684;&#x9879;&#x4E0B;&#x6807;&#xFF0C;&#x4F20;null&#x5219;&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x52FE;&#x9009;-&#x540E;&#x6765;&#x6539;&#x6210;&#x76F4;&#x63A5;&#x4F20;&#x89C4;&#x683C;&#x503C;&#x6587;&#x5B57;&#x4E86;"><span class="toc-number"></span> <span class="toc-text">5.1. &#x8BF4;&#x660E; select_index &#x4E4B;&#x524D;&#x8868;&#x793A; &#x5F53;&#x6B64;&#x9009;&#x62E9;&#x7684;&#x9879;&#x4E0B;&#x6807;&#xFF0C;&#x4F20;null&#x5219;&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x52FE;&#x9009;,&#x540E;&#x6765;&#x6539;&#x6210;&#x76F4;&#x63A5;&#x4F20;&#x89C4;&#x683C;&#x503C;&#x6587;&#x5B57;&#x4E86;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;" data-href="#&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;"><span class="toc-number"></span> <span class="toc-text">6. &#x5B57;&#x6BB5;&#x5B9A;&#x4E49;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5927;&#x81F4;&#x601D;&#x8DEF;" data-href="#&#x5927;&#x81F4;&#x601D;&#x8DEF;"><span class="toc-number"></span> <span class="toc-text">7. &#x5927;&#x81F4;&#x601D;&#x8DEF;</span></a></li></ol></body></html>
-        </div>
-      
-    </div>
-  </div>
-
-  <div class="theme-spacer"></div>
 
   
-    <div class="mdui-color-theme theme-post__toc-fab">
-  <button class="mdui-fab mdui-color-theme-accent mdui-ripple mdui-fab-fixed mdui-hidden-md-up" mdui-menu="{target: '#toc-fab-menu', fixed: true}" id="toc-fab">
-    <i class="mdui-icon material-icons">&#xe242;</i>
-  </button>
-  <ul class="mdui-menu mdui-typo theme-post__toc-fab__menu" id="toc-fab-menu" style="padding: 8px;max-height: 80%">
-    <html><head></head><body><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x524D;&#x8A00;" data-href="#&#x524D;&#x8A00;"><span class="toc-number"></span> <span class="toc-text">1. &#x524D;&#x8A00;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#sku&#x5B9A;&#x4E49;" data-href="#sku&#x5B9A;&#x4E49;"><span class="toc-number"></span> <span class="toc-text">2. sku&#x5B9A;&#x4E49;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;" data-href="#&#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;"><span class="toc-number"></span> <span class="toc-text">3. &#x6570;&#x636E;&#x5E93;&#x8BBE;&#x8BA1;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x6570;&#x636E;" data-href="#&#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x6570;&#x636E;"><span class="toc-number"></span> <span class="toc-text">4. &#x63A5;&#x53E3;&#x8FD4;&#x56DE;&#x6570;&#x636E;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x8BA1;&#x7B97;&#x7C7B;" data-href="#&#x8BA1;&#x7B97;&#x7C7B;"><span class="toc-number"></span> <span class="toc-text">5. &#x8BA1;&#x7B97;&#x7C7B;</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x8BF4;&#x660E;-select-index-&#x4E4B;&#x524D;&#x8868;&#x793A;-&#x5F53;&#x6B64;&#x9009;&#x62E9;&#x7684;&#x9879;&#x4E0B;&#x6807;&#xFF0C;&#x4F20;null&#x5219;&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x52FE;&#x9009;-&#x540E;&#x6765;&#x6539;&#x6210;&#x76F4;&#x63A5;&#x4F20;&#x89C4;&#x683C;&#x503C;&#x6587;&#x5B57;&#x4E86;" data-href="#&#x8BF4;&#x660E;-select-index-&#x4E4B;&#x524D;&#x8868;&#x793A;-&#x5F53;&#x6B64;&#x9009;&#x62E9;&#x7684;&#x9879;&#x4E0B;&#x6807;&#xFF0C;&#x4F20;null&#x5219;&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x52FE;&#x9009;-&#x540E;&#x6765;&#x6539;&#x6210;&#x76F4;&#x63A5;&#x4F20;&#x89C4;&#x683C;&#x503C;&#x6587;&#x5B57;&#x4E86;"><span class="toc-number"></span> <span class="toc-text">5.1. &#x8BF4;&#x660E; select_index &#x4E4B;&#x524D;&#x8868;&#x793A; &#x5F53;&#x6B64;&#x9009;&#x62E9;&#x7684;&#x9879;&#x4E0B;&#x6807;&#xFF0C;&#x4F20;null&#x5219;&#x4EE3;&#x8868;&#x53D6;&#x6D88;&#x52FE;&#x9009;,&#x540E;&#x6765;&#x6539;&#x6210;&#x76F4;&#x63A5;&#x4F20;&#x89C4;&#x683C;&#x503C;&#x6587;&#x5B57;&#x4E86;</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;" data-href="#&#x5B57;&#x6BB5;&#x5B9A;&#x4E49;"><span class="toc-number"></span> <span class="toc-text">6. &#x5B57;&#x6BB5;&#x5B9A;&#x4E49;</span></a></li><li class="toc-item toc-level-1"><a class="toc-link mdui-list-item mdui-ripple theme-post__toc__content__link" href="#&#x5927;&#x81F4;&#x601D;&#x8DEF;" data-href="#&#x5927;&#x81F4;&#x601D;&#x8DEF;"><span class="toc-number"></span> <span class="toc-text">7. &#x5927;&#x81F4;&#x601D;&#x8DEF;</span></a></li></ol><script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":220},"mobile":{"show":true},"log":false});</script><script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body></html>
-  </ul>
-</div>
+
+
+
+
 
   
 
   
-    <div class="theme-post__pagination mdui-color-theme">
-  
-    <div class="theme-post__pagination__prev mdui-ripple mdui-valign">
-      
-        <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/" class="theme-post__pagination__prev__content mdui-text-left">
-        
-        <div>
-          <i class="mdui-icon material-icons mdui-text-center">&#xe5cb;</i>
-          <span class="mdui-typo-body-2-opacity mdui-text-center">新的文章</span>
-        </div>
-        <div class="mdui-typo-title mdui-text-truncate">
-          electron问题
-        </div>
-      </a>
-    </div>
+
   
 
   
-    <div class="theme-post__pagination__next mdui-ripple mdui-valign">
-      
-        <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/" class="theme-post__pagination__next__content mdui-text-right">
-        
-        <div>
-          <span class="mdui-typo-body-2-opacity mdui-text-center">旧的文章</span>
-          <i class="mdui-icon material-icons mdui-text-center">&#xe5cc;</i>
-        </div>
-        <div class="mdui-typo-title mdui-text-truncate">
-          centos包装服务systemctl
-        </div>
-      </a>
-    </div>
+  
+  
+  <link rel="stylesheet" href="/NGY198888.gtihub.io/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/NGY198888.gtihub.io/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
     
-</div>
-
-  
-
-  
-    <div class="mdui-dialog" id="donateDialog">
-      <div class="mdui-dialog-title">打赏</div>
-      <div class="mdui-dialog-content">
-        <div class="mdui-list">
-          
-            <a href="/img/avatar.png" title="wechat" class="mdui-list-item mdui-ripple" target="_blank">
-              
-                <i class="mdui-list-item-icon mdui-icon fa fa-wechat mdui-text-center"></i>&emsp;
-              
-              
-              
-              wechat
-            </a>
-          
-        </div>
-      </div>
-      <div class="mdui-dialog-actions">
-        <button class="mdui-btn mdui-ripple mdui-ripple" mdui-dialog-close>不要</button>
-      </div>
-    </div>
-  
-</div>
-<script type="text/javascript">
-  themeRuntime.scriptsMap.post = [];
-  if (document.querySelector('.theme-post__toc-fab__menu > ol') !== null && document.querySelector('.theme-post__toc > ol') !== null) {
-    tocHighlight()
-    function tocHighlight() {
-      var timer;
-      function doWork() {
-        listens.forEach(function(value, index) {
-          value[1]();
-          value[0].classList.remove("mdui-list-item-active");
-        })
-        let actionToc = (listens[listens.reduce(function(r, v, index) {
-          if (v[2] == true) {
-            return index;
-          } else return r;
-        }, undefined)] || [])[0] || listens[0][0];
-        actionToc.classList.add("mdui-list-item-active");
-        if(actionToc.getClientRects().length == 0)return;
-        showToc(actionToc);
-      }
-      function showToc(toc) {
-        let offsetTop = toc.getClientRects()[0].top - cardToc.getClientRects()[0].top - 40;
-        let offsetBottom = toc.getClientRects()[0].bottom - cardToc.getClientRects()[0].bottom + 40;
-        let offset = 0;
-        if (offsetTop < 0) offset = offsetTop;
-        if (offsetBottom > 0) offset = offsetBottom;
-        var targetTop = Math.max(0, Math.min(cardToc.scrollTop + offset, toclist.offsetHeight - cardToc.offsetHeight));
-        clearInterval(timer);
-        timer = setInterval(function() {
-          var now = cardToc.scrollTop;
-          var speed = (targetTop - now) / 10;
-          speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
-          if (Math.abs(now - targetTop) < 1) {
-            clearInterval(timer);
-          }
-          cardToc.scrollTop = now + speed;
-        }, 30);
-      }
-      var listens = [];
-      var cardToc = document.querySelector('.theme-post__toc');
-      var links = cardToc.querySelectorAll(".theme-post__toc__content__link");
-      var toclist = document.querySelector(".theme-post__toc > ol");
-      Array.prototype.forEach.call(links, function(value, index) {
-        var id = (value.getAttribute("href") || "#").slice(1);
-        var element = document.getElementById(id);
-        listens.push([value, function() {
-          var readed = false;
-          var scrollTop = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-          if (element.offsetTop <= scrollTop + element.clientHeight + 64) {
-            readed = true;
-          } else {
-            readed = false;
-          }
-          listens[index][2] = readed;
-        }, false])
-      })
-      doWork();
-      window.addEventListener("scroll", doWork)
-      var listener = {
-        function:  doWork,
-        event: 'scroll',
-        el: window,
-        removed: false
-      }
-      themeRuntime.scriptsMap.post.push(listener)
-    }
-  }
-</script>
-
-<script type="text/javascript">
-  (function() {
-    var postLastModifiedDate = 1594575266927
-    var today = (new Date()).getTime()
-    var difference = Math.floor((today - postLastModifiedDate)/(24*60*60*1000))
-    if (difference >= 100) {
-      document.querySelector('.theme-post__card__warning').style.display = 'block'
-      document.querySelector('#content-warning').textContent = difference
-    }
-  })();
-</script>
-
-<script type="text/javascript">
-  var images = document.querySelectorAll('.theme-post__card__content img')
-  for (i = 0; i < images.length; i++) {
-    //console.log('image added', i)
-    images[i].addEventListener("click", openLG);
-    var listener = {
-      function:  openLG,
-      event: 'click',
-      el: images[i],
-      removed: false
-    }
-    themeRuntime.scriptsMap.post.push(listener)
-  }
-  function openLG() {
-    var img_src = this.getAttribute('src');
-    var img_alt = this.getAttribute('alt');
-    lightGallery(this, {
-      dynamic: true,
-      counter: false,
-      dynamicEl: [{
-        "src": img_src,
-        'subHtml': "<span author>NGY</span><div descr>" + img_alt + "</div>"
-      }],
-    });
-  }
-</script>
-
-
-
-
-      </div>
-    </div>
-  </main>
-
-  <div id="outdated" style="z-index: 9999;">
-    <h6>你的浏览器已经过气辣！</h6>
-    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">现在就去</a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
-  </div>
-  <!-- import js -->
-
-
-  
-<script src="/NGY198888.gtihub.io/js/outdatedbrowser.min.js"></script>
-
-
-
-
-  
     
-<script src="/NGY198888.gtihub.io/js/js.pure.min.js"></script>
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,QQZone";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
 
   
 
+  
 
-<!-- theme js -->
-<script type="text/javascript">
-  (function() {
-    var appbarTopFlag = false;
-    var appbarEl = document.querySelector('.theme-appbar');
-    function appbarShadow() {
-      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-      if (bodyScrolled > 0 && !appbarTopFlag) {
-        appbarEl.classList.add('theme-appbar--shadow');
-        appbarTopFlag = true;
-      } else if (bodyScrolled === 0 && appbarTopFlag) {
-        appbarEl.classList.remove('theme-appbar--shadow');
-        appbarTopFlag = false;
-      }
-    }
-    appbarShadow()
-    window.addEventListener('scroll', appbarShadow);
-  })();
-  (function() {
-    function detechTheme() {
-      var modeFlag = localStorage.getItem('darkMode');
-      // true for dark mode, false for bright mode
-      if(modeFlag === "true"){
-        document.querySelector('body').classList.add('mdui-theme-layout-dark')
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
-        return true
-      } else if(!window.matchMedia) {
-          return false;
-      } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.querySelector('body').classList.add('mdui-theme-layout-dark')
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
-          return true;
-      } else if(window.matchMedia("(prefers-color-scheme: light)").matches) {
-        document.querySelector('body').classList.remove('mdui-theme-layout-dark')
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
-          return false;
-      } else {
-        return false;
-      }
-    }
-    var modeFlag = detechTheme();
-    var modeEl = document.querySelector('.theme-appbar__mode-switch');
-    function modeSwitch() {
-      if (!modeFlag) {
-        // default bright mode, switch to dark mode
-        document.querySelector('body').classList.add('mdui-theme-layout-dark');
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
-        localStorage.setItem('darkMode', true);
-        modeFlag = true;
-      } else {
-        // dark mode, switch to bright mode
-        document.querySelector('body').classList.remove('mdui-theme-layout-dark');
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
-        localStorage.setItem('darkMode', false);
-        modeFlag = false;
-      }
-    }
-    modeEl.addEventListener('click', modeSwitch);
-  })();
-</script>
+  
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/scroll-cookie.js?v=5.1.4"></script>
 
 
-
-
-
-
-<script type="text/javascript">
-  document.querySelector('body').classList.add('theme-loaded')
-</script>
-
-
-
+  
 
 <script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body>
 </html>

@@ -1,1604 +1,3040 @@
-
 <!DOCTYPE html>
-<html lang="zh">
 
 
 
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-  <script>
-    window.themeRuntime = {
-      root: "/NGY198888.gtihub.io/",
-      scriptsMap: {},
-      init: {
-        status: false
-      },
-      commentRest: {
-        status: false
-      },
-      versions: {
-        theme: "2.1.0",
-        mdui: "0.4.0",
-        fetch: "3.0.0",
-        es6promise: "4.2.5+7f2b526d",
-        lightgallery: "1.0.1",
-        smoothscroll: "15.2.0"
-      }
-      
-    };
-    console.info("%cCopyright © 2018 - " + new Date().getFullYear() +" Halyul\n"+'Theme Version: ' + themeRuntime.versions.theme +'%c\nhttps://github.com/Halyul/hexo-theme-mdui',"font-size: 14px;color: #3F51B5;","color: #448AFF;text-decoration: none");
-  </script>
-  <!--
-        © HEXO MDUI Theme
-        https://github.com/Halyul/hexo-theme-mdui
-        -->
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
-  <meta charset="UTF-8">
-  <title>首页 - 想你开心每一天</title>
 
-  <!-- Favicons -->
-  <link rel="icon shortcut" type="image/ico" href="/NGY198888.gtihub.io/images/favicon.png">
-  <link rel="icon" sizes="192x192" href="/NGY198888.gtihub.io/images/favicon.png">
-  <link rel="apple-touch-icon" href="/NGY198888.gtihub.io/images/favicon.png">
-
-  <!-- Meta & Info -->
-  <meta http-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-  <meta name="theme-color" content="#fff">
-
-  <meta name="author" content="NGY">
-  
-      <meta name="description" content="想你开心每一天">
-  
-  <meta name="keywords" content="blog, hexo, mdui">
-
-  <!--iOS -->
-  <meta name="apple-mobile-web-app-title" content="想你开心每一天">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="480">
-
-  <!-- Add to homescreen for Chrome on Android -->
-  <meta name="mobile-web-app-capable" content="yes">
-
-  <!-- The Open Graph protocol -->
-  <meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io">
-  <meta property="og:type" content="blog">
-  <meta property="og:title" content="首页 - 想你开心每一天 | 想你开心每一天">
-  <meta property="og:image" content="/images/favicon.png" />
-  
-    <meta property="og:description" content="想你开心每一天">
-  
 
   
-
-  
-
-  <!-- Import CSS -->
   
     
-<link rel="stylesheet" href="/NGY198888.gtihub.io/css/mdui.css">
+    
+  <script src="/NGY198888.gtihub.io/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/NGY198888.gtihub.io/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
-
   
+  <link href="/NGY198888.gtihub.io/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/NGY198888.gtihub.io/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/NGY198888.gtihub.io/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/NGY198888.gtihub.io/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/NGY198888.gtihub.io/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/NGY198888.gtihub.io/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/NGY198888.gtihub.io/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="想你开心每一天" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="想你开心每一天">
+<meta property="og:type" content="website">
+<meta property="og:title" content="想你开心每一天">
+<meta property="og:url" content="https://ngy198888.github.io/NGY198888.gtihub.io/index.html">
+<meta property="og:site_name" content="想你开心每一天">
+<meta property="og:description" content="想你开心每一天">
+<meta property="article:author" content="NGY">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/NGY198888.gtihub.io/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://ngy198888.github.io/NGY198888.gtihub.io/"/>
+
+
+
+
+
+  <title>想你开心每一天 - 想你开心每一天</title>
+  
+
+
+
+
+
+
+
 
 <meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/NGY198888.gtihub.io/atom.xml" title="想你开心每一天" type="application/atom+xml">
 </head>
 
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-<body class="mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-deep-purple">
-
-  <style>
-    #spinner {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-          opacity: 1;
-      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-          transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-    }
-    main {
-      opacity: 0;
-      -webkit-transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-      transition: opacity 0.3s cubic-bezier(0, 0, 0.2, 1);
-      display: none;
-    }
-  </style>
-  <div id="spinner">
-    <style>
-      .spinner {
-
-      -webkit-animation: rotator 1.4s linear infinite;
-              animation: rotator 1.4s linear infinite;
-      }
-
-      @-webkit-keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
-      }
-      }
-
-      @keyframes rotator {
-      0% {
-        -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
-      }
-      100% {
-        -webkit-transform: rotate(270deg);
-                transform: rotate(270deg);
-      }
-      }
-
-      .path {
-      stroke-dasharray: 187;
-      stroke-dashoffset: 0;
-      -webkit-transform-origin: center;
-              transform-origin: center;
-      -webkit-animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-              animation: dash 1.4s ease-in-out infinite, colors 5.6s ease-in-out infinite;
-      }
-
-      @-webkit-keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-      }
-
-      @keyframes colors {
-      0% {
-        stroke: #4285F4;
-      }
-      25% {
-        stroke: #DE3E35;
-      }
-      50% {
-        stroke: #F7C223;
-      }
-      75% {
-        stroke: #1B9A59;
-      }
-      100% {
-        stroke: #4285F4;
-      }
-      }
-
-      @-webkit-keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-                transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-                transform: rotate(450deg);
-      }
-      }
-
-      @keyframes dash {
-      0% {
-        stroke-dashoffset: 187;
-      }
-      50% {
-        stroke-dashoffset: 46.75;
-        -webkit-transform: rotate(135deg);
-                transform: rotate(135deg);
-      }
-      100% {
-        stroke-dashoffset: 187;
-        -webkit-transform: rotate(450deg);
-                transform: rotate(450deg);
-      }
-      }
-    </style>
-    <svg class="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-      <circle class="path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
-    </svg>
-  </div>
-
-  <main>
-    <div class="mdui-appbar mdui-appbar-fixed mdui-color-white mdui-shadow-0 theme-appbar">
-  <div class="mdui-toolbar theme-toolbar-top">
-    
-      <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger">
-        <i class="mdui-icon">
-          <span></span>
-        </i>
-      </a>
-    
-    <div class="mdui-toolbar-spacer"></div>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__mode-switch">
-      <i class="mdui-icon material-icons  theme-appbar__bright-mode">&#xe1ac;</i>
-      <i class="mdui-icon material-icons  theme-appbar__dark-mode" style="display: none;">&#xe3a7;</i>
-    </a>
-  </div>
-  <div class="mdui-toolbar theme-toolbar-bottom">
-    <span class="theme-toolbar-bottom__title">想你开心每一天</span>
-    
-      <a href="/NGY198888.gtihub.io/search.html" class="mdui-textfield-icon mdui-btn mdui-btn-icon theme-toolbar-bottom__search">
-        <i class="mdui-icon material-icons">&#xe8b6;</i>
-      </a>
-    
-  </div>
-  <div class="mdui-progress theme-appbar__progress" id="progressBar">
-    <div class="mdui-progress-indeterminate"></div>
-  </div>
-</div>
-
-    <div class="mdui-drawer mdui-drawer-full-height theme-drawer" id="drawer">
-  <!-- header -->
-  <div class="theme-drawer__header">
-  <div class="theme-drawer__header__layer-1">
-    <div class="mdui-toolbar theme-toolbar-top">
-      
-        <a href="javascript:;" class="mdui-btn mdui-btn-icon mdui-ripple theme-appbar__burger theme-appbar__burger--drawer"  id="drawer-back">
-          <i class="mdui-icon">
-            <span></span>
-          </i>
-        </a>
-      
-    </div>
-    <div class="mdui-toolbar theme-toolbar-bottom">
-      <span class="theme-toolbar-bottom__title">想你开心每一天</span>
-    </div>
-  </div>
-  <div class="theme-drawer__header__layer-2" style="background-image: url(/NGY198888.gtihub.io/images/bg.png)">
-    <img class="mdui-img-circle theme-drawer__header__layer-2__user__avatar" src="/NGY198888.gtihub.io/images/avatar.png"/>
-    <div class="theme-drawer__header__layer-2__user__info">
-      <div class="theme-drawer__header__layer-2__user__info__author mdui-text-color-white-text">
-        NGY
-      </div>
-      <div class="theme-drawer__header__layer-2__user__info__slogan mdui-text-color-white-secondary">
-        路遥知马力——日久
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div class="theme-drawer__warpper">
-    <!-- content -->
-    <div class="theme-drawer__warpper__content">
-  <ul class="mdui-list">
-    <a href="/NGY198888.gtihub.io/" class="mdui-list-item mdui-ripple mdui-ripple-white">
-      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe88a;</i>
-      <div class="mdui-list-item-content">首页</div>
-    </a>
-    <a href="/NGY198888.gtihub.io/archives/" class="mdui-list-item mdui-ripple mdui-ripple-white">
-      <i class="mdui-list-item-icon mdui-icon material-icons">&#xe149;</i>
-      <div class="mdui-list-item-content">归档</div>
-    </a>
-    <ul class="mdui-list mdui-collapse" mdui-collapse="{accordion: true}" mdui-collapse>
-      
-        <div class="mdui-collapse-item ">
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-            <i class="mdui-list-item-icon mdui-icon material-icons">&#xe86e;</i>
-            <div class="mdui-list-item-content">分类</div>
-            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                前端
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">5</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                后端
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">4</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                工具
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">4</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                物联网
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodejs
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-          </div>
-        </div>
-      
-      
-        <div class="mdui-collapse-item ">
-          <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-            <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-            <div class="mdui-list-item-content">标签</div>
-            <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-          </div>
-          <div class="mdui-collapse-item-body mdui-list">
-            
-              <a href="/NGY198888.gtihub.io/tags/electron/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                electron
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%A1%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                桌面开发
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/rabbitmq/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                rabbitmq
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/taro/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                taro
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                小程序
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">2</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/stomp/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                stomp
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E8%A7%84%E8%8C%83/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                规范
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/SKU/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                SKU
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E5%95%86%E5%9F%8E/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                商城
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%9C%80%E5%B0%8F%E5%BA%93%E5%AD%98%E5%8D%95%E5%85%83/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                最小库存单元
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/adonisjs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                adonisjs
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/nodejs/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodejs
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/lucid-mongo/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                lucid-mongo
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/CRUD/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                CRUD
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%8E%A5%E5%8F%A3/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                接口
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/contos/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                contos
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%9C%8D%E5%8A%A1/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                服务
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/java/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                java
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">3</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/jar/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                jar
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/windows%E6%9C%8D%E5%8A%A1/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                windows服务
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E4%B8%8A%E4%BC%A0/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                上传
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/php/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                php
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/git/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                git
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/bat/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                bat
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                批处理
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/IDEA/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                IDEA
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/Rest/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                Rest
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/http%E8%AF%B7%E6%B1%82/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                http请求
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/vscode%E6%8F%92%E4%BB%B6/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                vscode插件
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                消息队列
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/mq/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                mq
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                物联网
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-              <a href="/NGY198888.gtihub.io/tags/nodered/" class="mdui-list-item mdui-ripple mdui-ripple-white" style="display: flex">
-                nodered
-                <div style="flex-grow: 1;"></div>
-                <span class="theme-menu-badge new mdui-color-theme-accent" data-badge-caption="">1</span>
-              </a>
-            
-          </div>
-        </div>
-      
-      <div class="mdui-collapse-item ">
-        <div class="mdui-collapse-item-header mdui-list-item mdui-ripple mdui-ripple-white">
-          <i class="mdui-list-item-icon mdui-icon material-icons">&#xe916;</i>
-          <div class="mdui-list-item-content">年份</div>
-          <i class="mdui-collapse-item-arrow mdui-icon material-icons">&#xe5c5;</i>
-        </div>
-        <div class="mdui-collapse-item-body mdui-list">
-          
-          
-            <a href="/NGY198888.gtihub.io/archives/2020/" class="mdui-list-item mdui-ripple">
-              2020
-            </a>
-          
-        </div>
-      </div>
-    </ul>
-  </ul>
   
-    <div class="mdui-divider"></div>
-    <ul class="mdui-list" mdui-collapse="{accordion: true}" mdui-collapse>
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/NGY198888.gtihub.io/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">想你开心每一天</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">想你开心每一天</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/NGY198888.gtihub.io/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/NGY198888.gtihub.io/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/NGY198888.gtihub.io/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
       
     </ul>
   
-</div>
 
-    <div class="theme-spacer"></div>
-    <!-- footer -->
-    <div class="theme-drawer__warpper__footer">
-  <div class="mdui-typo mdui-typo-caption-opacity">
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
     
-      <!-- 不蒜子统计 -->
-      <span >
-        <i class="fa fa-eye" aria-hidden="true" style="font-size: smaller;"></i>&nbsp;总访问量<span id="busuanzi_value_site_pv"></span>次
-      </span>
-      <br />
-      <span  >
-        <i class="fa fa-user" aria-hidden="true" style="font-size: smaller;"></i>&nbsp;访客数<span id="busuanzi_value_site_uv"></span>人
-      </span>
-      <br />
-      <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-   
-    <!-- Powered by <a href="javascript:void(0)" >Hexo</a>
-    <br />
-    Theme - <a href="javascript:void(0)" >Halyul/MDUI</a>
-    <br /> -->
-    <span>
-      Copyright ©
-      <span year></span>
-      NGY
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/" itemprop="url">rabbitmq安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T01:57:03+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  379
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h1><ul>
+<li>otp_win64_21.0.1.exe</li>
+<li>rabbitmq-server-3.7.17.exe</li>
+<li>rabbitmq依赖Erlang语言作为环境语言otp_win64，不同的rabbitmq版本依赖的otp_win64版本也不同，对应的上即可</li>
+</ul>
+<h1 id="安装otp-win64-21-0-1-exe"><a href="#安装otp-win64-21-0-1-exe" class="headerlink" title="安装otp_win64_21.0.1.exe"></a>安装otp_win64_21.0.1.exe</h1><h1 id="环境变量的安装与验证"><a href="#环境变量的安装与验证" class="headerlink" title="环境变量的安装与验证"></a>环境变量的安装与验证</h1><ul>
+<li>安装完成之后创建一个名为ERLANG_HOME的系统变量，其值指向erlang的安装目录</li>
+<li>同时将%ERLANG_HOME%\bin加入到Path中，最后打开命令行，输入erl，如果出现erlang的版本信息就表示erlang语言环境安装成功；</li>
+<li>注意：ERLANG_HOME的指向目录是bin的上级目录</li>
+<li>erlang_home配置：<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/11.png" alt></li>
+</ul>
+<h1 id="安装rabbitmq-server-3-7-17-exe"><a href="#安装rabbitmq-server-3-7-17-exe" class="headerlink" title="安装rabbitmq-server-3.7.17.exe"></a>安装rabbitmq-server-3.7.17.exe</h1><ul>
+<li>注意，rabbitmq的默认安装目录是系统盘的Program file文件夹，但是rabbitmq其内部设置是不允许文件夹有中文，有空格的，加之功能也不适合在系统盘中，需要另外选择目录进行安装!</li>
+<li>比如安装路径是D:\RabbitMQServer</li>
+</ul>
+<h1 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h1><ul>
+<li>使用cmd或者powershell进入sbin目录，比如D:\RabbitMQServer\rabbitmq_server-3.7.17\sbin</li>
+<li>运行下面几个命令<ul>
+<li><code>./rabbitmq-plugins enable rabbitmq_management</code></li>
+<li><code>./rabbitmq-plugins enable rabbitmq_web_stomp</code></li>
+<li><code>./rabbitmq-plugins enable rabbitmq_web_stomp_examples</code><h1 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h1>打开服务管理器，找到RabbitMQ服务，重启服务<h1 id="添加帐号"><a href="#添加帐号" class="headerlink" title="添加帐号"></a>添加帐号</h1></li>
+</ul>
+</li>
+<li>浏览器打开管理后台<a href="http://localhost:15672，">http://localhost:15672，</a></li>
+<li>guest guest 登录，添加一个用户用于代码连接mq,我建的是admin2 admin2，分配虚拟主机 ‘/‘给该用户</li>
+<li>由于guest不能外网登陆管理系统，所以需要再添加一个外网管理账号 admin admin，分配Admin标签给该账号<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/22.png" alt></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/" itemprop="url">nodered入门</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T01:47:57+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E7%89%A9%E8%81%94%E7%BD%91/" itemprop="url" rel="index">
+                    <span itemprop="name">物联网</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  150
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><ul>
+<li>确保安装cnpm和node</li>
+<li>cmd运行   <code>cnpm i -g node-red</code></li>
+</ul>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>   cmd运行 <code>node-red</code>    打开localhost:1880</p>
+<h1 id="安装dashboard模块"><a href="#安装dashboard模块" class="headerlink" title="安装dashboard模块"></a>安装dashboard模块</h1><ul>
+<li>在右上方的部署按钮右侧有个菜单，点击菜单，选择节点管理。</li>
+<li>搜索“dashboard”关键字，找到<code>node-red-dashboard</code>,点击安装</li>
+</ul>
+<h1 id="dashboard可视化界面显示"><a href="#dashboard可视化界面显示" class="headerlink" title="dashboard可视化界面显示"></a>dashboard可视化界面显示</h1><ul>
+<li>选择dashboard面板，可以在里面添加Tabs，Tabs添加分组，将UI节点加进分组，就 可以在管理平台显示了</li>
+<li>双击UI节点，出现属性面板，group这里进行分组，分到对应的tab去</li>
+<li>可视化地址localhost:1880/ui<br><img src="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/1.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/2.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/3.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/4.png" alt></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" itemprop="url">前端规范</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T01:41:44+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  163
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="css方面"><a href="#css方面" class="headerlink" title="css方面"></a>css方面</h1><ol>
+<li>尽量用flex布局</li>
+<li>使用scss</li>
+<li>使用统一的主题参数<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/1.png" alt="定义全局scc"><br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/2.png" alt="引用"></li>
+<li>在psd设计文件里，字体只取文字颜色和大小两个参数即可，行高跟字体大小一样</li>
+<li>边框注意使用大写的PX，别的话用小写px，后面会转换成rpx<h1 id="js方面"><a href="#js方面" class="headerlink" title="js方面"></a>js方面</h1></li>
+<li>可以使用一些别名配置路径来简化import，就可以用绝对路径引用文件了<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/11.png" alt></li>
+<li>rander方法会频繁渲染，所以里面尽量不能有代码逻辑，否则会影响运行速度</li>
+<li>要影响到子控件的布局，在本页面加上这个参数<br>static options = {<br> addGlobalClass: true<br>}</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/" itemprop="url">electron问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T01:38:21+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  26
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运行electron打包的exe程序黑屏"><a href="#运行electron打包的exe程序黑屏" class="headerlink" title="运行electron打包的exe程序黑屏"></a>运行electron打包的exe程序黑屏</h1><p>  右键运行图标 在运行后面加参数  –disable-gpu<br>  <img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/1.png" alt></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/" itemprop="url">SKU选择算法笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:48:08+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>   网上搜的搞不懂，记录一种自己的笨方案，代码部分涉及es6，ui渲染没有贴出来</p>
+<h1 id="sku定义"><a href="#sku定义" class="headerlink" title="sku定义"></a>sku定义</h1><p>   SKU=Stock Keeping Unit（库存量单位）。即库存进出计量的基本单元，可以是以件，盒，托盘等为单位。SKU这是对于大型连锁超市DC（配送中心）物流管理的一个必要的方法。现在已经被引申为产品统一编号的简称，每种产品均对应有唯一的SKU号</p>
+<h1 id="数据库设计"><a href="#数据库设计" class="headerlink" title="数据库设计"></a>数据库设计</h1><ul>
+<li><p>这个设计跟网上的设计有所不同，网上是用id表示唯一性的，但是这里的id不能用于sku计算</p>
+</li>
+<li><p>mall_goods_attr_key存放的是商品的规格组，比如某咖啡有颜色，尺码等规格组</p>
+</li>
+<li><p>mall_goods_attr_val存放的是商品规格组的规格值，比如某咖啡的颜色规格组有红色，白色，黑色等规格值</p>
+</li>
+<li><p>mall_goods_attr_sku存放的是某个具体的且有库存的sku信息，并且本方案是由具体的sku来决定自己的图片，没有图片的sku或者当没有命中sku时，显示商品默认图片<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/1.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/2.png" alt><br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/3.png" alt></p>
+<h1 id="接口返回数据"><a href="#接口返回数据" class="headerlink" title="接口返回数据"></a>接口返回数据</h1><p>sku表数据原样返回<br>key和val表数据进行了整合，每一条表示一个规格组，vals表示他有哪些规格值，key，val都是按照序号排序过的<br><img src="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/4.png" alt></p>
+<h1 id="计算类"><a href="#计算类" class="headerlink" title="计算类"></a>计算类</h1><h2 id="说明-select-index-之前表示-当此选择的项下标，传null则代表取消勾选-后来改成直接传规格值文字了"><a href="#说明-select-index-之前表示-当此选择的项下标，传null则代表取消勾选-后来改成直接传规格值文字了" class="headerlink" title="说明 select_index 之前表示 当此选择的项下标，传null则代表取消勾选,后来改成直接传规格值文字了"></a>说明 select_index 之前表示 当此选择的项下标，传null则代表取消勾选,后来改成直接传规格值文字了</h2><pre><code class="js">import _cloneDeep from &#39;lodash/cloneDeep&#39;;
+export default class SkuLogic{
+dealImage(goods_list){
+     for (let index = 0; index &lt; goods_list.length; index++) {
+        if(goods_list[index].selectSku!=null&amp;&amp;goods_list[index].selectSku.image!=&#39;&#39;){
+            goods_list[index].path=goods_list[index].selectSku.image;
+            goods_list[index].sm_path=goods_list[index].selectSku.image;
+        }
+     }
+     return goods_list;
+}
+initGoodsInfo(goods_info){
+    goods_info.sku=this.initSkus(goods_info.sku,goods_info.skuKeyVals);
+    let {selectSku,skuSpecs,selectSkuTips}=this.initSkuSpecs(goods_info.sku,goods_info.skuKeyVals);
+    goods_info.totalStock=this.calcTotalStock(goods_info.sku)
+    goods_info.selectSku=selectSku
+    goods_info.skuSpecs=skuSpecs
+    goods_info.selectSkuTips=selectSkuTips
+    if(goods_info.skuSpecs.length==0
+        &amp;&amp;goods_info.sku.length==1
+        &amp;&amp;goods_info.selectSku
+        &amp;&amp;goods_info.selectSku.stock&lt;=0){
+        goods_info.num=0
+    }
+    return goods_info;
+}
+get_key_path(skuSpecs) {
+    if(skuSpecs&amp;&amp;skuSpecs.length&gt;0){
+        let groupName_arr=[];
+        for (let index = 0; index &lt; skuSpecs.length; index++) {
+            let groupName=skuSpecs[index].groupName||skuSpecs[index].name
+             groupName_arr.push(groupName)
+        }
+       return groupName_arr.join(&#39;|&#39;)
+    }else{
+        return &#39;&#39;;
+    }
+}
+initSkus(skus,skuKeyVals){
+    if(skus&amp;&amp;skus.length&gt;0){
+        for (let index = 0; index &lt; skus.length; index++) {
+            skus[index].price=parseFloat(skus[index].price||0)
+            skus[index].discount_price=skus[index].discount_price||skus[index].price;//没填就是原价
+            skus[index].discount_price=parseFloat(skus[index].discount_price)
+            skus[index].stock=parseFloat(skus[index].stock||0)
+            skus[index].attr_path=skus[index].attr_path||&#39;&#39;
+            skus[index].sku_key_path=this.get_key_path(skuKeyVals);
+            skus[index].sku_val_path=skus[index].attr_path
+            skus[index].image=skus[index].image||&#39;&#39;
+        }
+    }
+    return skus;
+}
+//获取sku的规格组
+initSkuSpecs(skus,skuKeyVals) {
+    let  skuSpecs=[];
+    let  selectSku=null;
+    if(skuKeyVals&amp;&amp;skuKeyVals.length&gt;0)
+    {
+        let select_able_ranges=init_select_able_ranges(skuKeyVals);//每组可选范围
+        select_able_ranges= init_ranges_by_stock(skus,select_able_ranges);
+        if(skuKeyVals&amp;&amp;skuKeyVals.length&gt;0){
+            for (let index = 0; index &lt; skuKeyVals.length; index++) {
+                let vals=(skuKeyVals[index][&#39;vals&#39;]||&#39;&#39;).split(&#39;|&#39;);
+                skuSpecs[index]=
+                {
+                    groupName:skuKeyVals[index][&#39;name&#39;],
+                    spec_list:vals,
+                    select_index:null,
+                    //交集
+                    select_able_range:select_able_ranges[index]
+                }; 
+            }
+        }
+    }
+    selectSku= this.calcSelectSku(skus,skuSpecs);
+    let selectSkuTips=this.calcSelectSkuTips(selectSku,skuSpecs,skus);
+    return {selectSku,skuSpecs,selectSkuTips};
+}
+
+/**
+ * 重新计算sku规格信息 
+ * @param {*} skus 数据库拿到的sku数据
+ * @param {*} skuKeyVals 数据库拿到的skuKeyVals数据
+ * @param {*} skuSpecs 带有选中信息的sku结构
+ * @param {*} group_index 当此选择的组下标
+ * @param {*} select_index  当此选择的项下标，传null则代表取消勾选
+ */
+calcSkuSpecs(skus,skuKeyVals,skuSpecs,group_index,select_index,_selectSku) {
+    let  selectSku=null;
+    let checkSpec_arr=[];//已经选择过的sku规格
+    if(skuSpecs[group_index].select_able_range.find(val=&gt;val== select_index)){
+        //只响应可选的项
+        skuSpecs[group_index].select_index=skuSpecs[group_index].select_index==select_index?null:select_index;//前后相等表示取消选择
+        let select_able_ranges=init_select_able_ranges(skuKeyVals);//每组可选范围
+        select_able_ranges= init_ranges_by_stock(skus,select_able_ranges);
+        if(skus&amp;&amp;skus.length&gt;0){
+            //模拟手动选择过程
+            skuSpecs.map((skuSpec,index)=&gt;{
+                if(skuSpec.select_index!=null){
+                  let {select_able_ranges2,checkSpec_arr2}=checkSpec(skus,skuSpecs,select_able_ranges,index,skuSpec.select_index,checkSpec_arr);
+                  select_able_ranges=select_able_ranges2;
+                  checkSpec_arr=checkSpec_arr2;
+                }
+            })
+            skuSpecs= skuSpecs.map((skuSpec,index)=&gt;{
+                skuSpec.select_able_range=select_able_ranges[index]; 
+                return skuSpec;
+            })
+        }
+        selectSku=this.calcSelectSku(skus,skuSpecs);
+    }else{
+        selectSku=_selectSku;
+    }
+    let selectSkuTips=this.calcSelectSkuTips(selectSku,skuSpecs,skus);
+    return {selectSku,skuSpecs:_cloneDeep(skuSpecs),selectSkuTips};
+}
+calcSelectSkuTips(selectSku,skuSpecs,skus){
+    if(!skus||skus.length==0){
+        return &#39;未设置规格&#39;
+    }
+    if(selectSku){
+        if(selectSku[&#39;attr_path&#39;]||&#39;&#39;!=&quot;&quot;){
+            let attrs = (selectSku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;);
+            return &#39;已选 &quot;&#39;+attrs.join(&#39;&quot;,&quot;&#39;)+&#39;&quot;&#39;;
+        }
+        else{
+            return &#39;&#39;
+        }
+    }else{
+
+        let unSelect=[];
+        for (let index = 0; index &lt; skuSpecs.length; index++) {
+            if(skuSpecs[index].select_index==null){
+                unSelect.push(skuSpecs[index].groupName);
+            }
+        }
+        return &#39;请选择 &quot;&#39;+unSelect.join(&#39;&quot;,&quot;&#39;)+&#39;&quot;&#39;;
+    }
+}
+/**
+ * 计算选择了哪个sku
+ * @param {*} skus 
+ * @param {*} skuSpecs 
+ */
+calcSelectSku(skus,skuSpecs){
+    let  selectSku=null;
+    let  path_now=[];
+    if(skuSpecs.length==0||skus&amp;&amp;skus.length==1||(skus.length==1)){//&amp;&amp;skus[0][&#39;attr_path&#39;]==&#39;&#39;
+        selectSku=skus[0]
+    }else{
+        for (let index = 0; index &lt; skuSpecs.length; index++) {
+            if(skuSpecs[index].select_index!=null){
+                path_now.push(skuSpecs[index].select_index)
+            }
+        }
+        let path_str= path_now.join(&quot;|&quot;)
+        let sku_now= skus.find(sku=&gt;(sku[&#39;attr_path&#39;]||&#39;&#39;)==path_str)
+        if(sku_now){
+            selectSku=sku_now
+        }
+    }
+    return selectSku;
+}
+/** sku总库存 */
+calcTotalStock(skus){
+     let stock=0;
+     for (let index = 0; index &lt; skus.length; index++) {
+        stock+=parseFloat(skus[index].stock);
+     }
+     return stock;
+}
+}
+/**
+ * 每次计算选择的某一组对当前select_able_ranges的影响
+ * @param {*} skus 
+ * @param {*} skuSpecs 
+ * @param {*} select_able_ranges 
+ * @param {*} group_index 
+ * @param {*} select_text 
+ * @returns select_able_ranges2 被影响后的select_able_ranges
+ */
+function checkSpec(skus,skuSpecs,select_able_ranges,group_index,select_text,checkSpec_arr2){
+    let select_able_ranges2=[];//每组可选范围
+    //let select_text=select_text
+    let select_text_arr=[];
+    checkSpec_arr2.push(skuSpecs[group_index]);
+    for (let index = 0; index &lt; checkSpec_arr2.length; index++) {
+        select_text_arr.push(checkSpec_arr2[index].select_index) ;
+    }
+    let select_able_specOne=[];//重新拿到有库存的规格，用于过滤未选的sku规格
+    skus.map((sku)=&gt;{
+        if(parseFloat(sku[&#39;stock&#39;])&gt;0&amp;&amp;isContained((sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;),select_text_arr)){
+            let attrs = (sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;);
+            select_able_specOne = Array.from(new Set([...select_able_specOne, ...attrs])); // 并集
+        }
+    })
+    for (let index = 0; index &lt; select_able_ranges.length; index++) {
+        let _i=select_text_arr.findIndex(text=&gt;text==skuSpecs[index].select_index);
+        if(skuSpecs[index].select_index!=null&amp;&amp;_i&gt;-1){
+            //已选的sku规格，用除了自己之外的已选sku规格来决定他自己哪些能选
+           let select_text_arr2=select_text_arr.filter(text=&gt;text!=skuSpecs[index].select_index);
+            let select_able_specOne2=[];
+            skus.map((sku)=&gt;{
+                if(parseFloat(sku[&#39;stock&#39;])&gt;0&amp;&amp;isContained((sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;),select_text_arr2)){
+                    let attrs = (sku[&#39;attr_path&#39;]||&#39;&#39;).split(&#39;|&#39;);
+                    select_able_specOne2 = Array.from(new Set([...select_able_specOne2, ...attrs])); // 并集
+                }
+            })
+            select_able_ranges2[index]=Array.from(new Set([...select_able_ranges[index]].filter(x =&gt; new Set(select_able_specOne2).has(x))))
+
+        }else{
+
+            select_able_ranges2[index]=Array.from(new Set([...select_able_ranges[index]].filter(x =&gt; new Set(select_able_specOne).has(x))))
+        }
+    }
+    return {select_able_ranges2,checkSpec_arr2}
+
+}
+//是否被包含,是返回true,不是返回false
+function  isContained (a, b){
+    if(!(a instanceof Array) || !(b instanceof Array)) return false;
+    if(a.length &lt; b.length) return false;
+    var aStr = a.toString();
+    for(var i = 0, len = b.length; i &lt; len; i++){
+    if(aStr.indexOf(b[i]) == -1) return false;
+    }
+    return true;
+}
+/**
+* 初始化 select_able_ranges
+* @param {*} skuKeyVals 
+*/
+function init_select_able_ranges(skuKeyVals){
+    let select_able_ranges=[];//每组可选范围
+    if(skuKeyVals&amp;&amp;skuKeyVals.length&gt;0){
+        for (let index = 0; index &lt; skuKeyVals.length; index++) {
+            let vals=(skuKeyVals[index][&#39;vals&#39;]||&#39;&#39;).split(&#39;|&#39;);
+            select_able_ranges[index]=vals;
+        }
+    }
+    return select_able_ranges;
+    }
+/**
+* 计算库存对select_able_ranges的影响
+* @param {*} skus 
+* @param {*} select_able_ranges 
+*/
+function init_ranges_by_stock(skus,select_able_ranges) {
+    let select_able_specs = [];
+    if (skus &amp;&amp; skus.length &gt; 0) {
+        skus.map((sku) =&gt; {
+            if (parseFloat(sku[&#39;stock&#39;] ) &gt; 0) {
+                let attrs = (sku[&#39;attr_path&#39;] || &#39;&#39;).split(&#39;|&#39;);
+                select_able_specs = Array.from(new Set([...select_able_specs, ...attrs])); // 并集
+            }
+        });
+    }
+    for (let index = 0; index &lt; select_able_ranges.length; index++) {
+        select_able_ranges[index]= Array.from(new Set([...select_able_specs].filter(x =&gt;new Set( select_able_ranges[index]).has(x))))
+    }
+    return select_able_ranges;
+}</code></pre>
+</li>
+</ul>
+<h1 id="字段定义"><a href="#字段定义" class="headerlink" title="字段定义"></a>字段定义</h1><ul>
+<li>拿到商品信息GoodsInfo,即3步骤的数据结构，调用initGoodsInfo进行初始化<code>GoodsInfo=skuLogic.initGoodsInfo(GoodsInfo);</code>这之后，GoodsInfo里会多出三个数据结构</li>
+<li><code>selectSku</code> 命中的sku，没有命中时是null</li>
+<li><code>selectSkuTips</code> 选择提示，没有命中时，提示选择余下的规格组，命中后提示选了哪些规格值</li>
+<li><code>skuSpecs</code>用于渲染界面，也用于计算sku，每一项表示一个规格组</li>
+<li><code>select_able_ranges</code>表示可选的规格值</li>
+<li><code>select_index</code>表示选中的规格值，null表示未选择</li>
+<li><code>spec_list</code>表示所有规格值<h1 id="大致思路"><a href="#大致思路" class="headerlink" title="大致思路"></a>大致思路</h1></li>
+<li>有四种类型的规格值<ul>
+<li>不可选</li>
+<li>在已选择列可选且已选中的规格值</li>
+<li>在未选择列的可选规格值</li>
+<li>在已选择列其他可选规格值</li>
+</ul>
+</li>
+<li>初始化的时候，查询sku列表能知道哪些是永远不可选的，哪些是可选的</li>
+<li>当做一次选择的时候<ul>
+<li>2类型的规格值是知道的，你选了哪些规格值就是哪些，</li>
+<li>3类型的规格值确定，由包含已选路径的sku来确定</li>
+<li>4类型的规格值确定，当你要确定某一个已选列的其他可选规格值的时候，已选路径去掉当前列已选规格值，作为新的已选路径，由包含新的已选路径的sku来确定4类型的点</li>
+<li>其他的就是1类型的规格值</li>
+<li>四种类型的规格值构成skuSpecs</li>
+<li>已选路径能确定是否命中sku</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/" itemprop="url">centos包装服务systemctl</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:42:58+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  156
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="将frpc包装成服务，开机启动"><a href="#将frpc包装成服务，开机启动" class="headerlink" title="将frpc包装成服务，开机启动"></a>将frpc包装成服务，开机启动</h1><h2 id="在frpc执行文件目录下打pwd，找到当前路径，比如-root-frp-0-33-0-linux-amd64"><a href="#在frpc执行文件目录下打pwd，找到当前路径，比如-root-frp-0-33-0-linux-amd64" class="headerlink" title="在frpc执行文件目录下打pwd，找到当前路径，比如/root/frp_0.33.0_linux_amd64/"></a>在frpc执行文件目录下打pwd，找到当前路径，比如/root/frp_0.33.0_linux_amd64/</h2><h2 id="新建frpc-service文件"><a href="#新建frpc-service文件" class="headerlink" title="新建frpc.service文件"></a>新建frpc.service文件</h2><p>编辑内容</p>
+<pre><code class="js">[Unit]
+Description=Frp Client Service
+After=network.target
+[Service]
+Type=simple
+User=root
+Restart=on-failure
+RestartSec=5s
+ExecStart=/root/frp_0.33.0_linux_amd64/frpc -c /root/frp_0.33.0_linux_amd64/frpc.ini
+ExecReload=/root/frp_0.33.0_linux_amd64/frpc reload -c /root/frp_0.33.0_linux_amd64/frpc.ini
+[Install]
+WantedBy=multi-user.target</code></pre>
+<h2 id="将上面的文件复制到-usr-lib-systemd-system目录下"><a href="#将上面的文件复制到-usr-lib-systemd-system目录下" class="headerlink" title="将上面的文件复制到 /usr/lib/systemd/system目录下"></a>将上面的文件复制到 /usr/lib/systemd/system目录下</h2><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>   <code>systemctl start frpc</code></p>
+<h2 id="设置开机启动"><a href="#设置开机启动" class="headerlink" title="设置开机启动"></a>设置开机启动</h2><p>   <code>systemctl enable frpc</code></p>
+<h2 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h2><p>   <code>systemctl status frpc</code><br>   当看到 <code>Active: active (running)</code>，即为已启动成功，其他的状态是未启动成功</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/taro%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/taro%E7%AC%94%E8%AE%B0/" itemprop="url">taro笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:35:49+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/taro%E7%AC%94%E8%AE%B0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/taro%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  178
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="分享的问题"><a href="#分享的问题" class="headerlink" title="分享的问题"></a>分享的问题</h1><p>  onShareAppMessage是分享前的拦截函数，我们在这里设置分享标题和要跳转的链接，但是它只在页面生效，如果是在组件里面写onShareAppMessage，是不会触发的。组件和页面之间隔了很多层级，props传递就导致很多中间组件需要调整，不好处理。</p>
+<ul>
+<li><h1 id="处理方案"><a href="#处理方案" class="headerlink" title="处理方案"></a>处理方案</h1><ul>
+<li><p>修改组件和页面的代码</p>
+<ul>
+<li><p>组件修改:分享按钮带上data-title，data-path，这是onShareAppMessage返回需要的数据结构<br><code>&lt;Button data-title={&quot;好运分享&quot;} data-path={&#39;xxxx?id=xxx&#39;} openType=&quot;share&quot;&gt;分享&lt;/Button&gt;</code></p>
+</li>
+<li><p>页面修改onShareAppMessage，ops.target.dataset里面包含了title，path</p>
+<pre><code class="js">onShareAppMessage(ops){
+    return ops.target.dataset;
+}</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/jar%E5%8C%85%E9%83%A8%E7%BD%B2%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/jar%E5%8C%85%E9%83%A8%E7%BD%B2%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/" itemprop="url">jar包部署为windows服务</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:20:14+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/jar%E5%8C%85%E9%83%A8%E7%BD%B2%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/jar%E5%8C%85%E9%83%A8%E7%BD%B2%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  237
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h1><ul>
+<li>已经安装并配置好jdk</li>
+<li>有.NET4运行环境</li>
+<li>准备好可运行jar包</li>
+<li>下载好文件 <a href="https://github.com/kohsuke/winsw/releases/download/winsw-v2.2.0/sample-minimal.xml" target="_blank" rel="noopener">sample-minimal.xml</a> ，<a href="https://github.com/kohsuke/winsw/releases/download/winsw-v2.2.0/WinSW.NET4.exe" target="_blank" rel="noopener">WinSW.NET4.exe</a></li>
+</ul>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>  下载WinSW到jar目录下，sample-minimal.xml，WinSW.NET4.exe，统一两个的文件名为WinSW，假设jar文件是IntelligenScale.jar</p>
+<h1 id="修改WinSW-xml配置"><a href="#修改WinSW-xml配置" class="headerlink" title="修改WinSW.xml配置"></a>修改WinSW.xml配置</h1><pre><code class="xml">  &lt;configuration&gt;
+
+  &lt;!-- ID of the service. It should be unique accross the Windows system--&gt;
+  &lt;id&gt;IntelligenScale&lt;/id&gt;
+  &lt;!-- Display name of the service --&gt;
+  &lt;name&gt;IntelligenScale&lt;/name&gt;
+  &lt;!-- Service description --&gt;
+  &lt;description&gt;电子秤数据采集服务&lt;/description&gt;
+
+  &lt;!-- Path to the executable, which should be started --&gt;
+  &lt;executable&gt;java&lt;/executable&gt;
+  &lt;arguments&gt;-jar IntelligenScale.jar&lt;/arguments&gt;
+  &lt;startmode&gt;Automatic&lt;/startmode&gt;
+  &lt;log mode=&quot;append&quot;&gt;
+  &lt;logpath&gt;logs/service.log&lt;/logpath&gt;
+  &lt;/log&gt;
+
+&lt;/configuration&gt;</code></pre>
+<h1 id="创建运行文件"><a href="#创建运行文件" class="headerlink" title="创建运行文件"></a>创建运行文件</h1><ul>
+<li>安装服务(超管运行).bat <code>java -jar IntelligenScale.jar</code></li>
+<li>卸载服务(超管运行).bat <code>WinSW.exe uninstall</code></li>
+<li>运行这两个文件即可完成安装和卸载</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/java%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E5%88%B0php%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/java%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E5%88%B0php%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url">java上传文件流到php服务器</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:14:04+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" itemprop="url" rel="index">
+                    <span itemprop="name">后端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/java%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E5%88%B0php%E6%9C%8D%E5%8A%A1%E5%99%A8/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/java%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E5%88%B0php%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  535
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>  我的思路，通过http的post提交，post主要参数：</p>
+<ul>
+<li>file(即byte[]文件流)</li>
+<li>ext(文件扩展名)<h1 id="mvn依赖"><a href="#mvn依赖" class="headerlink" title="mvn依赖"></a>mvn依赖</h1></li>
+<li>httpclient(发起请求)</li>
+<li>httpmime(使用到MultipartEntityBuilder)</li>
+<li>fastjson(解析结果)<h1 id="java上传代码"><a href="#java上传代码" class="headerlink" title="java上传代码"></a>java上传代码</h1><pre><code class="java">/**
+* 将文件提交至文件服务器
+* @param fileByte 文件对象
+* @return FileStatus 上传结果
+*/
+public static ApiResult postFile(String url,byte[] fileByte, HashMap&lt;String,String&gt; paramsMap) {
+CloseableHttpClient httpclient = HttpClients.createDefault();
+CloseableHttpResponse response = null;
+ApiResult res=new ApiResult();
+try {
+    HttpPost httpPost = new HttpPost(url);//&quot;http://localhost:8844/common/Comm_Api/streamuploader?XDEBUG_SESSION_START=19300&quot;
+    MultipartEntityBuilder mEntityBuilder = MultipartEntityBuilder.create();
+    mEntityBuilder.addBinaryBody(&quot;file&quot;, fileByte);
+    if(paramsMap.size()&gt;0){
+        Set&lt;String&gt; keySet = paramsMap.keySet();
+        for(String key:keySet) {
+            String value = paramsMap.get(key);
+            mEntityBuilder.addTextBody(key,value);
+        }
+    }
+    httpPost.setEntity(mEntityBuilder.build());
+    response = httpclient.execute(httpPost);
+    int statusCode = response.getStatusLine().getStatusCode();
+    if (statusCode == HttpStatus.SC_OK) {
+        HttpEntity resEntity = response.getEntity();
+        String  rs = EntityUtils.toString(resEntity);
+        // 消耗掉response
+        EntityUtils.consume(resEntity);
+        try{
+            if(!&quot;&quot;.equals(rs)&amp;&amp;!&quot;Read timed out&quot;.equals(rs))
+                res=JSONObject.parseObject(rs, ApiResult.class);
+        }catch (Exception e){  }
+        if(res.getCode()!=0){
+            LogTool.getLogger().warn(&quot;http请求异常 url:&quot;+url+&quot; 结果：&quot;+rs);
+        }
+    }else{
+        LogTool.getLogger().warn(&quot;http请求异常 url:&quot;+url+&quot; 结果：statusCode&quot;+statusCode);
+    }
+} catch (ParseException e) {
+    e.printStackTrace();
+} catch (IOException e) {
+    e.printStackTrace();
+} finally {
+    HttpClientUtils.closeQuietly(httpclient);
+    HttpClientUtils.closeQuietly(response);
+}
+return res;
+}</code></pre>
+<h1 id="php接收代码-使用到了tp5框架"><a href="#php接收代码-使用到了tp5框架" class="headerlink" title="php接收代码 使用到了tp5框架"></a>php接收代码 使用到了tp5框架</h1><pre><code class="php">接口代码：
+/**接收文件流
+* 参数file 文件流
+* 参数ext 保存文件的扩展名
+* @return \app\common\webapi\Array|void
+*/
+function  streamuploader(){
+$streamData = isset($_POST[&#39;file&#39;])? $_POST[&#39;file&#39;] : &#39;&#39;;
+$ext = isset($_POST[&#39;ext&#39;])? $_POST[&#39;ext&#39;] : &#39;&#39;;
+$rs=(new Streamuploader())-&gt;receiveStreamFile($streamData,$ext);
+if($rs[&quot;ok&quot;]){
+    return Web::ok($rs[&quot;path&quot;]);
+}else{
+    return Web::err(&quot;上传失败&quot;.$rs[&quot;err&quot;]);
+}
+}
+</code></pre>
+</li>
+</ul>
+<p>保存文件流代码：<br>/**接收保存流文件</p>
+<ul>
+<li>@param string $streamData 文件流</li>
+<li>@param string $ext   扩展名</li>
+<li>@return array ok=true表示保存成功</li>
+<li>/<br>function receiveStreamFile(string $streamData,string $ext){<br>  $rs=[“ok”=&gt;false,”path”=&gt;””,”err”=&gt;””];<br>  try{<pre><code>  if(!empty($streamData)&amp;&amp;!empty($ext)){
+      $ext=strtolower($ext);
+      $uuid=uniqid(&quot;cam_&quot;);
+      $uploadDir = &#39;uploads/Images&#39;;
+      if($ext==&quot;flv&quot;){
+          $uuid=uniqid(&quot;video_&quot;);
+          $uploadDir = &#39;uploads/sf_video/&#39;.date(&quot;Y-m-d&quot;);
+      }
+      // 创建目标目录
+      if (!file_exists($uploadDir)) {
+          mkdir($uploadDir,0777,true);//mkdir() 函数创建目录。
+      }
+      $path=$uploadDir.&quot;/&quot;.$uuid.&quot;.&quot;.$ext;
+      file_put_contents($path, $streamData, true);
+      $rs[&quot;ok&quot;]=true;
+      $rs[&quot;path&quot;]=$path;
+  }</code></pre>  }catch (Exception $exception){<pre><code>  $rs[&quot;err&quot;]=$exception-&gt;getMessage();
+  Log::error(&quot;保存文件流失败 &quot;.$exception-&gt;getMessage().&quot;|&quot;.$exception-&gt;getTraceAsString());</code></pre>  }<br>  return $rs;<br>}</li>
+</ul>
+<pre><code></code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://ngy198888.github.io/NGY198888.gtihub.io/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/Git%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="NGY">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/NGY198888.gtihub.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="想你开心每一天">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/Git%E6%93%8D%E4%BD%9C/" itemprop="url">Git操作</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-12T00:11:17+08:00">
+                2020-07-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/Git%E6%93%8D%E4%BD%9C/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/Git%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.6k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1，第一次建立分支"><a href="#1，第一次建立分支" class="headerlink" title="1，第一次建立分支"></a>1，第一次建立分支</h2><ul>
+<li>在github创建分支source，到setting里找到分支，将默认分支设置问source</li>
+<li>执行命令克隆项目 <code>git clone https://github.com/NGY198888/NGY198888.gtihub.io.git</code></li>
+<li>我是在F:\work\temp\hexo\source目录执行上面的命令，出现一个NGY198888.gtihub.io子目录</li>
+<li>cd 到子目录，将博客源码复制到该目录</li>
+<li>执行下面的命令，将源码保存到source分支<pre><code class="cmd">git add .  //添加文件
+git commit -m &quot;描述&quot; //添加文件的描述
+git push origin source    //推送到github的source分支
+</code></pre>
+</li>
+</ul>
+<pre><code>
+## 修改文件，并提交github,三步走
+  + 修改README.md文件
+  + 执行`git add .`，将所有修改的文件从工作区添加到暂存区
+  + 执行`git commit -m &quot;我在测试修改文件并提交&quot;` git commit 主要是将暂存区里的改动给提交到本地的版本库
+  + 执行`git push origin source` 将本地版本库的分支推送到远程服务器上对应的分支
+
+## Git代码提交流程
+
+### 简单的代码提交流程
+  + git status 查看工作区代码相对于暂存区的差别
+  + git add . 将当前目录下修改的所有代码从工作区添加到暂存区 . 代表当前目录
+  + git commit -m ‘注释’ 将缓存区内容添加到本地仓库
+  + git push origin master 将本地版本库推送到远程服务器，origin是远程主机，master表示是远程服务器上的master分支，分支名是可以修改的
+
+### Git add
+&gt; git add [参数] &lt;路径&gt;　作用就是将我们需要提交的代码从工作区添加到暂存区，就是告诉git系统，我们要提交哪些文件，之后就可以使用git commit命令进行提交了。
+ 为了方便下面都用 . 来标识路径， . 表示当前目录，路径可以修改，下列操作的作用范围都在版本库之内。
+
+#### git add .
+&gt;不加参数默认为将修改操作的文件和未跟踪新添加的文件添加到git系统的暂存区，注意不包括删除
+
+#### git add -u .
+&gt;-u 表示将已跟踪文件中的修改和删除的文件添加到暂存区，不包括新增加的文件，注意这些被删除的文件被加入到暂存区再被提交并推送到服务器的版本库之后这个文件就会从git系统中消失了。
+
+#### git add -A .
+&gt;-A 表示将所有的已跟踪的文件的修改与删除和新增的未跟踪的文件都添加到暂存区。
+
+### Git commit
+&gt; git commit 主要是将暂存区里的改动给提交到本地的版本库。每次使用git commit 命令我们都会在本地版本库生成一个40位的哈希值，这个哈希值也叫commit-id，
+ commit-id 在版本回退的时候是非常有用的，它相当于一个快照,可以在未来的任何时候通过与git reset的组合命令回到这里.
+
+#### git commit -m ‘message’
+&gt;-m 参数表示可以直接输入后面的“message”，如果不加 -m参数，那么是不能直接输入message的，而是会调用一个编辑器一般是vim来让你输入这个message，
+message即是我们用来简要说明这次提交的语句。
+
+#### git commit -am ‘message’ -am等同于-a -m
+&gt;-a参数可以将所有已跟踪文件中的执行修改或删除操作的文件都提交到本地仓库，即使它们没有经过git add添加到暂存区，
+注意: 新加的文件（即没有被git系统管理的文件）是不能被提交到本地仓库的。
+
+### Git push
+&gt; 在使用git commit命令将修改从暂存区提交到本地版本库后，只剩下最后一步将本地版本库的分支推送到远程服务器上对应的分支了。
+ git push的一般形式为 git push &lt;远程主机名&gt; &lt;本地分支名&gt; &lt;远程分支名&gt; ，例如 git push origin master：refs/for/master ，即是将本地的master分支推送到远程主机origin上的对应master分支， origin 是远程主机名。第一个master是本地分支名，第二个master是远程分支名。
+
+#### git push origin master
+&gt;如果远程分支被省略，如上则表示将本地分支推送到与之存在追踪关系的远程分支（通常两者同名），如果该远程分支不存在，则会被新建
+
+#### git push origin ：refs/for/master
+&gt;如果省略本地分支名，则表示删除指定的远程分支，因为这等同于推送一个空的本地分支到远程分支，等同于 git push origin --delete master
+
+#### git push origin
+&gt;如果当前分支与远程分支存在追踪关系，则本地分支和远程分支都可以省略，将当前分支推送到origin主机的对应分支
+
+#### git push
+&gt;如果当前分支只有一个远程分支，那么主机名都可以省略，形如 git push，可以使用git branch -r ，查看远程的分支名
+ 关于 refs/for：
+refs/for 的意义在于我们提交代码到服务器之后是需要经过code review 之后才能进行merge的，
+
+[原文链接](https://blog.csdn.net/qq_37577660/article/details/78565899)
+
+# 2，记一次git操作
+ &gt;目的是将joy_common提交到git
+ &gt;我的git上有个JAVA的库，没有可以新建一个，我打算提交到这里，下面是操作
+
+  + 在本地joy_common同级目录下执行的`git clone https://github.com/NGY198888/JAVA.git .`，报错`fatal: destination path &#39;.&#39; already exists and is not an empty directory.`可能非空目录有这个问题
+  + 执行`git clone https://github.com/NGY198888/JAVA.git`，会拉取到JAVA目录，
+  + 将里面的.git复制到joy_common同级目录下
+  + 执行`git reset --hard HEAD`，进行同步，下面就可以正常操作了
+  + 执行`git add joy_common`
+  + 执行`git commit -m &quot;添加common&quot;`
+  + 执行`git push`没问题的话，jor_common就已经提交到GitHub了
+
+# 使用bat提交
+ + 新建一个.bat文件
+ + 编写代码
+
+``` cmd
+@echo off
+echo &quot;-------请输入本次更新描述----------------&quot;
+set /p msg=
+git add .
+git commit -m &quot;提交修改 %msg%&quot;
+git pull
+git push  origin source
+echo &quot;--------提交完成--------------&quot;
+pause</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/NGY198888.gtihub.io/page/2/">2</a><a class="extend next" rel="next" href="/NGY198888.gtihub.io/page/2/">&gt;</a>
+  </nav>
+
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">NGY</p>
+              <p class="site-description motion-element" itemprop="description">想你开心每一天</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/NGY198888.gtihub.io/archives/%7C%7Carchive">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/NGY198888.gtihub.io/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/NGY198888.gtihub.io/tags/index.html">
+                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">NGY</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
     </span>
     
-      <br />
-      <span>中国移不动</span>
+      <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    
-      <br />
-      <span>
-        最后更新于: 7月 16, 2020
-      </span>
-    
-    
-  </div>
-</div>
-<script type="text/javascript">
-  var copyrightNow = new Date().getFullYear();
-  var textContent = document.querySelector('span[year]')
+    <span title="Site words total count">7.2k</span>
   
-    copyrightSince = 2020;
-    if (copyrightSince === copyrightNow) {
-      textContent.textContent = copyrightNow
-    } else {
-      textContent.textContent = copyrightSince + ' - ' + copyrightNow
-    }
-  
-</script>
-
-  </div>
 </div>
 
-    <div id="top"></div>
-
-    
-<script src="/NGY198888.gtihub.io/js/lightgallery.min.js"></script>
 
 
-    <div id="barba-wrapper">
-      <div class="barba-container"  data-namespace="posts">
-        <div class="theme-index">
-  <div class="theme-posts">
-    
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
       
+    </span>
+  
 
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/44.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/SKU%E9%80%89%E6%8B%A9%E7%AE%97%E6%B3%95/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                <span style="color: #D50000">[置顶] </span>
-              
-                SKU选择算法笔记
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        前言   网上搜的...
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">前端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-0'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-0">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/SKU/" class="mdui-ripple">
-                      <span>SKU</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E5%95%86%E5%9F%8E/" class="mdui-ripple">
-                      <span>商城</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E6%9C%80%E5%B0%8F%E5%BA%93%E5%AD%98%E5%8D%95%E5%85%83/" class="mdui-ripple">
-                      <span>最小库存单元</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-    
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
       
+    </span>
+  
+</div>
 
 
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/42.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/rabbitmq%E5%AE%89%E8%A3%85/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                rabbitmq安装
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        准备文件
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">工具</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-1'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-1">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/rabbitmq/" class="mdui-ripple">
-                      <span>rabbitmq</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97/" class="mdui-ripple">
-                      <span>消息队列</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/mq/" class="mdui-ripple">
-                      <span>mq</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
 
+
+
+
+
+
+        
+      </div>
+    </footer>
 
     
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/1.png)">
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
         
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E7%89%A9%E8%81%94%E7%BD%91/nodered%E5%85%A5%E9%97%A8/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                nodered入门
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        安装
-确...
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E7%89%A9%E8%81%94%E7%BD%91/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">物联网</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-2'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-2">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E7%89%A9%E8%81%94%E7%BD%91/" class="mdui-ripple">
-                      <span>物联网</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/nodered/" class="mdui-ripple">
-                      <span>nodered</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/1.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF%E8%A7%84%E8%8C%83/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                前端规范
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        css方面
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">前端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/tags/%E8%A7%84%E8%8C%83/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__tags">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon fa fa-tags mdui-text-center"></i>
-                  </span>
-                  <span class="mdui-chip-title">规范</span>
-                </div>
-              </a>
-            
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/2.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/electron%E9%97%AE%E9%A2%98/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                electron问题
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">前端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-4'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-4">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/electron/" class="mdui-ripple">
-                      <span>electron</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E6%A1%8C%E9%9D%A2%E5%BC%80%E5%8F%91/" class="mdui-ripple">
-                      <span>桌面开发</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/25.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/centos%E5%8C%85%E8%A3%85%E6%9C%8D%E5%8A%A1systemctl/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                centos包装服务systemctl
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">后端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-5'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-5">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/contos/" class="mdui-ripple">
-                      <span>contos</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E6%9C%8D%E5%8A%A1/" class="mdui-ripple">
-                      <span>服务</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/1.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%89%8D%E7%AB%AF/taro%E7%AC%94%E8%AE%B0/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                taro笔记
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        分享的问题
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%89%8D%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">前端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-6'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-6">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/taro/" class="mdui-ripple">
-                      <span>taro</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E5%B0%8F%E7%A8%8B%E5%BA%8F/" class="mdui-ripple">
-                      <span>小程序</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/13.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/jar%E5%8C%85%E9%83%A8%E7%BD%B2%E4%B8%BAwindows%E6%9C%8D%E5%8A%A1/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                jar包部署为windows服务
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        环境要求
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">后端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-7'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-7">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/java/" class="mdui-ripple">
-                      <span>java</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/jar/" class="mdui-ripple">
-                      <span>jar</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/windows%E6%9C%8D%E5%8A%A1/" class="mdui-ripple">
-                      <span>windows服务</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/36.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%90%8E%E7%AB%AF/java%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6%E6%B5%81%E5%88%B0php%E6%9C%8D%E5%8A%A1%E5%99%A8/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                java上传文件流到php服务器
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        思路  我的思路，...
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%90%8E%E7%AB%AF/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">后端</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-8'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-8">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/java/" class="mdui-ripple">
-                      <span>java</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E4%B8%8A%E4%BC%A0/" class="mdui-ripple">
-                      <span>上传</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/php/" class="mdui-ripple">
-                      <span>php</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-      
-
-
-  <div class="theme-posts__post">
-    <article class="mdui-card mdui-hoverable">
-        <section class="mdui-card-media theme-posts__post__media" style="background-image: url(/NGY198888.gtihub.io/images/random/6.png)">
-        
-        <div class="mdui-card-media-covered theme-posts__post__media-covered">
-          <div class="mdui-card-primary mdui-typo">
-            
-              <a href="/NGY198888.gtihub.io/2020/07/12/%E5%B7%A5%E5%85%B7/Git%E6%93%8D%E4%BD%9C/" target="_self" class="mdui-card-primary-title mdui-text-truncate">
-            
-              
-                Git操作
-            </a>
-          </div>
-        </div>
-        
-      </section>
-      <section class="mdui-card-content">
-        ...
-      </section>
-      <div class="mdui-divider" style="margin: 0 16px;"></div>
-      <section class="theme-posts__post__footer">
-        
-          
-            
-              <a href="/NGY198888.gtihub.io/categories/%E5%B7%A5%E5%85%B7/" class="theme-link--no-style">
-                <div class="mdui-chip theme-posts__post__footer__categories">
-                  <span class="mdui-chip-icon">
-                    <i class="mdui-icon material-icons mdui-text-center">&#xe86e;</i>
-                  </span>
-                  <span class="mdui-chip-title">工具</span>
-                </div>
-              </a>
-            
-          
-        
-        
-          
-            <div class="theme-posts__post__footer__tags mdui-valign">
-              <button class="mdui-btn mdui-btn-icon mdui-btn-dense mdui-ripple" mdui-menu="{target: '#post-tags-1-9'}">
-                <i class="mdui-list-item-icon mdui-icon fa fa-tags mdui-text-center"></i>
-              </button>
-              <ul class="mdui-menu" id="post-tags-1-9">
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/git/" class="mdui-ripple">
-                      <span>git</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/bat/" class="mdui-ripple">
-                      <span>bat</span>
-                    </a>
-                  </li>
-                
-                  <li class="mdui-menu-item">
-                    <a href="/NGY198888.gtihub.io/tags/%E6%89%B9%E5%A4%84%E7%90%86/" class="mdui-ripple">
-                      <span>批处理</span>
-                    </a>
-                  </li>
-                
-              </ul>
-            </div>
-          
-        
-        <div class="theme-spacer"></div>
-        <div class="mdui-valign">
-          <div>
-            7月 12, 2020
-          </div>
-        </div>
-      </section>
-    </article>
-  </div>
-
-
-    
-    
-      <div class="theme-end-footer">
-        <div class="mdui-text-center mdui-text-color-theme-text">
-          1 of 2
-        </div>
       </div>
     
-  </div>
-  <button id="index-fab" class="mdui-fab mdui-fab-fixed mdui-ripple mdui-color-theme-accent mdui-fab-hide" onclick="smoothScroll.animateScroll( 0 );">
-  <i class="mdui-icon material-icons">&#xe5d8;</i>
-</button>
 
-</div>
-<script type="text/javascript">
-  themeRuntime.scriptsMap.posts = [];
-  (function() {
-    var fabTopFlag = false;
-    var fabEl = document.getElementById('index-fab');
-    function fabShowHide() {
-      var bodyScrolled = document.documentElement.scrollTop || document.body.scrollTop;
-      if (bodyScrolled > 0 && !fabTopFlag) {
-        fabEl.classList.remove('mdui-fab-hide');
-        fabTopFlag = true;
-      } else if (bodyScrolled === 0 && fabTopFlag) {
-        fabEl.classList.add('mdui-fab-hide');
-        fabTopFlag = false;
-      }
-    }
-    fabShowHide()
-    window.addEventListener('scroll', fabShowHide);
-    var listener = {
-      function: fabShowHide,
-      event: 'scroll',
-      el: window,
-      removed: false
-    }
-    themeRuntime.scriptsMap.posts.push(listener)
-  })();
-
-  (function() {
-    var pageTotal = 2
-    var pageNext = 2
-    var pageLoad = false
-    themeRuntime.temp = {
-      index: 1
-    }
-    function morePosts() {
-      var screenHeight = window.innerHeight;
-      var compareHeight = document.body.clientHeight -  (document.documentElement.scrollTop || document.body.scrollTop);
-      var loadStatus = pageNext - themeRuntime.temp.index
-      if (screenHeight >= compareHeight - 1 && loadStatus === 1 && pageLoad === false) {
-        if (pageNext <= pageTotal) {
-          loadProgressInline(false)
-          var url = window.location.href + "page/" + pageNext + "/"
-          themeRuntime.temp.index = pageNext;
-          //console.log(pageTotal, url)
-          pageLoad = true;
-          fetch(url, {
-              method:'GET',
-              mode:'cors',
-              credentials: 'include'
-          })
-          .then(function(response) {
-            return response.text()
-          }).then(function(HTML) {
-            var fakeDom = document.createElement('html');
-            fakeDom.innerHTML = HTML
-            var morePostsHTML = fakeDom.querySelector('.theme-posts').innerHTML
-            var postsArea = document.querySelector(".theme-posts")
-            loadProgressInline(true)
-            postsArea.insertAdjacentHTML('beforeend', morePostsHTML)
-            pageNext++;
-            pageLoad = false;
-          }).catch(function(error) {
-            mdui.alert(error, "错误！");
-            pageLoad = false;
-          })
-        }
-      }
-    }
-    function loadProgressInline(state) {
-      var progressEl = document.getElementById('progressBar')
-      if (state === true) {
-        progressEl.classList.add('theme-appbar__progress--hidden')
-      } else if (state === false) {
-        progressEl.classList.remove('theme-appbar__progress--hidden')
-      }
-    }
-    window.addEventListener('scroll', morePosts);
-    var listener = {
-      function: morePosts,
-      event: 'scroll',
-      el: window,
-      removed: false
-    }
-    themeRuntime.scriptsMap.posts.push(listener)
-  })();
-</script>
-
-
-      </div>
-    </div>
-  </main>
-
-  <div id="outdated" style="z-index: 9999;">
-    <h6>你的浏览器已经过气辣！</h6>
-    <p>赶紧升级浏览器来访问本站吧！<a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">现在就去</a></p>
-    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="关闭">&times;</a></p>
-  </div>
-  <!-- import js -->
-
-
-  
-<script src="/NGY198888.gtihub.io/js/outdatedbrowser.min.js"></script>
-
-
-
-
-  
     
-<script src="/NGY198888.gtihub.io/js/js.pure.min.js"></script>
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
 
   
 
 
-<!-- theme js -->
-<script type="text/javascript">
-  (function() {
-    var appbarTopFlag = false;
-    var appbarEl = document.querySelector('.theme-appbar');
-    function appbarShadow() {
-      var bodyScrolled = (document.documentElement && document.documentElement.scrollTop) || document.body.scrollTop;
-      if (bodyScrolled > 0 && !appbarTopFlag) {
-        appbarEl.classList.add('theme-appbar--shadow');
-        appbarTopFlag = true;
-      } else if (bodyScrolled === 0 && appbarTopFlag) {
-        appbarEl.classList.remove('theme-appbar--shadow');
-        appbarTopFlag = false;
-      }
-    }
-    appbarShadow()
-    window.addEventListener('scroll', appbarShadow);
-  })();
-  (function() {
-    function detechTheme() {
-      var modeFlag = localStorage.getItem('darkMode');
-      // true for dark mode, false for bright mode
-      if(modeFlag === "true"){
-        document.querySelector('body').classList.add('mdui-theme-layout-dark')
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
-        return true
-      } else if(!window.matchMedia) {
-          return false;
-      } else if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        document.querySelector('body').classList.add('mdui-theme-layout-dark')
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
-          return true;
-      } else if(window.matchMedia("(prefers-color-scheme: light)").matches) {
-        document.querySelector('body').classList.remove('mdui-theme-layout-dark')
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
-          return false;
-      } else {
-        return false;
-      }
-    }
-    var modeFlag = detechTheme();
-    var modeEl = document.querySelector('.theme-appbar__mode-switch');
-    function modeSwitch() {
-      if (!modeFlag) {
-        // default bright mode, switch to dark mode
-        document.querySelector('body').classList.add('mdui-theme-layout-dark');
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#212121")
-        localStorage.setItem('darkMode', true);
-        modeFlag = true;
-      } else {
-        // dark mode, switch to bright mode
-        document.querySelector('body').classList.remove('mdui-theme-layout-dark');
-        document.querySelector('meta[name="theme-color"]').setAttribute("content", "#fff")
-        localStorage.setItem('darkMode', false);
-        modeFlag = false;
-      }
-    }
-    modeEl.addEventListener('click', modeSwitch);
-  })();
-</script>
 
 
 
 
 
 
-<script type="text/javascript">
-  document.querySelector('body').classList.add('theme-loaded')
-</script>
 
 
 
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/NGY198888.gtihub.io/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh//AshinWang/SimpleValine/SimpleValine.min.js"></script>
+
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'ekXuiYYlHUDzzx16L834LIPx-gzGzoHsz',
+        appKey: 'qwD7KxupfpFgYAxFB1rGdmso',
+        placeholder: '您可以在这里留下评论哦~',
+        avatar:'mp',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/NGY198888.gtihub.io/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/NGY198888.gtihub.io/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,QQZone";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/js.cookie.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/NGY198888.gtihub.io/js/src/scroll-cookie.js?v=5.1.4"></script>
+
+
+  
 
 <script src="/NGY198888.gtihub.io/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/NGY198888.gtihub.io/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":150,"height":220},"mobile":{"show":true},"log":false});</script></body>
 </html>
